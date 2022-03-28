@@ -1,4 +1,7 @@
 void main(List<String> args) {
-  print('ciao Valeria');
+<<<<<<< HEAD
   print('hej');
+=======
+  print('ciao Elena');
+>>>>>>> main
 }
