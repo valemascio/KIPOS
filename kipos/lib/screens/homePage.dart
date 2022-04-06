@@ -45,11 +45,35 @@ class HomePage extends StatelessWidget {
                   color: Color.fromARGB(255, 0, 0, 0),
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic),
-            ),
+                  fontStyle: FontStyle.italic), //TextStyle
+            ), // Text
+
+            ListTile(
+                title: Text('1st Week',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 18,
+                    )),
+                onTap: () {},
+                trailing: Icon(Icons.info)),
+            //Rendere il widget stateful
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.shield_rounded),
+          label: 'Badges',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.bar_chart),
+          label: 'Statistics',
+        ),
+      ]),
     );
   }
 }
