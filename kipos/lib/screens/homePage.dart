@@ -15,27 +15,40 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: (Text('KÌPOS')),
         backgroundColor: Color.fromARGB(255, 34, 175, 34),
+        leading: IconButton(
+          icon: Icon(
+            lightbulb,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            //Inserire Navigator verso lo screen Tips
+          },
+        ),
         actions: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              IconButton(
-                icon: Icon(
-                  lightbulb,
-                  color: Colors.white,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.account_circle_outlined,
-                  color: Colors.white,
-                ),
-                onPressed: () {},
-              ),
-            ],
-          )
+          IconButton(
+            icon: Icon(
+              Icons.account_circle_outlined,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              //Inserire navigator verso lo screen profilo -> dentro mettere logout
+            },
+          ),
         ],
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text(
+              'Achievements',
+              style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic),
+            ),
+          ],
+        ),
       ),
     );
   }
