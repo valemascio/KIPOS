@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const IconData lightbulb = IconData(0xe37b, fontFamily: 'MaterialIcons');
-
+    int _selectedIndex = 0;
     return Scaffold(
       appBar: AppBar(
         title: (Text('KÌPOS')),
@@ -60,20 +60,39 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shield_rounded),
-          label: 'Badges',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.bar_chart),
-          label: 'Statistics',
-        ),
-      ]),
+      bottomNavigationBar: Container(
+          height: 90,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.shield_rounded, semanticLabel: 'Badges')),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.home, semanticLabel: 'Home')),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.bar_chart, semanticLabel: 'Statistics')),
+            ],
+          )
+          // BottomNavigationBar(
+          // items: const [
+          //   BottomNavigationBarItem(
+          //     icon: Icon(Icons.shield_rounded),
+          //     label: 'Badges',
+          //   ),
+          //   BottomNavigationBarItem(
+          //     icon: Icon(Icons.home),
+          //     label: 'Home',
+          //   ),
+          //   BottomNavigationBarItem(
+          //     icon: Icon(Icons.bar_chart),
+          //     label: 'Statistics',
+          //   ),
+          // ],
+          // ),
+          ),
     );
   }
 }
