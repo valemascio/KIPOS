@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             color: Colors.white,
           ),
           onPressed: () {
-            //Inserire Navigator verso lo screen Tips
+            Navigator.pushNamed(context, '/tips/');
           },
         ),
         actions: <Widget>[
