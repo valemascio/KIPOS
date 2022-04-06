@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kipos/screens/badgePage.dart';
 //Bisogna importare anche le directories per tip, profile, badges, stats
 
 class HomePage extends StatelessWidget {
@@ -66,7 +67,9 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, BadgePage.route);
+                  },
                   icon: Icon(Icons.shield_rounded, semanticLabel: 'Badges')),
               IconButton(
                   onPressed: () {},

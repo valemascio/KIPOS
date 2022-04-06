@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
 
 void main() {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
           HomePage.route, //Poi sara' da sostituire con LoginPage.route (?)
       routes: {
         HomePage.route: (context) => HomePage(),
+        BadgePage.route: (context) => BadgePage(),
       },
     );
   } //build
