@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
+import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.route: (context) => HomePage(),
         BadgePage.route: (context) => BadgePage(),
+        StatisticsPage.route: (context) => StatisticsPage(),
         TipsPage.route: (context) => TipsPage(
                 tasks: List.generate(
               10,
