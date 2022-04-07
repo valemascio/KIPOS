@@ -14,7 +14,11 @@ class HomePage extends StatelessWidget {
     int _selectedIndex = 0;
     return Scaffold(
       appBar: AppBar(
-        title: (Text('KÌPOS')),
+        title: (Text('KÌPOS',
+            style: TextStyle(
+                color: Color.fromARGB(255, 255, 255, 255),
+                fontSize: 26,
+                fontWeight: FontWeight.bold))),
         backgroundColor: Color.fromARGB(255, 34, 175, 34),
         leading: IconButton(
           icon: Icon(
