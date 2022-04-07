@@ -29,6 +29,7 @@ class TipsPage extends StatelessWidget {
   final List<Task> tasks;
 
   const TipsPage({Key? key, required this.tasks}) : super(key: key);
+
   static const route = '/tips/';
   static const routename = 'TipsPage';
 

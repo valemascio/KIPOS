@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
                 tasks: List.generate(
               10,
               (i) => Task(
-                'Task $i',
-                'Task Description $i',
+                'Tips $i',
+                'Tips Description $i',
               ),
             )),
       },
