@@ -1,36 +1,36 @@
+/*
+      appBar: AppBar(
+        title: const Text('Tips'),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: const Color.fromARGB(255, 34, 175, 34),
+      ),
+      body: */
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Tips {
-  final String title;
+class Task {
+  final String task_name;
   final String description;
 
-  const Tips(this.title, this.description);
+  Task(this.task_name, this.description);
 }
 
-void main() {
-  runApp(
-    MaterialApp(
-      title: 'Passing Data',
-      home: TipsPage(
-        todos: List.generate(
-          20,
-          (i) => Tips(
-            'Todo $i',
-            'A description of what needs to be done for Todo $i',
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
+// Home screen
 class TipsPage extends StatelessWidget {
-  const TipsPage({Key? key, required this.todos}) : super(key: key);
+  final List<Task> tasks;
 
+  const TipsPage({Key? key, required this.tasks}) : super(key: key);
   static const route = '/tips/';
   static const routename = 'TipsPage';
-
-  final List<Tips> todos;
 
   @override
   Widget build(BuildContext context) {
@@ -48,19 +48,17 @@ class TipsPage extends StatelessWidget {
         ),
         backgroundColor: const Color.fromARGB(255, 34, 175, 34),
       ),
+      // List builder
       body: ListView.builder(
-        itemCount: todos.length,
+        itemCount: tasks.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(todos[index].title),
+            title: Text(tasks[index].task_name),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const DetailScreen(),
-                  settings: RouteSettings(
-                    arguments: todos[index],
-                  ),
+                  builder: (context) => DetailScreen(task: tasks[index]),
                 ),
               );
             },
@@ -71,21 +69,21 @@ class TipsPage extends StatelessWidget {
   }
 }
 
+// detail screen
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+  final Task task;
+  const DetailScreen({Key? key, required this.task}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final todo = ModalRoute.of(context)!.settings.arguments as Tips;
-
-    // Use the Todo to create the UI.
     return Scaffold(
       appBar: AppBar(
-        title: Text(todo.title),
+        title: Text(task.task_name),
+        backgroundColor: Colors.green,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Text(todo.description),
+        child: Text(task.description),
       ),
     );
   }

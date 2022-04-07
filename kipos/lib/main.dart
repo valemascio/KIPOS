@@ -19,7 +19,14 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.route: (context) => HomePage(),
         BadgePage.route: (context) => BadgePage(),
-        TipsPage.route: (context) => TipsPage(todos: []),
+        TipsPage.route: (context) => TipsPage(
+                tasks: List.generate(
+              10,
+              (i) => Task(
+                'Task $i',
+                'Task Description $i',
+              ),
+            )),
       },
     );
   } //build
