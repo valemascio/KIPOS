@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kipos/screens/statisticsPage.dart';
 
 class BadgePage extends StatelessWidget {
   const BadgePage({Key? key}) : super(key: key);
@@ -22,6 +23,43 @@ class BadgePage extends StatelessWidget {
           },
         ),
       ),
+      bottomNavigationBar: Container(
+          height: 90,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.shield_rounded, semanticLabel: 'Badges')),
+              IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.home, semanticLabel: 'Home')),
+              IconButton(
+                  onPressed: () {
+                    Navigator.popAndPushNamed(context, StatisticsPage.route);
+                  },
+                  icon: Icon(Icons.bar_chart, semanticLabel: 'Statistics')),
+            ],
+          )
+          // BottomNavigationBar(
+          // items: const [
+          //   BottomNavigationBarItem(
+          //     icon: Icon(Icons.shield_rounded),
+          //     label: 'Badges',
+          //   ),
+          //   BottomNavigationBarItem(
+          //     icon: Icon(Icons.home),
+          //     label: 'Home',
+          //   ),
+          //   BottomNavigationBarItem(
+          //     icon: Icon(Icons.bar_chart),
+          //     label: 'Statistics',
+          //   ),
+          // ],
+          // ),
+          ),
     );
   }
 }
