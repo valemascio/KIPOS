@@ -14,6 +14,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    List<String> descriptions = [
+      'Testo tip 1',
+      'Testo tip 2',
+      'Testo tip 3',
+      'Testo tip 4',
+      'Testo tip 5',
+      'Testo tip 6',
+      'Testo tip 7',
+      'Testo tip 8',
+      'Testo tip 9',
+      'Testo tip 10'
+    ];
+
     return MaterialApp(
       initialRoute:
           HomePage.route, //Poi sara' da sostituire con LoginPage.route (?)
@@ -26,7 +39,7 @@ class MyApp extends StatelessWidget {
               10,
               (i) => Task(
                 'Tips $i',
-                'Tips Description $i',
+                descriptions[i],
               ),
             )),
       },

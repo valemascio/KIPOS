@@ -80,7 +80,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(task.task_name),
-        backgroundColor: Colors.green,
+        backgroundColor: Color.fromARGB(255, 34, 175, 34),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
