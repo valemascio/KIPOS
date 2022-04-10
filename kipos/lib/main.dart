@@ -18,13 +18,12 @@ class MyApp extends StatelessWidget {
       'Testo tip 1',
       'Testo tip 2',
       'Testo tip 3',
-      'Testo tip 4',
-      'Testo tip 5',
-      'Testo tip 6',
-      'Testo tip 7',
-      'Testo tip 8',
-      'Testo tip 9',
-      'Testo tip 10'
+    ];
+
+    List<String> title = [
+      'Choose the right pair of shoes',
+      'How to do stretching',
+      'Run with a pace of 80-100bpm'
     ];
 
     return MaterialApp(
@@ -36,9 +35,9 @@ class MyApp extends StatelessWidget {
         StatisticsPage.route: (context) => StatisticsPage(),
         TipsPage.route: (context) => TipsPage(
                 tasks: List.generate(
-              10,
+              3,
               (i) => Task(
-                'Tips $i',
+                title[i],
                 descriptions[i],
               ),
             )),

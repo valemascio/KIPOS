@@ -55,6 +55,10 @@ class TipsPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(tasks[index].task_name),
+            trailing: const Icon(
+              Icons.arrow_right,
+              color: Colors.grey,
+            ),
             onTap: () {
               Navigator.push(
                 context,
