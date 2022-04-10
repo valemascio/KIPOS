@@ -55,6 +55,10 @@ class HomePage extends StatelessWidget {
             ), // Text
 
             ListTile(
+                leading: Icon(
+                  Icons.check_circle_outline_outlined,
+                  color: Colors.lightGreen,
+                ),
                 title: const Text('1st Week',
                     style: TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
