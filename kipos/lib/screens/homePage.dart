@@ -15,14 +15,14 @@ class HomePage extends StatelessWidget {
     int _selectedIndex = 0;
     return Scaffold(
       appBar: AppBar(
-        title: (Text('KÌPOS',
+        title: (const Text('KÌPOS',
             style: TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
                 fontSize: 26,
                 fontWeight: FontWeight.bold))),
-        backgroundColor: Color.fromARGB(255, 34, 175, 34),
+        backgroundColor: const Color.fromARGB(255, 34, 175, 34),
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             lightbulb,
             color: Colors.white,
           ),
@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
         ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.account_circle_outlined,
               color: Colors.white,
             ),
@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Text(
+            const Text(
               'Achievements',
               style: TextStyle(
                   color: Color.fromARGB(255, 0, 0, 0),
@@ -55,13 +55,13 @@ class HomePage extends StatelessWidget {
             ), // Text
 
             ListTile(
-                title: Text('1st Week',
+                title: const Text('1st Week',
                     style: TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
                       fontSize: 18,
                     )),
                 onTap: () {},
-                trailing: Icon(Icons.info)),
+                trailing: const Icon(Icons.info)),
             //Rendere il widget stateful
           ],
         ),
@@ -75,15 +75,17 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(context, BadgePage.route);
                   },
-                  icon: Icon(Icons.shield_rounded, semanticLabel: 'Badges')),
+                  icon: const Icon(Icons.shield_rounded,
+                      semanticLabel: 'Badges')),
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.home, semanticLabel: 'Home')),
+                  icon: const Icon(Icons.home, semanticLabel: 'Home')),
               IconButton(
                   onPressed: () {
                     Navigator.pushNamed(context, StatisticsPage.route);
                   },
-                  icon: Icon(Icons.bar_chart, semanticLabel: 'Statistics')),
+                  icon:
+                      const Icon(Icons.bar_chart, semanticLabel: 'Statistics')),
             ],
           )
           // BottomNavigationBar(

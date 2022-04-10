@@ -20,8 +20,9 @@ import 'package:flutter/material.dart';
 class Task {
   final String task_name;
   final String description;
+  final IconData icon;
 
-  Task(this.task_name, this.description);
+  Task(this.icon, this.task_name, this.description);
 }
 
 // Home screen
@@ -55,6 +56,7 @@ class TipsPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(tasks[index].task_name),
+            leading: Icon(tasks[index].icon),
             trailing: const Icon(
               Icons.arrow_right,
               color: Colors.grey,

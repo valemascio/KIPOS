@@ -26,6 +26,8 @@ class MyApp extends StatelessWidget {
       'Run with a pace of 80-100bpm'
     ];
 
+    List<IconData> icon = [Icons.light_outlined, Icons.arrow_back, Icons.home];
+
     return MaterialApp(
       initialRoute:
           HomePage.route, //Poi sara' da sostituire con LoginPage.route (?)
@@ -37,6 +39,7 @@ class MyApp extends StatelessWidget {
                 tasks: List.generate(
               3,
               (i) => Task(
+                icon[i],
                 title[i],
                 descriptions[i],
               ),
