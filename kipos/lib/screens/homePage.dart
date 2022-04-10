@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
                 color: Color.fromARGB(255, 255, 255, 255),
                 fontSize: 26,
                 fontWeight: FontWeight.bold))),
-        backgroundColor: const Color.fromARGB(255, 34, 175, 34),
+        backgroundColor: Color.fromARGB(213, 43, 184, 43),
         leading: IconButton(
           icon: const Icon(
             lightbulb,
