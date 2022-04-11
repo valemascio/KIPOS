@@ -71,44 +71,27 @@ class HomePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-          height: 90,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, BadgePage.route);
-                  },
-                  icon: const Icon(Icons.shield_rounded,
-                      semanticLabel: 'Badges')),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.home, semanticLabel: 'Home')),
-              IconButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, StatisticsPage.route);
-                  },
-                  icon:
-                      const Icon(Icons.bar_chart, semanticLabel: 'Statistics')),
-            ],
-          )
-          // BottomNavigationBar(
-          // items: const [
-          //   BottomNavigationBarItem(
-          //     icon: Icon(Icons.shield_rounded),
-          //     label: 'Badges',
-          //   ),
-          //   BottomNavigationBarItem(
-          //     icon: Icon(Icons.home),
-          //     label: 'Home',
-          //   ),
-          //   BottomNavigationBarItem(
-          //     icon: Icon(Icons.bar_chart),
-          //     label: 'Statistics',
-          //   ),
-          // ],
-          // ),
-          ),
+        height: 90,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, BadgePage.route);
+                },
+                icon:
+                    const Icon(Icons.shield_rounded, semanticLabel: 'Badges')),
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.home, semanticLabel: 'Home')),
+            IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, StatisticsPage.route);
+                },
+                icon: const Icon(Icons.bar_chart, semanticLabel: 'Statistics')),
+          ],
+        ),
+      ),
     );
   }
 }
