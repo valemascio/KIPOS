@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
             ), // Text
 
             ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.check_circle_outline_outlined,
                   color: Colors.lightGreen,
                 ),

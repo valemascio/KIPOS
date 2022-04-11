@@ -11,29 +11,32 @@
 ///      fonts:
 ///       - asset: fonts/MyFlutterApp.ttf
 ///
-/// 
+///
 /// * Material Design Icons, Copyright (C) Google, Inc
 ///         Author:    Google
 ///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
 ///         Homepage:  https://design.google.com/icons/
-/// * Iconic, Copyright (C) 2012 by P.J. Onori
-///         Author:    P.J. Onori
+/// * Elusive, Copyright (C) 2013 by Aristeides Stathopoulos
+///         Author:    Aristeides Stathopoulos
 ///         License:   SIL (http://scripts.sil.org/OFL)
-///         Homepage:  http://somerandomdude.com/work/iconic/
-/// * Font Awesome 5, Copyright (C) 2016 by Dave Gandy
-///         Author:    Dave Gandy
-///         License:   SIL (https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
-///         Homepage:  http://fortawesome.github.com/Font-Awesome/
+///         Homepage:  http://aristeides.com/
+/// * RPG Awesome, Copyright (c) 2014, Daniela Howe
+///         Author:    Daniela Howe & Ivan Montiel
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  http://nagoshiashumari.github.io/Rpg-Awesome/
 ///
 import 'package:flutter/widgets.dart';
 
-class MyFlutterApp {
-  MyFlutterApp._();
+class CustomIcons {
+  CustomIcons._();
 
   static const _kFontFam = 'MyFlutterApp';
   static const String? _kFontPkg = null;
 
-  static const IconData accessibility = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData headphones = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData shoe_prints = IconData(0xf54b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData directions_run =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData headphones =
+      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData shoe_prints =
+      IconData(0xea98, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

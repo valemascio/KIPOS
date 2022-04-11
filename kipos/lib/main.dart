@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
+import 'package:kipos/screens/custom_icons.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
 
@@ -26,7 +27,11 @@ class MyApp extends StatelessWidget {
       'Run with a pace of 80-100bpm'
     ];
 
-    List<IconData> icon = [Icons.light_outlined, Icons.arrow_back, Icons.home];
+    List<IconData> icon = [
+      CustomIcons.shoe_prints,
+      CustomIcons.directions_run,
+      CustomIcons.headphones
+    ];
 
     return MaterialApp(
       initialRoute:
@@ -47,4 +52,4 @@ class MyApp extends StatelessWidget {
       },
     );
   } //build
-}//MyApp
+}
