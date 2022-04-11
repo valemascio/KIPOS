@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
-import 'package:kipos/screens/custom_icons.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
 
@@ -28,9 +27,9 @@ class MyApp extends StatelessWidget {
     ];
 
     List<IconData> icon = [
-      CustomIcons.shoe_prints,
-      CustomIcons.directions_run,
-      CustomIcons.headphones
+      Icons.lightbulb_outline_rounded,
+      Icons.lightbulb_outline_rounded,
+      Icons.lightbulb_outline_rounded
     ];
 
     return MaterialApp(
