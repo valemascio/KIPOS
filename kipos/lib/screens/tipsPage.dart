@@ -18,8 +18,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Task {
-  final String task_name;
-  final String description;
+  final Text task_name;
+  final Text description;
   final IconData icon;
 
   Task(this.icon, this.task_name, this.description);
@@ -55,7 +55,7 @@ class TipsPage extends StatelessWidget {
         itemCount: tasks.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(tasks[index].task_name),
+            title: tasks[index].task_name,
             leading: Icon(tasks[index].icon),
             trailing: const Icon(
               Icons.arrow_right,
@@ -85,12 +85,12 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(task.task_name),
+        title: task.task_name,
         backgroundColor: Color.fromARGB(255, 34, 175, 34),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Text(task.description),
+        child: task.description,
       ),
     );
   }
