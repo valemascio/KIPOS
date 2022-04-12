@@ -3,6 +3,7 @@ import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,21 +29,21 @@ class MyApp extends StatelessWidget {
       const Text('Choose the right pair of shoes',
           textAlign: TextAlign.center,
           style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20)),
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 10)),
       const Text('How to do stretching',
           textAlign: TextAlign.center,
           style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20)),
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 10)),
       const Text('Run with a pace of 80-100bpm',
           textAlign: TextAlign.center,
           style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20))
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 10))
     ];
 
     List<IconData> icon = [
-      Icons.lightbulb_outline_rounded,
-      Icons.lightbulb_outline_rounded,
-      Icons.lightbulb_outline_rounded
+      MdiIcons.shoeSneaker,
+      MdiIcons.karate,
+      MdiIcons.music
     ];
 
     return MaterialApp(
