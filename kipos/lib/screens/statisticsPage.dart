@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class StatisticsPage extends StatelessWidget {
   const StatisticsPage({Key? key}) : super(key: key);
