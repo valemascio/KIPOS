@@ -56,27 +56,28 @@ class HomePage extends StatelessWidget {
             ), // Text
 
             ExpansionTileCard(
-              leading: CircleAvatar(
+              leading: const CircleAvatar(
                 backgroundColor: Colors.lightGreen,
                 foregroundColor: Colors.white,
                 child: Text('1st'),
               ),
-              title: Text('1st Week',
+              title: const Text('1st Week',
                   style: TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
                   )),
-              subtitle: Text('Expand to see the recap of this week training'),
+              subtitle:
+                  const Text('Expand to see the recap of this week training'),
               children: <Widget>[
-                Divider(
+                const Divider(
                   thickness: 1.0,
                   height: 1.0,
                 ),
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                       horizontal: 16.0,
                       vertical: 8.0,
                     ),
@@ -90,7 +91,7 @@ class HomePage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, StatisticsPage.route);
                       },
-                      icon: Icon(Icons.bar_chart),
+                      icon: const Icon(Icons.bar_chart),
                     )
                   ],
                 ),
