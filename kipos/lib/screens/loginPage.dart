@@ -31,6 +31,9 @@ class LoginPage extends StatelessWidget {
       onLogin: _loginUser,
       onSignup: _signUpUser,
       onRecoverPassword: _recoverPassword,
+      theme: LoginTheme(
+        primaryColor: const Color.fromARGB(255, 34, 175, 34),
+      ),
       onSubmitAnimationCompleted: () async {
         Navigator.of(context).pushReplacementNamed(HomePage.route);
       },
