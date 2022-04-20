@@ -3,6 +3,7 @@ import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
+import 'package:kipos/screens/loginPage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 void main() {
@@ -47,9 +48,9 @@ class MyApp extends StatelessWidget {
     ];
 
     return MaterialApp(
-      initialRoute:
-          HomePage.route, //Poi sara' da sostituire con LoginPage.route (?)
+      initialRoute: LoginPage.route,
       routes: {
+        LoginPage.route: (context) => LoginPage(),
         HomePage.route: (context) => HomePage(),
         BadgePage.route: (context) => BadgePage(),
         StatisticsPage.route: (context) => StatisticsPage(),
