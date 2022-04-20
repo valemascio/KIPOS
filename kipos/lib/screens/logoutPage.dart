@@ -15,12 +15,13 @@ class LogoutPage extends StatelessWidget {
       content: const Text('Are you sure you want to logout?'),
       actions: <Widget>[
         TextButton(
-          onPressed: () => Navigator.pop(context, HomePage.route),
+          onPressed: () => Navigator.pop(context),
           child: const Text('Cancel'),
         ),
         TextButton(
           onPressed: () {
-            Navigator.pop(context, LoginPage.route);
+            Navigator.pop(context);
+            Navigator.popAndPushNamed(context, LoginPage.route);
           },
           child: const Text('OK'),
         ),
