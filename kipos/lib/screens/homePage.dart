@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
+import 'package:kipos/screens/logoutPage.dart';
+import 'package:kipos/screens/loginPage.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
-//Bisogna importare anche le directories per tip, profile, badges, stats
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -34,11 +35,11 @@ class HomePage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: const Icon(
-              Icons.account_circle_outlined,
+              Icons.logout,
               color: Colors.white,
             ),
             onPressed: () {
-              //Inserire navigator verso lo screen profilo -> dentro mettere logout
+              Navigator.pushNamed(context, LogoutPage.route);
             },
           ),
         ],

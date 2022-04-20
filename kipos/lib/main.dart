@@ -4,6 +4,7 @@ import 'package:kipos/screens/homePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
+import 'package:kipos/screens/logoutPage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 void main() {
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
       routes: {
         LoginPage.route: (context) => LoginPage(),
         HomePage.route: (context) => HomePage(),
+        LogoutPage.route: (context) => LogoutPage(),
         BadgePage.route: (context) => BadgePage(),
         StatisticsPage.route: (context) => StatisticsPage(),
         TipsPage.route: (context) => TipsPage(
