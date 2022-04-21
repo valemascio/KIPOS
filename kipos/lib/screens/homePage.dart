@@ -47,14 +47,16 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const Text(
-              'Progress',
-              style: TextStyle(
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic), //TextStyle
-            ), // Text
+            const Text(' '),
+            const Text('Weekly Schedule',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)
+                //fontStyle: FontStyle.italic,
+                //fontFamily: 'Outfit') //TextStyle
+                ), // Text
+            const Text(' '),
 
             ExpansionTileCard(
               leading: const CircleAvatar(
