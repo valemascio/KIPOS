@@ -60,9 +60,93 @@ class HomePage extends StatelessWidget {
               leading: const CircleAvatar(
                 backgroundColor: Colors.lightGreen,
                 foregroundColor: Colors.white,
-                child: Text('1st'),
+                child: Text('1'),
               ),
               title: const Text('1st Week',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  )),
+              subtitle:
+                  const Text('Expand to see the recap of this week training'),
+              children: <Widget>[
+                const Divider(
+                  thickness: 1.0,
+                  height: 1.0,
+                ),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 8.0,
+                    ),
+                    child: Text(
+                        'You have run this many km, burned this many cal and done this many steps'),
+                  ),
+                ),
+                ButtonBar(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, StatisticsPage.route);
+                      },
+                      icon: const Icon(Icons.bar_chart),
+                    )
+                  ],
+                ),
+              ],
+            ),
+            ExpansionTileCard(
+              leading: const CircleAvatar(
+                backgroundColor: Colors.lightGreen,
+                foregroundColor: Colors.white,
+                child: Text('2'),
+              ),
+              title: const Text('2nd Week',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  )),
+              subtitle:
+                  const Text('Expand to see the recap of this week training'),
+              children: <Widget>[
+                const Divider(
+                  thickness: 1.0,
+                  height: 1.0,
+                ),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 8.0,
+                    ),
+                    child: Text(
+                        'You have run this many km, burned this many cal and done this many steps'),
+                  ),
+                ),
+                ButtonBar(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, StatisticsPage.route);
+                      },
+                      icon: const Icon(Icons.bar_chart),
+                    )
+                  ],
+                ),
+              ],
+            ),
+            ExpansionTileCard(
+              leading: const CircleAvatar(
+                backgroundColor: Colors.lightGreen,
+                foregroundColor: Colors.white,
+                child: Text('3'),
+              ),
+              title: const Text('3rd Week',
                   style: TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontSize: 17,
