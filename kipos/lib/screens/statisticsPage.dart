@@ -14,11 +14,12 @@ class StatisticsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: (const Text('Statistics')),
+          title: (const Text('📊 Statistics ')),
           backgroundColor: const Color.fromARGB(255, 34, 175, 34),
         ),
         body: Center(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
               Text(' '),
               ExpansionTileCard(
@@ -50,6 +51,7 @@ class StatisticsPage extends StatelessWidget {
                 thickness: 1.5,
               ),
               ExpansionTileCard(
+                //leading: Icon(Icons.bar_chart),
                 title: Text('Pace',
                     textAlign: TextAlign.center,
                     style: TextStyle(
