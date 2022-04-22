@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
@@ -6,6 +8,7 @@ import 'package:kipos/screens/tipsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:fitbitter/fitbitter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -68,4 +71,13 @@ class MyApp extends StatelessWidget {
       },
     );
   } //build
+
 }
+
+String? userId = await FitbitConnector.authorize(
+       context: context,
+       clientID: '<OAuth 2.0 Client ID>',
+        clientSecret: '<Client Secret>',
+        redirectUri: '<Redirect Uri used during the registration, e.g., example://fitbit/auth>',
+        callbackUrlScheme: '<Callback Uri scheme, e.g., example>');
+
