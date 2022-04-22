@@ -26,7 +26,7 @@ class StatisticsPage extends StatelessWidget {
                 title: Text('Distance',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: Color.fromARGB(255, 22, 196, 71),
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     )),
@@ -55,7 +55,7 @@ class StatisticsPage extends StatelessWidget {
                 title: Text('Pace',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: Color.fromARGB(255, 211, 49, 49),
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     )),
@@ -83,7 +83,7 @@ class StatisticsPage extends StatelessWidget {
                 title: Text('Calories',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: Color.fromARGB(255, 38, 26, 214),
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     )),

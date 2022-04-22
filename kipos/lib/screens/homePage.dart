@@ -20,18 +20,18 @@ class HomePage extends StatelessWidget {
       '2',
       '3',
       '4',
-      '5',
-      '6',
-      '7',
-      '8',
-      '9',
-      '10',
-      '11',
-      '12',
-      '13',
-      '14',
-      '15',
-      '16'
+      '1',
+      '2',
+      '3',
+      '4',
+      '1',
+      '2',
+      '3',
+      '4',
+      '1',
+      '2',
+      '3',
+      '4'
     ];
     List<String> pos = <String>[
       '1st',
@@ -57,7 +57,8 @@ class HomePage extends StatelessWidget {
             style: TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
                 fontSize: 30,
-                fontWeight: FontWeight.bold))),
+                fontWeight: FontWeight.bold,
+                fontFamily: 'GFS Neohellenic'))),
         backgroundColor: Color.fromARGB(213, 34, 175, 34),
         leading: IconButton(
           icon: const Icon(
@@ -95,7 +96,8 @@ class HomePage extends StatelessWidget {
       ),
       body: ListView(children: [
         const Text(' '),
-        const Text('               🏃🏻‍♂️ Weekly Schedule 🏋🏻‍♂️',
+        const Text('🏃🏻‍♂️ Weekly Schedule 🏋🏻‍♂️',
+            textAlign: TextAlign.center,
             style: TextStyle(
                 color: Color.fromARGB(255, 0, 0, 0),
                 fontSize: 20,
