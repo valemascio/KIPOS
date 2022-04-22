@@ -53,23 +53,24 @@ class HomePage extends StatelessWidget {
     ];
 
     /*List<String> preview = <String>[
-      'weekly goal: 16km',
-      'weekly goal: 23km',
-      'weekly goal: 34km',
-      'weekly goal: 31km',
-      'weekly goal: 39.5km',
-      'weekly goal: 48km',
-      'weekly goal: 37.5km',
-      'weekly goal: 43km',
-      'weekly goal: 46km',
-      'weekly goal: 56km',
-      'weekly goal: 54.5km',
-      'weekly goal: 78km',
-      'weekly goal: 49km',
-      'weekly goal: 43km',
-      'weekly goal: 39km',
-      'weekly goal: 21km'
-    ]*/
+      '16',
+      '23',
+      '34',
+      '31',
+      '39.5',
+      '48',
+      '37.5',
+      '43',
+      '46',
+      '56',
+      '54.5',
+      '78',
+      '49',
+      '43',
+      '39',
+      '21'
+    ]
+    line 144 */
 
     return Scaffold(
       appBar: AppBar(
@@ -141,7 +142,7 @@ class HomePage extends StatelessWidget {
                 )),
             subtitle:
                 const Text('Expand to see the recap of this week training'),
-            //subtitle: Text(preview[i]),
+            //subtitle: Text('weekly goal: ' + preview[i] + 'km'),
             children: <Widget>[
               const Divider(
                 thickness: 1.0,
