@@ -4,6 +4,7 @@ import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
+import 'package:fitbitter/fitbitter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -33,6 +34,19 @@ class HomePage extends StatelessWidget {
           },
         ),
         actions: <Widget>[
+          /*IconButton(
+            icon: Icon(lightbulb),
+            onPressed: () async {
+              // Authorize the app
+              String? userId = await FitbitConnector.authorize(
+                  context: context,
+                  clientID: '2389XV',
+                  clientSecret: '2f7d318cd16701abc91d6e609f6b5215',
+                  redirectUri: 'example://fitbit/auth',
+                  callbackUrlScheme: 'example://fitbit/auth');
+            },
+            //print(userId)
+          ),*/
           IconButton(
             icon: const Icon(
               Icons.logout,
