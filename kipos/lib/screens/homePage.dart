@@ -51,6 +51,26 @@ class HomePage extends StatelessWidget {
       '15th',
       '16th'
     ];
+
+    /*List<String> preview = <String>[
+      'weekly goal: 16km',
+      'weekly goal: 23km',
+      'weekly goal: 34km',
+      'weekly goal: 31km',
+      'weekly goal: 39.5km',
+      'weekly goal: 48km',
+      'weekly goal: 37.5km',
+      'weekly goal: 43km',
+      'weekly goal: 46km',
+      'weekly goal: 56km',
+      'weekly goal: 54.5km',
+      'weekly goal: 78km',
+      'weekly goal: 49km',
+      'weekly goal: 43km',
+      'weekly goal: 39km',
+      'weekly goal: 21km'
+    ]*/
+
     return Scaffold(
       appBar: AppBar(
         title: (const Text('KÍPOS',
@@ -121,6 +141,7 @@ class HomePage extends StatelessWidget {
                 )),
             subtitle:
                 const Text('Expand to see the recap of this week training'),
+            //subtitle: Text(preview[i]),
             children: <Widget>[
               const Divider(
                 thickness: 1.0,
