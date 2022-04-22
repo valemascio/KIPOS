@@ -55,10 +55,10 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: (const Text('KÍPOS',
             style: TextStyle(
-                color: Color.fromARGB(255, 255, 255, 255),
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'GFS Neohellenic'))),
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ))),
         backgroundColor: Color.fromARGB(213, 34, 175, 34),
         leading: IconButton(
           icon: const Icon(
