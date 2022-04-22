@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: (const Text('KÌPOS',
+        title: (const Text('KÍPOS',
             style: TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
                 fontSize: 30,
@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
       ),
       body: ListView(children: [
         const Text(' '),
-        const Text('                     Weekly Schedule',
+        const Text('               🏃🏻‍♂️ Weekly Schedule 🏋🏻‍♂️',
             style: TextStyle(
                 color: Color.fromARGB(255, 0, 0, 0),
                 fontSize: 20,

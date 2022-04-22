@@ -1,19 +1,3 @@
-/*
-      appBar: AppBar(
-        title: const Text('Tips'),
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        backgroundColor: const Color.fromARGB(255, 34, 175, 34),
-      ),
-      body: */
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +22,7 @@ class TipsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tips'),
+        title: const Text('💡 Tips'),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
