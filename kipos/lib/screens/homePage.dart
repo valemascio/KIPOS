@@ -4,7 +4,7 @@ import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
-import 'package:fitbitter/fitbitter.dart';
+//import 'package:fitbitter/fitbitter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,7 +15,42 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const IconData lightbulb = IconData(0xe37b, fontFamily: 'MaterialIcons');
-    int _selectedIndex = 0;
+    List<String> numbers = <String>[
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      '10',
+      '11',
+      '12',
+      '13',
+      '14',
+      '15',
+      '16'
+    ];
+    List<String> pos = <String>[
+      '1st',
+      '2nd',
+      '3rd',
+      '4th',
+      '5th',
+      '6th',
+      '7th',
+      '8th',
+      '9th',
+      '10th',
+      '11th',
+      '12th',
+      '13th',
+      '14th',
+      '15th',
+      '16th'
+    ];
     return Scaffold(
       appBar: AppBar(
         title: (const Text('KÌPOS',
@@ -58,150 +93,61 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          children: [
-            const Text(' '),
-            const Text('Weekly Schedule',
+      body: ListView(children: [
+        const Text(' '),
+        const Text('                     Weekly Schedule',
+            style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: 20,
+                fontWeight: FontWeight.bold)
+            //fontStyle: FontStyle.italic,
+            //fontFamily: 'Outfit') //TextStyle
+            ), // Text
+        const Text(' '),
+        for (var i = 0; i < pos.length; i++)
+          ExpansionTileCard(
+            leading: CircleAvatar(
+              backgroundColor: Colors.lightGreen,
+              foregroundColor: Colors.white,
+              child: Text(numbers[i]),
+            ),
+            title: Text(pos[i] + ' Week',
                 style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold)
-                //fontStyle: FontStyle.italic,
-                //fontFamily: 'Outfit') //TextStyle
-                ), // Text
-            const Text(' '),
-
-            ExpansionTileCard(
-              leading: const CircleAvatar(
-                backgroundColor: Colors.lightGreen,
-                foregroundColor: Colors.white,
-                child: Text('1'),
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                )),
+            subtitle:
+                const Text('Expand to see the recap of this week training'),
+            children: <Widget>[
+              const Divider(
+                thickness: 1.0,
+                height: 1.0,
               ),
-              title: const Text('1st Week',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  )),
-              subtitle:
-                  const Text('Expand to see the recap of this week training'),
-              children: <Widget>[
-                const Divider(
-                  thickness: 1.0,
-                  height: 1.0,
-                ),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 8.0,
-                    ),
-                    child: Text(
-                        'You have run this many km, burned this many cal and done this many steps'),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8.0,
                   ),
+                  child: Text(
+                      'You have run this many km, burned this many cal and done this many steps'),
                 ),
-                ButtonBar(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, StatisticsPage.route);
-                      },
-                      icon: const Icon(Icons.bar_chart),
-                    )
-                  ],
-                ),
-              ],
-            ),
-            ExpansionTileCard(
-              leading: const CircleAvatar(
-                backgroundColor: Colors.lightGreen,
-                foregroundColor: Colors.white,
-                child: Text('2'),
               ),
-              title: const Text('2nd Week',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  )),
-              subtitle:
-                  const Text('Expand to see the recap of this week training'),
-              children: <Widget>[
-                const Divider(
-                  thickness: 1.0,
-                  height: 1.0,
-                ),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 8.0,
-                    ),
-                    child: Text(
-                        'You have run this many km, burned this many cal and done this many steps'),
-                  ),
-                ),
-                ButtonBar(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, StatisticsPage.route);
-                      },
-                      icon: const Icon(Icons.bar_chart),
-                    )
-                  ],
-                ),
-              ],
-            ),
-            ExpansionTileCard(
-              leading: const CircleAvatar(
-                backgroundColor: Colors.lightGreen,
-                foregroundColor: Colors.white,
-                child: Text('3'),
+              ButtonBar(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, StatisticsPage.route);
+                    },
+                    icon: const Icon(Icons.bar_chart),
+                  )
+                ],
               ),
-              title: const Text('3rd Week',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  )),
-              subtitle:
-                  const Text('Expand to see the recap of this week training'),
-              children: <Widget>[
-                const Divider(
-                  thickness: 1.0,
-                  height: 1.0,
-                ),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 8.0,
-                    ),
-                    child: Text(
-                        'You have run this many km, burned this many cal and done this many steps'),
-                  ),
-                ),
-                ButtonBar(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, StatisticsPage.route);
-                      },
-                      icon: const Icon(Icons.bar_chart),
-                    )
-                  ],
-                ),
-              ],
-            ),
-            //Rendere il widget stateful
-          ],
-        ),
-      ),
+            ],
+          ),
+      ]),
       bottomNavigationBar: Container(
         height: 90,
         child: Row(
