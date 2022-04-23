@@ -119,7 +119,12 @@ class HomePage extends StatelessWidget {
             leading: CircleAvatar(
               backgroundColor: Colors.yellow[700],
               foregroundColor: Colors.white,
-              child: Text(numbers[i]),
+              child: Text(
+                numbers[i] + '/16',
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
             ),
             title: Text(pos[i] + ' Week',
                 style: TextStyle(
@@ -173,7 +178,12 @@ class HomePage extends StatelessWidget {
             leading: CircleAvatar(
               backgroundColor: Colors.red[400],
               foregroundColor: Colors.white,
-              child: Text(numbers[i + 4]),
+              child: Text(
+                numbers[i + 4] + '/16',
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
             ),
             title: Text(pos[i] + ' Week',
                 style: TextStyle(
@@ -227,7 +237,12 @@ class HomePage extends StatelessWidget {
             leading: CircleAvatar(
               backgroundColor: Colors.purple[400],
               foregroundColor: Colors.white,
-              child: Text(numbers[i + 8]),
+              child: Text(
+                numbers[i + 8] + '/16',
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
             ),
             title: Text(pos[i] + ' Week',
                 style: TextStyle(
@@ -281,7 +296,12 @@ class HomePage extends StatelessWidget {
             leading: CircleAvatar(
               backgroundColor: Colors.lightGreen,
               foregroundColor: Colors.white,
-              child: Text(numbers[i + 12]),
+              child: Text(
+                numbers[i + 12] + '/16',
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
             ),
             title: Text(pos[i] + ' Week',
                 style: TextStyle(
