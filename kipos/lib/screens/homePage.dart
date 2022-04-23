@@ -20,39 +20,22 @@ class HomePage extends StatelessWidget {
       '2',
       '3',
       '4',
-      '1',
-      '2',
-      '3',
-      '4',
-      '1',
-      '2',
-      '3',
-      '4',
-      '1',
-      '2',
-      '3',
-      '4'
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      '10',
+      '11',
+      '12',
+      '13',
+      '14',
+      '15',
+      '16'
     ];
-    List<String> pos = <String>[
-      '1st',
-      '2nd',
-      '3rd',
-      '4th',
-      '5th',
-      '6th',
-      '7th',
-      '8th',
-      '9th',
-      '10th',
-      '11th',
-      '12th',
-      '13th',
-      '14th',
-      '15th',
-      '16th'
-    ];
+    List<String> pos = <String>['1st', '2nd', '3rd', '4th'];
 
-    /*List<String> preview = <String>[
+    List<String> preview = <String>[
       '16',
       '23',
       '34',
@@ -69,8 +52,7 @@ class HomePage extends StatelessWidget {
       '43',
       '39',
       '21'
-    ]
-    line 144 */
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -127,10 +109,15 @@ class HomePage extends StatelessWidget {
             //fontFamily: 'Outfit') //TextStyle
             ), // Text
         const Text(' '),
+        const Text('  First Month',
+            style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: 18,
+                fontWeight: FontWeight.bold)),
         for (var i = 0; i < pos.length; i++)
           ExpansionTileCard(
             leading: CircleAvatar(
-              backgroundColor: Colors.lightGreen,
+              backgroundColor: Colors.yellow[700],
               foregroundColor: Colors.white,
               child: Text(numbers[i]),
             ),
@@ -140,9 +127,169 @@ class HomePage extends StatelessWidget {
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
                 )),
-            subtitle:
-                const Text('Expand to see the recap of this week training'),
-            //subtitle: Text('weekly goal: ' + preview[i] + 'km'),
+            subtitle: Text('Weekly goal: ' + preview[i] + 'km'),
+            children: <Widget>[
+              const Divider(
+                thickness: 1.0,
+                height: 1.0,
+              ),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8.0,
+                  ),
+                  child: Text(
+                      'You have run this many km, burned this many cal and done this many steps'),
+                ),
+              ),
+              ButtonBar(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, StatisticsPage.route);
+                    },
+                    icon: const Icon(Icons.bar_chart),
+                  )
+                ],
+              ),
+            ],
+          ),
+        //End first month
+        const Text(' '),
+        const Divider(
+          height: 5,
+          thickness: 1.5,
+        ),
+        const Text(' '),
+        const Text('  Second Month',
+            style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: 18,
+                fontWeight: FontWeight.bold)),
+        for (var i = 0; i < pos.length; i++)
+          ExpansionTileCard(
+            leading: CircleAvatar(
+              backgroundColor: Colors.red[400],
+              foregroundColor: Colors.white,
+              child: Text(numbers[i + 4]),
+            ),
+            title: Text(pos[i] + ' Week',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                )),
+            subtitle: Text('Weekly goal: ' + preview[i + 4] + 'km'),
+            children: <Widget>[
+              const Divider(
+                thickness: 1.0,
+                height: 1.0,
+              ),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8.0,
+                  ),
+                  child: Text(
+                      'You have run this many km, burned this many cal and done this many steps'),
+                ),
+              ),
+              ButtonBar(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, StatisticsPage.route);
+                    },
+                    icon: const Icon(Icons.bar_chart),
+                  )
+                ],
+              ),
+            ],
+          ),
+        //End second month
+        const Text(' '),
+        const Divider(
+          height: 5,
+          thickness: 1.5,
+        ),
+        const Text(' '),
+        const Text('  Third Month',
+            style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: 18,
+                fontWeight: FontWeight.bold)),
+        for (var i = 0; i < pos.length; i++)
+          ExpansionTileCard(
+            leading: CircleAvatar(
+              backgroundColor: Colors.purple[400],
+              foregroundColor: Colors.white,
+              child: Text(numbers[i + 8]),
+            ),
+            title: Text(pos[i] + ' Week',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                )),
+            subtitle: Text('Weekly goal: ' + preview[i + 8] + 'km'),
+            children: <Widget>[
+              const Divider(
+                thickness: 1.0,
+                height: 1.0,
+              ),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8.0,
+                  ),
+                  child: Text(
+                      'You have run this many km, burned this many cal and done this many steps'),
+                ),
+              ),
+              ButtonBar(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, StatisticsPage.route);
+                    },
+                    icon: const Icon(Icons.bar_chart),
+                  )
+                ],
+              ),
+            ],
+          ),
+        //End third month
+        const Text(' '),
+        const Divider(
+          height: 5,
+          thickness: 1.5,
+        ),
+        const Text(' '),
+        const Text('  Fourth Month',
+            style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: 18,
+                fontWeight: FontWeight.bold)),
+        for (var i = 0; i < pos.length; i++)
+          ExpansionTileCard(
+            leading: CircleAvatar(
+              backgroundColor: Colors.lightGreen,
+              foregroundColor: Colors.white,
+              child: Text(numbers[i + 12]),
+            ),
+            title: Text(pos[i] + ' Week',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                )),
+            subtitle: Text('Weekly goal: ' + preview[i + 12] + 'km'),
             children: <Widget>[
               const Divider(
                 thickness: 1.0,
