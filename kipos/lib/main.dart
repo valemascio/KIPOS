@@ -25,28 +25,34 @@ class MyApp extends StatelessWidget {
       const Text(
         'How to do stretching',
       ),
-      const Text('Run with a pace of 80-100bpm')
+      const Text('Calculate your ideal running heart rate'),
+      const Text('Get enough sleep')
     ];
 
     List<Text> descriptions = [
       const Text('Choose the right pair of shoes',
           textAlign: TextAlign.center,
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 10)),
+          style: TextStyle(color: Colors.black, fontSize: 30)),
       const Text('How to do stretching',
           textAlign: TextAlign.center,
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 10)),
-      const Text('Run with a pace of 80-100bpm',
+          style: TextStyle(color: Colors.black, fontSize: 10)),
+      const Text('''When you run, monitoring the heart rate is very important. 
+      It is recommended a target heart rate equal to the 70-85% of your maximum heart rate. 
+      To compute it, you can start by estimating your maximum heart rate, subtracting your age from 220. 
+      Then, multiply the result first with 0.7 (that is the lowest index in the range) and then with 0.85 (that is the highest). 
+      For example, if you age is 25, you maximum heart rate will be 195, and the target heart rate range will be [136 - 166].''',
           textAlign: TextAlign.center,
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 10))
+          style: TextStyle(color: Colors.black, fontSize: 20)),
+      const Text('Get enough sleep',
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.black, fontSize: 30))
     ];
 
     List<IconData> icon = [
       MdiIcons.shoeSneaker,
       MdiIcons.karate,
-      MdiIcons.music
+      MdiIcons.music,
+      MdiIcons.sleep,
     ];
 
     return MaterialApp(
@@ -59,7 +65,7 @@ class MyApp extends StatelessWidget {
         StatisticsPage.route: (context) => StatisticsPage(),
         TipsPage.route: (context) => TipsPage(
                 tasks: List.generate(
-              3,
+              4,
               (i) => Task(
                 icon[i],
                 title[i],
