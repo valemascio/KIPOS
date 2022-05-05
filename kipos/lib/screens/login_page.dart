@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -59,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
         FlatButton(
             onPressed: _login,
             child: Text('Login'),
-            color: Theme.of(context).accentColor)
+            color: Theme.of(context).colorScheme.secondary)
       ],
     );
   }

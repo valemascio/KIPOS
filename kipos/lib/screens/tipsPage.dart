@@ -1,19 +1,21 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Task {
-  final Text task_name;
-  final Text description;
+class Tips {
+  final Text tips_name;
+  final Widget description;
   final IconData icon;
+  final Widget wid;
+  final Widget box;
 
-  Task(this.icon, this.task_name, this.description);
+  Tips(this.icon, this.tips_name, this.description, this.wid, this.box);
 }
 
 // Home screen
 class TipsPage extends StatelessWidget {
-  final List<Task> tasks;
+  final List<Tips> tips;
 
-  const TipsPage({Key? key, required this.tasks}) : super(key: key);
+  const TipsPage({Key? key, required this.tips}) : super(key: key);
 
   static const route = '/tips/';
   static const routename = 'TipsPage';
@@ -32,15 +34,15 @@ class TipsPage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        backgroundColor: const Color.fromARGB(255, 34, 175, 34),
+        backgroundColor: Colors.lightGreen,
       ),
       // List builder
       body: ListView.builder(
-        itemCount: tasks.length,
+        itemCount: tips.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: tasks[index].task_name,
-            leading: Icon(tasks[index].icon),
+            title: tips[index].tips_name,
+            leading: Icon(tips[index].icon),
             trailing: const Icon(
               Icons.arrow_right,
               color: Colors.grey,
@@ -49,7 +51,7 @@ class TipsPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailScreen(task: tasks[index]),
+                  builder: (context) => DetailScreen(tips: tips[index]),
                 ),
               );
             },
@@ -62,20 +64,35 @@ class TipsPage extends StatelessWidget {
 
 // detail screen
 class DetailScreen extends StatelessWidget {
-  final Task task;
-  const DetailScreen({Key? key, required this.task}) : super(key: key);
+  final Tips tips;
+  const DetailScreen({Key? key, required this.tips}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: task.task_name,
-        backgroundColor: Color.fromARGB(255, 34, 175, 34),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: task.description,
-      ),
-    );
+        appBar: AppBar(
+          title: tips.tips_name,
+          backgroundColor: Color.fromARGB(255, 34, 175, 34),
+        ),
+        body: Column(
+          children: <Widget>[
+            const Align(
+              alignment: Alignment.center,
+              child: Text(''),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: tips.wid,
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: tips.description,
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: tips.box,
+            ),
+          ],
+        ));
   }
 }

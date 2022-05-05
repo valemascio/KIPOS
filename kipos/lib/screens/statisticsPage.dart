@@ -15,7 +15,7 @@ class StatisticsPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: (const Text('📊 Statistics ')),
-          backgroundColor: const Color.fromARGB(255, 34, 175, 34),
+          backgroundColor: Colors.lightGreen,
         ),
         body: Center(
           child: Column(
@@ -26,7 +26,7 @@ class StatisticsPage extends StatelessWidget {
                 title: Text('Distance',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Color.fromARGB(255, 22, 196, 71),
+                      color: Colors.lightGreen,
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     )),

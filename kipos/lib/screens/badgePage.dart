@@ -12,7 +12,7 @@ class BadgePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: (const Text('🏅 Badges')),
-        backgroundColor: const Color.fromARGB(255, 34, 175, 34),
+        backgroundColor: Colors.lightGreen,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
