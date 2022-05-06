@@ -99,7 +99,7 @@ class HomePage extends StatelessWidget {
       ),
       body: ListView(children: [
         const Text(' '),
-        const Text('🏃🏻‍♂️ Weekly Schedule 🏋🏻‍♂️',
+        const Text('🏃🏻‍♂️ Training Schedule 🏋🏻‍♂️',
             textAlign: TextAlign.center,
             style: TextStyle(
                 color: Color.fromARGB(255, 0, 0, 0),

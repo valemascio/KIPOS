@@ -18,123 +18,139 @@ class StatisticsPage extends StatelessWidget {
           backgroundColor: Colors.lightGreen,
         ),
         body: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: ListView(
+            //crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
               Text(' '),
-              ExpansionTileCard(
-                title: Text('Distance',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.lightGreen,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    )),
-                subtitle: Text('Tap to see how many km/miles have you run',
-                    textAlign: TextAlign.center),
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                        vertical: 8.0,
+              Padding(
+                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                  child: ExpansionTileCard(
+                    title: Text('📏 Distance',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 122, 164, 94),
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    subtitle: Text('Tap to see how many km/miles have you run',
+                        textAlign: TextAlign.center),
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16.0,
+                            vertical: 8.0,
+                          ),
+                          child: Text('You have run this many km'),
+                        ),
                       ),
-                      child: Text('You have run this many km'),
-                    ),
-                  ),
-                ],
-                trailing: SizedBox(),
-              ),
+                    ],
+                    trailing: SizedBox(),
+                  )),
               Divider(
                 height: 5,
                 thickness: 1.5,
+                indent: 10,
+                endIndent: 10,
               ),
-              ExpansionTileCard(
-                //leading: Icon(Icons.bar_chart),
-                title: Text('Pace',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 211, 49, 49),
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    )),
-                subtitle: Text('Tap to see how fast have you run',
-                    textAlign: TextAlign.center),
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                        vertical: 8.0,
+              Padding(
+                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                  child: ExpansionTileCard(
+                    //leading: Icon(Icons.bar_chart),
+                    title: Text('⏱ Pace',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 154, 0, 205),
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    subtitle: Text('Tap to see how fast have you run',
+                        textAlign: TextAlign.center),
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16.0,
+                            vertical: 8.0,
+                          ),
+                          child: Text('You have run this fast'),
+                        ),
                       ),
-                      child: Text('You have run this fast'),
-                    ),
-                  ),
-                ],
-                trailing: SizedBox(),
-              ),
+                    ],
+                    trailing: SizedBox(),
+                  )),
               Divider(
                 height: 5,
                 thickness: 1.5,
+                indent: 10,
+                endIndent: 10,
               ),
-              ExpansionTileCard(
-                title: Text('Calories',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 38, 26, 214),
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    )),
-                subtitle: Text('Tap to see how many kcal have you burn',
-                    textAlign: TextAlign.center),
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                        vertical: 8.0,
+              Padding(
+                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                  child: ExpansionTileCard(
+                    title: Text('🔥 Calorie',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 211, 49, 49),
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    subtitle: Text('Tap to see how many kcal have you burn',
+                        textAlign: TextAlign.center),
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16.0,
+                            vertical: 8.0,
+                          ),
+                          child: Text('You have burn this many kcal'),
+                        ),
                       ),
-                      child: Text('You have burn this many kcal'),
-                    ),
-                  ),
-                ],
-                trailing: SizedBox(),
-              ),
+                    ],
+                    trailing: SizedBox(),
+                  )),
               Divider(
                 height: 5,
                 thickness: 1.5,
+                indent: 10,
+                endIndent: 10,
               ),
-              ExpansionTileCard(
-                title: Text('Sleep',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 153, 0, 255),
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    )),
-                subtitle: Text('Tap to see your sleep quality',
-                    textAlign: TextAlign.center),
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                        vertical: 8.0,
+              Padding(
+                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                  child: ExpansionTileCard(
+                    title: Text('😴 Sleep',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 0, 64, 168),
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    subtitle: Text('Tap to see your sleep quality',
+                        textAlign: TextAlign.center),
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16.0,
+                            vertical: 8.0,
+                          ),
+                          child: Text('Your sleep'),
+                        ),
                       ),
-                      child: Text('Your sleep'),
-                    ),
-                  ),
-                ],
-                trailing: SizedBox(),
-              ),
-              /*Divider(
+                    ],
+                    trailing: SizedBox(),
+                  )),
+              Divider(
                 height: 5,
                 thickness: 1.5,
-              ),*/
+                indent: 10,
+                endIndent: 10,
+              ),
             ],
           ),
         ),

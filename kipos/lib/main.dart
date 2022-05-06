@@ -167,7 +167,7 @@ Did you know?
           onPressed: () {
             Navigator.pushNamed(context, StatisticsPage.route);
           },
-          child: Text('Go to statistics'),
+          child: Text('Statistics'),
           style: ElevatedButton.styleFrom(
               primary: Color.fromARGB(255, 122, 164, 94),
               fixedSize: const Size(100, 50),
