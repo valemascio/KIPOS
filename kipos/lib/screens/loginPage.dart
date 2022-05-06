@@ -57,6 +57,7 @@ class LoginPage extends StatelessWidget {
         ),
         buttonTheme: const LoginButtonTheme(
           splashColor: Color.fromARGB(255, 122, 164, 94),
+          highlightColor: Color.fromARGB(255, 122, 164, 94),
           elevation: 9.0,
           highlightElevation: 6.0,
         ),

@@ -103,6 +103,34 @@ class StatisticsPage extends StatelessWidget {
                 ],
                 trailing: SizedBox(),
               ),
+              Divider(
+                height: 5,
+                thickness: 1.5,
+              ),
+              ExpansionTileCard(
+                title: Text('Sleep',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 153, 0, 255),
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    )),
+                subtitle: Text('Tap to see your sleep quality',
+                    textAlign: TextAlign.center),
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 8.0,
+                      ),
+                      child: Text('Your sleep'),
+                    ),
+                  ),
+                ],
+                trailing: SizedBox(),
+              ),
               /*Divider(
                 height: 5,
                 thickness: 1.5,

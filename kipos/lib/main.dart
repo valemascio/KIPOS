@@ -95,7 +95,7 @@ Did you know?
     List<IconData> icon = [
       MdiIcons.shoeSneaker,
       MdiIcons.karate,
-      MdiIcons.music,
+      MdiIcons.heartPulse,
       MdiIcons.sleep,
       MdiIcons.water,
       MdiIcons.numeric
@@ -134,7 +134,7 @@ Did you know?
         child: SizedBox.fromSize(
           size: Size.fromRadius(100), // Image radius
           child: Image.network(
-              'https://t3.ftcdn.net/jpg/02/10/07/82/360_F_210078286_L4RCPcLKVyO3l2A7VRbzIlchH5Ss4sxG.jpg',
+              'https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322945/person-sleeping-in-bed-with-eye-mask-on.jpg',
               fit: BoxFit.cover),
         ),
       ),
@@ -159,12 +159,22 @@ Did you know?
     ];
 
     List<Widget> box = [
-      Text("ciao"),
-      Text(" "),
-      Text(" "),
-      Text(" "),
-      Text(" "),
-      Text(" ")
+      SizedBox(), //shoes
+      SizedBox(), //stretching
+      SizedBox(), //music
+      ElevatedButton(
+        child: Text('Statistics'),
+        onPressed: () {
+          Navigator.pushNamed(context, StatisticsPage.route);
+        },
+        style: ElevatedButton.styleFrom(
+            primary: Color.fromARGB(255, 122, 164, 94),
+            fixedSize: const Size(100, 50),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50))),
+      ), //sleep
+      SizedBox(), //keep hydrated
+      SizedBox() //numbers
     ];
 
     return MaterialApp(

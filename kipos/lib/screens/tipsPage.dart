@@ -24,18 +24,16 @@ class TipsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('💡 Tips'),
-        leading: IconButton(
+          title: const Text('💡 Tips'),
+          /*leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
             color: Colors.white,
           ),
           onPressed: () {
             Navigator.pop(context);
-          },
-        ),
-        backgroundColor: Colors.lightGreen,
-      ),
+          },*/
+          backgroundColor: Colors.lightGreen),
       // List builder
       body: ListView.builder(
         itemCount: tips.length,
@@ -72,7 +70,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: tips.tips_name,
-          backgroundColor: Color.fromARGB(255, 34, 175, 34),
+          backgroundColor: Colors.lightGreen,
         ),
         body: Column(
           children: <Widget>[
