@@ -150,7 +150,7 @@ class StatisticsPage extends StatelessWidget {
                     icon: Icon(Icons.shield_rounded, semanticLabel: 'Badges')),
                 IconButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.popAndPushNamed(context, HomePage.route);
                     },
                     icon: Icon(Icons.home, semanticLabel: 'Home')),
                 IconButton(

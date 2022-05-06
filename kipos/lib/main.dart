@@ -165,8 +165,7 @@ Did you know?
       Builder(
         builder: (context) => ElevatedButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => StatisticsPage()));
+            Navigator.pushNamed(context, StatisticsPage.route);
           },
           child: Text('Go to statistics'),
           style: ElevatedButton.styleFrom(
