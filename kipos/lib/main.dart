@@ -162,16 +162,19 @@ Did you know?
       SizedBox(), //shoes
       SizedBox(), //stretching
       SizedBox(), //music
-      ElevatedButton(
-        child: Text('Go to statistics'),
-        onPressed: () {
-          Navigator.pushNamed(context, StatisticsPage.route);
-        },
-        style: ElevatedButton.styleFrom(
-            primary: Color.fromARGB(255, 122, 164, 94),
-            fixedSize: const Size(100, 50),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50))),
+      Builder(
+        builder: (context) => ElevatedButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => StatisticsPage()));
+          },
+          child: Text('Go to statistics'),
+          style: ElevatedButton.styleFrom(
+              primary: Color.fromARGB(255, 122, 164, 94),
+              fixedSize: const Size(100, 50),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50))),
+        ),
       ), //sleep
       SizedBox(), //keep hydrated
       SizedBox() //numbers
