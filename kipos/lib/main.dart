@@ -163,7 +163,7 @@ Did you know?
       SizedBox(), //stretching
       SizedBox(), //music
       ElevatedButton(
-        child: Text('Statistics'),
+        child: Text('Go to statistics'),
         onPressed: () {
           Navigator.pushNamed(context, StatisticsPage.route);
         },
