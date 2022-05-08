@@ -167,10 +167,10 @@ Did you know?
           onPressed: () {
             Navigator.pushNamed(context, StatisticsPage.route);
           },
-          child: Text('Statistics'),
+          child: Text('📊 Statistics'),
           style: ElevatedButton.styleFrom(
               primary: Color.fromARGB(255, 122, 164, 94),
-              fixedSize: const Size(100, 50),
+              fixedSize: const Size(130, 60),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50))),
         ),
