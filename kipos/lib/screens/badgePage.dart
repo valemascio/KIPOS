@@ -10,6 +10,10 @@ class BadgePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String getURL() {
+      return 'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: (const Text('🏅 Badges')),
@@ -80,8 +84,8 @@ You have earned this badge because you are awesome!! 😄''',
                 front: Container(
                   child: BadgeCard(
                     titolo: 'Week 2',
-                    urlImmagine:
-                        'https://cdn5.acolore.com/disegni/colori/2012005/f3eef2e26fe0ec4db583dd4a3c8294af.png',
+                    urlImmagine: getURL(),
+                    // 'https://cdn5.acolore.com/disegni/colori/2012005/f3eef2e26fe0ec4db583dd4a3c8294af.png',
                   ),
                 ),
                 back: Container(
