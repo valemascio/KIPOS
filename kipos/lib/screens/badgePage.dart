@@ -40,24 +40,39 @@ class BadgePage extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             children: [
               FlipCard(
-                fill: Fill
-                    .fillBack, // Fill the back side of the card to make in the same size as the front.
-                direction: FlipDirection.HORIZONTAL, // default
-                front: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 1',
-                    urlImmagine:
-                        'https://immagini.disegnidacolorareonline.com/cache/data/disegni-colorati/disegno-fiorellino-colorato-600x600.jpg',
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 1',
+                      urlImmagine:
+                          'https://immagini.disegnidacolorareonline.com/cache/data/disegni-colorati/disegno-fiorellino-colorato-600x600.jpg',
+                    ),
                   ),
-                ),
-                back: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 1',
-                    urlImmagine:
-                        'https://immagini.disegnidacolorareonline.com/cache/data/disegni-colorati/disegno-fiorellino-colorato-600x600.jpg',
-                  ),
-                ),
-              ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
               FlipCard(
                 fill: Fill
                     .fillBack, // Fill the back side of the card to make in the same size as the front.
