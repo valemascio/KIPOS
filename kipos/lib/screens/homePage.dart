@@ -4,13 +4,14 @@ import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
-//import 'package:fitbitter/fitbitter.dart';
+import 'package:fitbitter/fitbitter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   static const route = '/home/';
   static const routename = 'HomePage';
+  static const user_id = "7TVBB5";
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +74,8 @@ class HomePage extends StatelessWidget {
           },
         ),
         actions: <Widget>[
-          /*IconButton(
-            icon: Icon(lightbulb),
+          IconButton(
+            icon: Icon(Icons.download),
             onPressed: () async {
               // Authorize the app
               String? userId = await FitbitConnector.authorize(
@@ -82,10 +83,32 @@ class HomePage extends StatelessWidget {
                   clientID: '2389XV',
                   clientSecret: '2f7d318cd16701abc91d6e609f6b5215',
                   redirectUri: 'example://fitbit/auth',
-                  callbackUrlScheme: 'example://fitbit/auth');
+                  callbackUrlScheme: 'example');
+
+              //Instantiate a proper data manager
+              FitbitActivityTimeseriesDataManager
+                  fitbitActivityTimeseriesDataManager =
+                  FitbitActivityTimeseriesDataManager(
+                clientID: '2389XV',
+                clientSecret: '2f7d318cd16701abc91d6e609f6b5215',
+                type: 'steps',
+              );
+
+              //Fetch data
+              final stepsData = await fitbitActivityTimeseriesDataManager
+                  .fetch(FitbitActivityTimeseriesAPIURL.weekWithResource(
+                baseDate: DateTime.utc(2022, 5, 10),
+                userID: userId,
+                resource: fitbitActivityTimeseriesDataManager.type,
+              )) as List<FitbitActivityTimeseriesData>;
+
+              // Use them as you want
+              final snackBar = SnackBar(
+                  content: Text(
+                      'Yesterday you walked ${stepsData[6].value} steps!'));
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
-            //print(userId)
-          ),*/
+          ),
           IconButton(
             icon: const Icon(
               Icons.logout,
@@ -138,7 +161,7 @@ class HomePage extends StatelessWidget {
                 thickness: 1.0,
                 height: 1.0,
               ),
-              const Align(
+              Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
