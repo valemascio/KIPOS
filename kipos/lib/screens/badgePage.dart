@@ -78,100 +78,175 @@ You have earned this badge because you are awesome!! 😄''',
                     width: 272,
                   ))),
               FlipCard(
-                fill: Fill
-                    .fillBack, // Fill the back side of the card to make in the same size as the front.
-                direction: FlipDirection.HORIZONTAL, // default
-                front: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 2',
-                    urlImmagine: getURL(),
-                    // 'https://cdn5.acolore.com/disegni/colori/2012005/f3eef2e26fe0ec4db583dd4a3c8294af.png',
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 2',
+                      urlImmagine: getURL(),
+                      // 'https://cdn5.acolore.com/disegni/colori/2012005/f3eef2e26fe0ec4db583dd4a3c8294af.png',
+                    ),
                   ),
-                ),
-                back: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 2',
-                    urlImmagine:
-                        'https://cdn5.acolore.com/disegni/colori/2012005/f3eef2e26fe0ec4db583dd4a3c8294af.png',
-                  ),
-                ),
-              ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
               FlipCard(
-                fill: Fill
-                    .fillBack, // Fill the back side of the card to make in the same size as the front.
-                direction: FlipDirection.HORIZONTAL, // default
-                front: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 3',
-                    urlImmagine:
-                        'https://cdn5.acolore.com/disegni/colori/201244/fiore-selvatico-1-natura-fiori-dipinto-da-samell-1062079.jpg',
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 3',
+                      urlImmagine:
+                          'https://cdn5.acolore.com/disegni/colori/201244/fiore-selvatico-1-natura-fiori-dipinto-da-samell-1062079.jpg',
+                    ),
                   ),
-                ),
-                back: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 3',
-                    urlImmagine:
-                        'https://cdn5.acolore.com/disegni/colori/201244/fiore-selvatico-1-natura-fiori-dipinto-da-samell-1062079.jpg',
-                  ),
-                ),
-              ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
               FlipCard(
-                fill: Fill
-                    .fillBack, // Fill the back side of the card to make in the same size as the front.
-                direction: FlipDirection.HORIZONTAL, // default
-                front: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 4',
-                    urlImmagine:
-                        'https://cdn5.acolore.com/disegni/colori/202018/fiori-1-natura-fiori-1172686.jpg',
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 4',
+                      urlImmagine:
+                          'https://cdn5.acolore.com/disegni/colori/202018/fiori-1-natura-fiori-1172686.jpg',
+                    ),
                   ),
-                ),
-                back: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 4',
-                    urlImmagine:
-                        'https://cdn5.acolore.com/disegni/colori/202018/fiori-1-natura-fiori-1172686.jpg',
-                  ),
-                ),
-              ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
               FlipCard(
-                fill: Fill
-                    .fillBack, // Fill the back side of the card to make in the same size as the front.
-                direction: FlipDirection.HORIZONTAL, // default
-                front: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 5',
-                    urlImmagine:
-                        'https://cdn5.acolore.com/disegni/colori/202013/vaso-di-fiori-natura-fiori-1166806.jpg',
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 5',
+                      urlImmagine:
+                          'https://cdn5.acolore.com/disegni/colori/202013/vaso-di-fiori-natura-fiori-1166806.jpg',
+                    ),
                   ),
-                ),
-                back: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 5',
-                    urlImmagine:
-                        'https://cdn5.acolore.com/disegni/colori/202013/vaso-di-fiori-natura-fiori-1166806.jpg',
-                  ),
-                ),
-              ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
               FlipCard(
-                fill: Fill
-                    .fillBack, // Fill the back side of the card to make in the same size as the front.
-                direction: FlipDirection.HORIZONTAL, // default
-                front: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 6',
-                    urlImmagine:
-                        'https://immagini.disegnidacolorareonline.com/cache/data/disegni-colorati/disegno-di-fiori-tulipani-colorati-600x600.jpg',
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 6',
+                      urlImmagine:
+                          'https://immagini.disegnidacolorareonline.com/cache/data/disegni-colorati/disegno-di-fiori-tulipani-colorati-600x600.jpg',
+                    ),
                   ),
-                ),
-                back: Container(
-                  child: BadgeCard(
-                    titolo: 'Week 6',
-                    urlImmagine:
-                        'https://immagini.disegnidacolorareonline.com/cache/data/disegni-colorati/disegno-di-fiori-tulipani-colorati-600x600.jpg',
-                  ),
-                ),
-              ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
             ],
           ),
         ],
