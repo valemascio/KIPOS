@@ -203,11 +203,3 @@ Did you know?
   } //build
 
 }
-
-/*String? userId = await FitbitConnector.authorize(
-       context: context,
-       clientID: '<OAuth 2.0 Client ID>',
-        clientSecret: '<Client Secret>',
-        redirectUri: '<Redirect Uri used during the registration, e.g., example://fitbit/auth>',
-        callbackUrlScheme: '<Callback Uri scheme, e.g., example>');
-*/

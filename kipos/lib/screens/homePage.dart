@@ -5,6 +5,7 @@ import 'package:kipos/screens/logoutPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:fitbitter/fitbitter.dart';
+import 'package:kipos/utilities/strings.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -80,17 +81,17 @@ class HomePage extends StatelessWidget {
               // Authorize the app
               String? userId = await FitbitConnector.authorize(
                   context: context,
-                  clientID: '2389XV',
-                  clientSecret: '2f7d318cd16701abc91d6e609f6b5215',
-                  redirectUri: 'example://fitbit/auth',
-                  callbackUrlScheme: 'example');
+                  clientID: Strings.fitbitClientID,
+                  clientSecret: Strings.fitbitClientSecret,
+                  redirectUri: Strings.fitbitRedirectUri,
+                  callbackUrlScheme: Strings.fitbitCallbackScheme);
 
               //Instantiate a proper data manager
               FitbitActivityTimeseriesDataManager
                   fitbitActivityTimeseriesDataManager =
                   FitbitActivityTimeseriesDataManager(
-                clientID: '2389XV',
-                clientSecret: '2f7d318cd16701abc91d6e609f6b5215',
+                clientID: Strings.fitbitClientID,
+                clientSecret: Strings.fitbitClientSecret,
                 type: 'steps',
               );
 
