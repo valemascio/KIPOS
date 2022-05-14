@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-///Class that implement a custom-made [ListTile] to manage textboxes containing dates in a [Form].
-///You must provide a label that is shown as helper, the date to show, an icon, a callback to define the behaviour of the field when it is tapped, and a [DateFormat].
-///The [FormDateTile] content is always valid and it should be guaranteed via a DatePicker.
 class FormDateTile extends ListTile {
   final labelText;
   final date;
@@ -22,7 +19,7 @@ class FormDateTile extends ListTile {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return ListTile(
-      leading: Icon(icon, color: Theme.of(context).accentColor),
+      leading: Icon(icon, color: Theme.of(context).colorScheme.secondary),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -38,7 +35,7 @@ class FormDateTile extends ListTile {
             child: Container(
               alignment: Alignment.centerLeft,
               width: screenSize.width / 1.5,
-              child: FlatButton(
+              child: TextButton(
                 child: Text(dateFormat.format(date)),
                 onPressed: onPressed,
               ),

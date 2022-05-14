@@ -7,8 +7,6 @@ import 'package:kipos/screens/homePage.dart';
 import 'package:fitbitter/fitbitter.dart';
 import 'package:kipos/utilities/strings.dart';
 
-//This is the class that implement the page to be used to edit existing meals and add new meals.
-//This is a StatefulWidget since it needs to rebuild when the form fields change.
 class PreferencePage extends StatefulWidget {
   PreferencePage({Key? key}) : super(key: key);
 
@@ -17,19 +15,14 @@ class PreferencePage extends StatefulWidget {
 
   @override
   State<PreferencePage> createState() => _PreferencePageState();
-} //MealPage
+} //PreferencePage
 
-//Class that manages the state of MealPage
 class _PreferencePageState extends State<PreferencePage> {
-  //Form globalkey: this is required to validate the form fields.
   final formKey = GlobalKey<FormState>();
 
-  //Variables that maintain the current form fields values in memory.
   TextEditingController _choController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
-  //Here, we are using initState() to initialize the form fields values.
-  //Rationale: Meal content and time are not known is the meal is new (mealIndex == -1).
-  //  In this case, initilize them to empty and now(), respectively, otherwise set them to the respective values.
+
   @override
   void initState() {
     super.initState();
@@ -44,8 +37,6 @@ class _PreferencePageState extends State<PreferencePage> {
 
   @override
   Widget build(BuildContext context) {
-    //The page is composed of a form. An action in the AppBar is used to validate and save the information provided by the user.
-    //A FAB is showed to provide the "delete" functinality. It is showed only if the meal already exists.
     return Scaffold(
       appBar: AppBar(
         title: (const Text('  Preferences ')),
@@ -84,21 +75,17 @@ class _PreferencePageState extends State<PreferencePage> {
 
           // Use them as you want
           final snackBar = SnackBar(
-              content:
-                  Text('Yesterday you walked ${stepsData[2].value} steps!'));
+              content: Text('The authorization process was successful!'));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+          Navigator.pushNamed(context, HomePage.route);
         },
-        label: Text('Authorize FitBit'),
+        label: Text('Authorize FitBit & go to HomePage'),
         backgroundColor: Color.fromARGB(255, 122, 164, 94),
       ),
     );
   } //build
 
-  //Utility method used to build the form.
-  //Here, I'm showing to you how to do some new things:
-  //1. How to actually implement a Form;
-  //2. Define custom-made FormTiles (take a look at the widgets/formSeparator.dart and widgets/formTiles.dart files);
-  //3. How to implement a Date+Time picker (take a look at the _selectDate utility method).
   Widget _buildForm(BuildContext context) {
     return Form(
       key: formKey,
@@ -122,45 +109,22 @@ class _PreferencePageState extends State<PreferencePage> {
     );
   } // _buildForm
 
-  //Utility method that implements a Date+Time picker.
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
-            context: context,
-            initialDate: _selectedDate,
-            firstDate: DateTime(2010),
-            lastDate: DateTime(2101))
-        /*.then((value) async {
-      if (value != null) {
-        TimeOfDay? pickedTime = await showTimePicker(
-          context: context,
-          initialTime:
-              TimeOfDay(hour: _selectedDate.hour, minute: _selectedDate.minute),
-        );
-        return pickedTime != null
-            ? value.add(
-                Duration(hours: pickedTime.hour, minutes: pickedTime.minute))
-            : null;
-      }
-      return null;
-    })*/
-        ;
+        context: context,
+        initialDate: _selectedDate,
+        firstDate: DateTime(2010),
+        lastDate: DateTime(2101));
     if (picked != null && picked != _selectedDate)
-      //Here, I'm using setState to update the _selectedDate field and rebuild the UI.
       setState(() {
         _selectedDate = picked;
       });
   } //_selectDate
 
-  //Utility method that validate the form and, if it is valid, save the new meal information.
   void _validateAndSave(BuildContext context) {
     if (formKey.currentState!.validate()) {
       Navigator.pop(context);
     }
   } // _validateAndSave
-
-  //Utility method that deletes a meal entry.
-  void _deleteAndPop(BuildContext context) {
-    Navigator.pop(context);
-  } //_deleteAndPop
 
 }
