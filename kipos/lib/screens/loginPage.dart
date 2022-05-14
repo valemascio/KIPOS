@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'package:kipos/screens/preferencePage.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -63,7 +64,7 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       onSubmitAnimationCompleted: () async {
-        Navigator.of(context).pushReplacementNamed(HomePage.route);
+        Navigator.of(context).pushReplacementNamed(PreferencePage.route);
       },
     );
   } // build

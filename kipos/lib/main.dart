@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
+import 'package:kipos/screens/preferencePage.dart';
 import 'package:kipos/screens/homePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
@@ -183,6 +184,7 @@ Did you know?
       initialRoute: LoginPage.route,
       routes: {
         LoginPage.route: (context) => LoginPage(),
+        PreferencePage.route: (context) => PreferencePage(),
         HomePage.route: (context) => HomePage(),
         LogoutPage.route: (context) => LogoutPage(),
         BadgePage.route: (context) => BadgePage(),
