@@ -45,6 +45,7 @@ class _PreferencePageState extends State<PreferencePage> {
       body: Center(
         child: _buildForm(context),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           // Authorize the app
