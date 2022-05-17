@@ -3,15 +3,39 @@ import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:kipos/screens/preferencePage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   static const route = '/';
   static const routename = 'LoginPage';
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
+  void initState() {
+    super.initState();
+    //Check if the user is already logged in before rendering the login page
+    _checkLogin();
+  } //initState
+
+  void _checkLogin() async {
+    //Get the SharedPreference instance and check if the value of the 'username' filed is set or not
+    final sp = await SharedPreferences.getInstance();
+    if (sp.getString('username') != null) {
+      //If 'username is set, push the HomePage
+      _toHomePage(context);
+    } //if
+  } //_checkLogin
+
   Future<String> _loginUser(LoginData data) async {
-    if (data.name == 'bug@expert.com' && data.password == 'gruppo4') {
+    if (data.name == 'kipos@unipd.com' && data.password == 'gruppo4') {
+      final sp = await SharedPreferences.getInstance();
+      sp.setString('username', data.name);
       return '';
     } else {
       return 'Wrong credentials';
@@ -64,10 +88,14 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       onSubmitAnimationCompleted: () async {
-        Navigator.of(context).pushReplacementNamed(PreferencePage.route);
+        //Navigator.of(context).pushReplacementNamed(PreferencePage.route);
+        _toHomePage(context);
       },
     );
   } // build
-} // LoginScreen
 
+  void _toHomePage(BuildContext context) {
+    Navigator.of(context).pushReplacementNamed(PreferencePage.route);
+  } // LoginScreen
+}
 //

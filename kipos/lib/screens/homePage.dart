@@ -3,6 +3,8 @@ import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:kipos/screens/loginPage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -349,4 +351,15 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  void _toLoginPage(BuildContext context) async {
+    //Unset the 'username' filed in SharedPreference
+    final sp = await SharedPreferences.getInstance();
+    sp.remove('username');
+
+    //Pop the drawer first
+    Navigator.pop(context);
+    //Then pop the HomePage
+    Navigator.of(context).pushReplacementNamed(LoginPage.route);
+  } //_toCalendarPage
 }
