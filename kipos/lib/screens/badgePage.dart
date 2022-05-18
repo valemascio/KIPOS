@@ -83,7 +83,7 @@ Congratulations for your first badge! Good job, you run 16 km 😄 This is not j
                   direction: FlipDirection.HORIZONTAL, // default
                   front: Container(
                     child: BadgeCard(
-                      titolo: 'Week 2 - Banano Tree',
+                      titolo: 'Week 2 - Banana Tree',
                       urlImmagine: getURL(),
                       // 'https://www.treedom.net/images/medium_428690',
                     ),
@@ -151,9 +151,9 @@ You have earned this badge because you are awesome!! 😄''',
                   direction: FlipDirection.HORIZONTAL, // default
                   front: Container(
                     child: BadgeCard(
-                      titolo: 'Week 4 - Cedro Tree',
+                      titolo: 'Week 4 - Chicozapote',
                       urlImmagine:
-                          'https://www.treedom.net/images/medium_428739',
+                          'https://medias.treedom.net/images/medium/e28ae4c8e5759accd4215a6df49c7b89.png',
                     ),
                   ),
                   back: Center(
@@ -185,7 +185,75 @@ You have earned this badge because you are awesome!! 😄''',
                   direction: FlipDirection.HORIZONTAL, // default
                   front: Container(
                     child: BadgeCard(
-                      titolo: 'Week 5 - Anacardo',
+                      titolo: 'Week 5 - Guava',
+                      urlImmagine:
+                          'https://www.treedom.net/images/medium_428703',
+                    ),
+                  ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
+              FlipCard(
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 6 - White Mangrove',
+                      urlImmagine:
+                          'https://www.treedom.net/images/medium_1038818',
+                    ),
+                  ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
+              FlipCard(
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 7 - Cashew',
                       urlImmagine:
                           'https://www.treedom.net/images/medium_876236',
                     ),
@@ -219,9 +287,281 @@ You have earned this badge because you are awesome!! 😄''',
                   direction: FlipDirection.HORIZONTAL, // default
                   front: Container(
                     child: BadgeCard(
-                      titolo: 'Week 6 - Avocado',
+                      titolo: 'Week 8 - Spanish Cedar',
+                      urlImmagine:
+                          'https://www.treedom.net/images/medium_428739',
+                    ),
+                  ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
+              FlipCard(
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 9 - Grevillea',
+                      urlImmagine:
+                          'https://www.treedom.net/images/medium_428774',
+                    ),
+                  ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
+              FlipCard(
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 10 - Avocado',
                       urlImmagine:
                           'https://www.treedom.net/images/medium_428705',
+                    ),
+                  ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
+              FlipCard(
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 11 - Macadamia',
+                      urlImmagine:
+                          'https://www.treedom.net/images/medium_428807',
+                    ),
+                  ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
+              FlipCard(
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 12 - Neem',
+                      urlImmagine:
+                          'https://www.treedom.net/images/medium_1244610',
+                    ),
+                  ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
+              FlipCard(
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 13 - Kapok',
+                      urlImmagine:
+                          'https://www.treedom.net/images/medium_428713',
+                    ),
+                  ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
+              FlipCard(
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 14 - Three Trees Kit',
+                      urlImmagine:
+                          'https://medias.treedom.net/images/medium/d74d0426991bb2a5437ee9ed40caec68.png',
+                    ),
+                  ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
+              FlipCard(
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 15 - Baobab',
+                      urlImmagine:
+                          'https://www.treedom.net/images/medium_428701',
+                    ),
+                  ),
+                  back: Center(
+                      child: Container(
+                    child: const Center(
+                      child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: Text('''
+You have earned this badge because you are awesome!! 😄''',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15))),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 122, 164, 94),
+                            spreadRadius: 3),
+                      ],
+                    ),
+                    height: 272,
+                    width: 272,
+                  ))),
+              FlipCard(
+                  fill: Fill
+                      .fillBack, // Fill the back side of the card to make in the same size as the front.
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Container(
+                    child: BadgeCard(
+                      titolo: 'Week 16 - Six Trees Kit',
+                      urlImmagine:
+                          'https://medias.treedom.net/images/medium/a287de0108bed40d2427f44567011c12.png',
                     ),
                   ),
                   back: Center(
