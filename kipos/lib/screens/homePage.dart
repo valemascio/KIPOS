@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                 size: 35,
                 color: Colors.white,
               ),
-              customItemsIndexes: const [3],
+              customItemsIndexes: const [2],
               customItemsHeight: 8,
               items: [
                 ...MenuItems.firstItems.map(
@@ -413,12 +413,14 @@ class MenuItem {
 }
 
 class MenuItems {
-  static const List<MenuItem> firstItems = [home, share, settings];
+  static const List<MenuItem> firstItems = [home, share /*, settings*/];
   static const List<MenuItem> secondItems = [logout];
 
-  static const home = MenuItem(text: 'Home', icon: Icons.home);
-  static const share = MenuItem(text: 'Share', icon: Icons.share);
-  static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
+  static const home =
+      MenuItem(text: 'Delete data', icon: Icons.delete_forever_rounded);
+  static const share =
+      MenuItem(text: 'Unauthorize', icon: Icons.block_outlined);
+  //static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
   static const logout = MenuItem(text: 'Log Out', icon: Icons.logout);
 
   static Widget buildItem(MenuItem item) {
@@ -443,7 +445,7 @@ class MenuItems {
       case MenuItems.home:
         //Do something
         break;
-      case MenuItems.settings:
+        //case MenuItems.settings:
         //Do something
         break;
       case MenuItems.share:
