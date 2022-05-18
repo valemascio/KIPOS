@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
             child: DropdownButton2(
               customButton: Icon(
                 MdiIcons.account,
-                size: 46,
+                size: 35,
                 color: Colors.white,
               ),
               customItemsIndexes: const [3],
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
               dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
               dropdownDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                color: Color.fromARGB(255, 85, 144, 19),
+                color: Color.fromARGB(255, 139, 195, 74),
               ),
               dropdownElevation: 8,
               offset: const Offset(0, 8),
