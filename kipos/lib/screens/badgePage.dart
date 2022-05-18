@@ -49,9 +49,9 @@ class BadgePage extends StatelessWidget {
                   direction: FlipDirection.HORIZONTAL, // default
                   front: Container(
                     child: BadgeCard(
-                      titolo: 'Week 1',
+                      titolo: 'Week 1 - Cacao Tree',
                       urlImmagine:
-                          'https://immagini.disegnidacolorareonline.com/cache/data/disegni-colorati/disegno-fiorellino-colorato-600x600.jpg',
+                          'https://www.treedom.net/images/medium_428702',
                     ),
                   ),
                   back: Center(
@@ -60,7 +60,7 @@ class BadgePage extends StatelessWidget {
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations for your first badge! Good job, you run 16 km 😄 This is not just a simple badge, thanks to your efforts you have helped make the world a better place. A cocoa tree will be planted in Camerun!''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -83,9 +83,9 @@ You have earned this badge because you are awesome!! 😄''',
                   direction: FlipDirection.HORIZONTAL, // default
                   front: Container(
                     child: BadgeCard(
-                      titolo: 'Week 2',
+                      titolo: 'Week 2 - Banano Tree',
                       urlImmagine: getURL(),
-                      // 'https://cdn5.acolore.com/disegni/colori/2012005/f3eef2e26fe0ec4db583dd4a3c8294af.png',
+                      // 'https://www.treedom.net/images/medium_428690',
                     ),
                   ),
                   back: Center(
@@ -117,9 +117,9 @@ You have earned this badge because you are awesome!! 😄''',
                   direction: FlipDirection.HORIZONTAL, // default
                   front: Container(
                     child: BadgeCard(
-                      titolo: 'Week 3',
+                      titolo: 'Week 3 - Coffee Tree',
                       urlImmagine:
-                          'https://cdn5.acolore.com/disegni/colori/201244/fiore-selvatico-1-natura-fiori-dipinto-da-samell-1062079.jpg',
+                          'https://www.treedom.net/images/medium_428740',
                     ),
                   ),
                   back: Center(
@@ -151,9 +151,9 @@ You have earned this badge because you are awesome!! 😄''',
                   direction: FlipDirection.HORIZONTAL, // default
                   front: Container(
                     child: BadgeCard(
-                      titolo: 'Week 4',
+                      titolo: 'Week 4 - Cedro Tree',
                       urlImmagine:
-                          'https://cdn5.acolore.com/disegni/colori/202018/fiori-1-natura-fiori-1172686.jpg',
+                          'https://www.treedom.net/images/medium_428739',
                     ),
                   ),
                   back: Center(
@@ -185,9 +185,9 @@ You have earned this badge because you are awesome!! 😄''',
                   direction: FlipDirection.HORIZONTAL, // default
                   front: Container(
                     child: BadgeCard(
-                      titolo: 'Week 5',
+                      titolo: 'Week 5 - Anacardo',
                       urlImmagine:
-                          'https://cdn5.acolore.com/disegni/colori/202013/vaso-di-fiori-natura-fiori-1166806.jpg',
+                          'https://www.treedom.net/images/medium_876236',
                     ),
                   ),
                   back: Center(
@@ -219,9 +219,9 @@ You have earned this badge because you are awesome!! 😄''',
                   direction: FlipDirection.HORIZONTAL, // default
                   front: Container(
                     child: BadgeCard(
-                      titolo: 'Week 6',
+                      titolo: 'Week 6 - Avocado',
                       urlImmagine:
-                          'https://immagini.disegnidacolorareonline.com/cache/data/disegni-colorati/disegno-di-fiori-tulipani-colorati-600x600.jpg',
+                          'https://www.treedom.net/images/medium_428705',
                     ),
                   ),
                   back: Center(
