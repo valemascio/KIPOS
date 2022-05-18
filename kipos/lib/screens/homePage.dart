@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
-import 'package:kipos/screens/logoutPage.dart';
+import 'package:kipos/utilities/menuItem.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:kipos/screens/loginPage.dart';
@@ -16,11 +16,11 @@ class HomePage extends StatefulWidget {
   //static const user_id = "7TVBB5";
 
   @override
-  @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
     const IconData lightbulb = IconData(0xe37b, fontFamily: 'MaterialIcons');
     List<String> numbers = <String>[
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
           DropdownButtonHideUnderline(
             child: DropdownButton2(
               customButton: Icon(
-                MdiIcons.account,
+                MdiIcons.accountCircle,
                 size: 35,
                 color: Colors.white,
               ),

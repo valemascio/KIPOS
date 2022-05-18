@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:kipos/screens/homePage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -112,7 +112,7 @@ class MenuItems {
 }  
     
     
-/*class LogoutPage extends StatelessWidget {
+class LogoutPage extends StatelessWidget {
   const LogoutPage({Key? key}) : super(key: key);
 
   static const route = '/logout/';
