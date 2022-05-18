@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
-import 'package:kipos/utilities/menuItem.dart';
+import 'package:kipos/screens/loginPage.dart';
+import 'package:kipos/screens/logoutPage.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:kipos/screens/loginPage.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -413,15 +413,14 @@ class MenuItem {
 }
 
 class MenuItems {
-  static const List<MenuItem> firstItems = [home, share /*, settings*/];
-  static const List<MenuItem> secondItems = [logout];
+  static const List<MenuItem> firstItems = [logout, unauthorize];
+  static const List<MenuItem> secondItems = [delete];
 
-  static const home =
-      MenuItem(text: 'Delete data', icon: Icons.delete_forever_rounded);
-  static const share =
+  static const logout = MenuItem(text: 'Log out', icon: Icons.logout_outlined);
+  static const unauthorize =
       MenuItem(text: 'Unauthorize', icon: Icons.block_outlined);
-  //static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
-  static const logout = MenuItem(text: 'Log Out', icon: Icons.logout);
+  static const delete =
+      MenuItem(text: 'Delete Data', icon: Icons.delete_forever_rounded);
 
   static Widget buildItem(MenuItem item) {
     return Row(
@@ -442,17 +441,15 @@ class MenuItems {
 
   static onChanged(BuildContext context, MenuItem item) {
     switch (item) {
-      case MenuItems.home:
-        //Do something
-        break;
-        //case MenuItems.settings:
-        //Do something
-        break;
-      case MenuItems.share:
-        //Do something
-        break;
       case MenuItems.logout:
-        //Do something
+        print('logout');
+        Navigator.pushNamed(context, LogoutPage.route);
+        break;
+      case MenuItems.unauthorize:
+        print('unauthorize');
+        break;
+      case MenuItems.delete:
+        print('delete');
         break;
     }
   }

@@ -5,7 +5,7 @@ import 'package:kipos/screens/homePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
-//import 'package:kipos/screens/logoutPage.dart';
+import 'package:kipos/screens/logoutPage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -186,7 +186,7 @@ Did you know?
         LoginPage.route: (context) => LoginPage(),
         PreferencePage.route: (context) => PreferencePage(),
         HomePage.route: (context) => HomePage(),
-        //LogoutPage.route: (context) => LogoutPage(),
+        LogoutPage.route: (context) => LogoutPage(),
         BadgePage.route: (context) => BadgePage(),
         StatisticsPage.route: (context) => StatisticsPage(),
         TipsPage.route: (context) => TipsPage(
