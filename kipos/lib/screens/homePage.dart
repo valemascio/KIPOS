@@ -5,8 +5,10 @@ import 'package:kipos/screens/logoutPage.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:kipos/screens/loginPage.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   static const route = '/home/';
@@ -14,6 +16,11 @@ class HomePage extends StatelessWidget {
   //static const user_id = "7TVBB5";
 
   @override
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     const IconData lightbulb = IconData(0xe37b, fontFamily: 'MaterialIcons');
     List<String> numbers = <String>[
@@ -73,16 +80,47 @@ class HomePage extends StatelessWidget {
             Navigator.pushNamed(context, '/tips/');
           },
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(
-              Icons.logout,
-              color: Colors.white,
+        actions: [
+          DropdownButtonHideUnderline(
+            child: DropdownButton2(
+              customButton: Icon(
+                MdiIcons.account,
+                size: 46,
+                color: Colors.white,
+              ),
+              customItemsIndexes: const [3],
+              customItemsHeight: 8,
+              items: [
+                ...MenuItems.firstItems.map(
+                  (item) => DropdownMenuItem<MenuItem>(
+                    value: item,
+                    child: MenuItems.buildItem(item),
+                  ),
+                ),
+                const DropdownMenuItem<Divider>(
+                    enabled: false, child: Divider()),
+                ...MenuItems.secondItems.map(
+                  (item) => DropdownMenuItem<MenuItem>(
+                    value: item,
+                    child: MenuItems.buildItem(item),
+                  ),
+                ),
+              ],
+              onChanged: (value) {
+                MenuItems.onChanged(context, value as MenuItem);
+              },
+              itemHeight: 48,
+              itemPadding: const EdgeInsets.only(left: 16, right: 16),
+              dropdownWidth: 160,
+              dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
+              dropdownDecoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                color: Color.fromARGB(255, 85, 144, 19),
+              ),
+              dropdownElevation: 8,
+              offset: const Offset(0, 8),
             ),
-            onPressed: () {
-              Navigator.pushNamed(context, LogoutPage.route);
-            },
-          ),
+          )
         ],
       ),
       body: ListView(children: [
@@ -164,7 +202,7 @@ class HomePage extends StatelessWidget {
         for (var i = 0; i < pos.length; i++)
           ExpansionTileCard(
             leading: CircleAvatar(
-              backgroundColor: Colors.red[400],
+              backgroundColor: Colors.lightGreen,
               foregroundColor: Colors.white,
               child: Text(
                 numbers[i + 4] + '/16',
@@ -351,15 +389,69 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+}
 
-  void _toLoginPage(BuildContext context) async {
-    //Unset the 'username' filed in SharedPreference
-    final sp = await SharedPreferences.getInstance();
-    sp.remove('username');
+void _toLoginPage(BuildContext context) async {
+  //Unset the 'username' filed in SharedPreference
+  final sp = await SharedPreferences.getInstance();
+  sp.remove('username');
 
-    //Pop the drawer first
-    Navigator.pop(context);
-    //Then pop the HomePage
-    Navigator.of(context).pushReplacementNamed(LoginPage.route);
-  } //_toCalendarPage
+  //Pop the drawer first
+  Navigator.pop(context);
+  //Then pop the HomePage
+  Navigator.of(context).pushReplacementNamed(LoginPage.route);
+} //_toCalendarPage
+
+class MenuItem {
+  final String text;
+  final IconData icon;
+
+  const MenuItem({
+    required this.text,
+    required this.icon,
+  });
+}
+
+class MenuItems {
+  static const List<MenuItem> firstItems = [home, share, settings];
+  static const List<MenuItem> secondItems = [logout];
+
+  static const home = MenuItem(text: 'Home', icon: Icons.home);
+  static const share = MenuItem(text: 'Share', icon: Icons.share);
+  static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
+  static const logout = MenuItem(text: 'Log Out', icon: Icons.logout);
+
+  static Widget buildItem(MenuItem item) {
+    return Row(
+      children: [
+        Icon(item.icon, color: Colors.white, size: 22),
+        const SizedBox(
+          width: 10,
+        ),
+        Text(
+          item.text,
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ],
+    );
+  }
+
+  static onChanged(BuildContext context, MenuItem item) {
+    switch (item) {
+      case MenuItems.home:
+        //Do something
+        break;
+      case MenuItems.settings:
+        //Do something
+        break;
+      case MenuItems.share:
+        //Do something
+        break;
+      case MenuItems.logout:
+        //Do something
+        break;
+    }
+  }
 }
