@@ -60,7 +60,8 @@ class BadgePage extends StatelessWidget {
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-Congratulations for your first badge! Good job, you run 16 km 😄 This is not just a simple badge, thanks to your efforts you have helped make the world a better place. A cocoa tree will be planted in Camerun!''',
+Congratulations for your first badge! Good job, you run 16 km 😄 This is not just a simple badge, thanks to your efforts a Cacao tree will be planted in Cameroon!
+CO2 absorbed: 55kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -94,7 +95,8 @@ Congratulations for your first badge! Good job, you run 16 km 😄 This is not j
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 23 km! 😄 A Banana tree will be planted in Cameroon.
+CO2 absorbed: 10kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -128,7 +130,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 34 km! 😄 A Coffee tree will be planted in Kenya.
+CO2 absorbed: 55kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -162,7 +165,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 31 km! 😄 A Chicozapote tree will be planted in Guatemala.
+CO2 absorbed: 100kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -196,7 +200,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 39.5 km! 😄 A Guava tree will be planted in Kenya.
+CO2 absorbed: 200kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -230,7 +235,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 48 km! 😄 A White Mangrove tree will be planted in Honduras.
+CO2 absorbed: 50kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -264,7 +270,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 37.5 km! 😄 A Cashew tree will be planted in Ghana.
+CO2 absorbed: 300kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -298,7 +305,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 43 km! 😄 A Spanish Cedar tree will be planted in Haiti.
+CO2 absorbed: 500kg 😄''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -332,7 +340,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 46 km! 😄 A Grevillea tree will be planted in Tanzania.
+CO2 absorbed: 800kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -366,7 +375,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 56 km! 😄 An Avocado tree will be planted in Tanzania.
+CO2 absorbed: 500kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -400,7 +410,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 54.5 km! 😄 A Macadamia tree will be planted in Kenya.
+CO2 absorbed: 300kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -434,7 +445,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 78 km! 😄 A Neem tree will be planted in Kenya.
+CO2 absorbed: 900kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -468,7 +480,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 49 km! 😄 A Kapok tree will be planted in Ghana.
+CO2 absorbed: 2000kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -502,7 +515,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 43 km! 😄 A Guava, Coffee and Cacao tree will be planted in Kenya, Nepal and Ecuador.
+CO2 absorbed: 310kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -536,7 +550,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 39 km! 😄 A Baobab tree will be planted in Madagascar.
+CO2 absorbed: 3000kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
@@ -570,7 +585,8 @@ You have earned this badge because you are awesome!! 😄''',
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
-You have earned this badge because you are awesome!! 😄''',
+Congratulations, you run 21 km! 😄 Six different trees will be planted in different part of the world.
+CO2 absorbed: 1170kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15))),
