@@ -39,51 +39,142 @@ class _PreferencePageState extends State<PreferencePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: (const Text('  Preferences ')),
+        title: (const Text(
+          'Settings',
+          textAlign: TextAlign.center,
+        )),
         backgroundColor: Colors.lightGreen,
       ),
-      body: Center(
-        child: _buildForm(context),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async {
-          // Authorize the app
-          String? userId = await FitbitConnector.authorize(
-              context: context,
-              clientID: Strings.fitbitClientID,
-              clientSecret: Strings.fitbitClientSecret,
-              redirectUri: Strings.fitbitRedirectUri,
-              callbackUrlScheme: Strings.fitbitCallbackScheme);
+      body: SafeArea(
+          child: Stack(
+        children: [
+          _buildForm(context),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(80, 230, 10, 10),
+            child: Column(
+              children: [
+                const SizedBox(height: 80),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned.fill(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.lightGreen,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.all(16.0),
+                          primary: Colors.white,
+                          textStyle: const TextStyle(fontSize: 18),
+                        ),
+                        onPressed: () async {
+                          // Authorize the app
+                          String? userId = await FitbitConnector.authorize(
+                              context: context,
+                              clientID: Strings.fitbitClientID,
+                              clientSecret: Strings.fitbitClientSecret,
+                              redirectUri: Strings.fitbitRedirectUri,
+                              callbackUrlScheme: Strings.fitbitCallbackScheme);
 
-          //Instantiate a proper data manager
-          FitbitActivityTimeseriesDataManager
-              fitbitActivityTimeseriesDataManager =
-              FitbitActivityTimeseriesDataManager(
-            clientID: Strings.fitbitClientID,
-            clientSecret: Strings.fitbitClientSecret,
-            type: 'steps',
-          );
+                          //Instantiate a proper data manager
+                          FitbitActivityTimeseriesDataManager
+                              fitbitActivityTimeseriesDataManager =
+                              FitbitActivityTimeseriesDataManager(
+                            clientID: Strings.fitbitClientID,
+                            clientSecret: Strings.fitbitClientSecret,
+                            type: 'steps',
+                          );
 
-          //Fetch data
-          final stepsData = await fitbitActivityTimeseriesDataManager
-              .fetch(FitbitActivityTimeseriesAPIURL.dateRangeWithResource(
-            userID: userId,
-            startDate: _selectedDate,
-            endDate: _selectedDate.add(Duration(days: 115)),
-            resource: fitbitActivityTimeseriesDataManager.type,
-          )) as List<FitbitActivityTimeseriesData>;
+                          //Fetch data
+                          final stepsData =
+                              await fitbitActivityTimeseriesDataManager.fetch(
+                                  FitbitActivityTimeseriesAPIURL
+                                      .dateRangeWithResource(
+                            userID: userId,
+                            startDate: _selectedDate,
+                            endDate: _selectedDate.add(Duration(days: 115)),
+                            resource: fitbitActivityTimeseriesDataManager.type,
+                          )) as List<FitbitActivityTimeseriesData>;
 
-          // Use them as you want
-          final snackBar = SnackBar(
-              content: Text('The authorization process was successful!'));
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-          Navigator.pushNamed(context, HomePage.route);
-        },
-        label: Text('Authorize FitBit & go to HomePage'),
-        backgroundColor: Color.fromARGB(255, 122, 164, 94),
-      ),
+                          // Use them as you want
+                          final snackBar = SnackBar(
+                              content: Text(
+                                  'The authorization process was successful!'));
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        },
+                        child: const Text('Authorize FitBit data'),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned.fill(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.lightGreen,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.all(16.0),
+                          primary: Colors.white,
+                          textStyle: const TextStyle(fontSize: 18),
+                        ),
+                        onPressed: () async {
+                          await FitbitConnector.unauthorize(
+                            clientID: Strings.fitbitClientID,
+                            clientSecret: Strings.fitbitClientSecret,
+                          );
+                          final snackBar = SnackBar(
+                              content: Text(
+                                  'FitBit data access was unauthorized successfully.'));
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        },
+                        child: const Text('Unautorize FitBit data'),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned.fill(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.lightGreen,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.all(16.0),
+                          primary: Colors.white,
+                          textStyle: const TextStyle(fontSize: 18),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, HomePage.route);
+                        },
+                        child: const Text('Go to Homepage'),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      )),
     );
   } //build
 
