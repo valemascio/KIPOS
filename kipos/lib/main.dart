@@ -8,13 +8,24 @@ import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  /*await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );*/
   runApp(const MyApp());
 } //main
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  Future<void> initializeDefault() async {
+    FirebaseApp app = await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  }
 
   // This widget is the root of your application.
   @override
