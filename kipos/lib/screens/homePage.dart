@@ -414,7 +414,7 @@ class MenuItem {
 }
 
 class MenuItems {
-  static const List<MenuItem> firstItems = [logout, unauthorize, settings];
+  static const List<MenuItem> firstItems = [settings, unauthorize, logout];
   static const List<MenuItem> secondItems = [delete];
 
   static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
