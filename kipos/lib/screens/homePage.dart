@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
+import 'package:kipos/screens/preferencePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
@@ -88,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                 size: 35,
                 color: Colors.white,
               ),
-              customItemsIndexes: const [2],
+              customItemsIndexes: const [3],
               customItemsHeight: 8,
               items: [
                 ...MenuItems.firstItems.map(
@@ -413,9 +414,10 @@ class MenuItem {
 }
 
 class MenuItems {
-  static const List<MenuItem> firstItems = [logout, unauthorize];
+  static const List<MenuItem> firstItems = [logout, unauthorize, settings];
   static const List<MenuItem> secondItems = [delete];
 
+  static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
   static const logout = MenuItem(text: 'Log out', icon: Icons.logout_outlined);
   static const unauthorize =
       MenuItem(text: 'Unauthorize', icon: Icons.block_outlined);
@@ -447,6 +449,9 @@ class MenuItems {
         break;
       case MenuItems.unauthorize:
         print('unauthorize');
+        break;
+      case MenuItems.settings:
+        Navigator.pushNamed(context, PreferencePage.route);
         break;
       case MenuItems.delete:
         print('delete');

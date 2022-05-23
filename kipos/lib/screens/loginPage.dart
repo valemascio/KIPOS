@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
   } // build
 
   void _toHomePage(BuildContext context) {
-    Navigator.of(context).pushReplacementNamed(PreferencePage.route);
+    Navigator.of(context).pushReplacementNamed(HomePage.route);
   } // LoginScreen
 }
 //
