@@ -22,8 +22,7 @@ class LogoutPage extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.pop(context);
-            Navigator.popAndPushNamed(context, LoginPage.route);
+            _toLoginPage(context);
           },
           child: const Text('OK',
               style: TextStyle(color: Color.fromARGB(255, 122, 164, 94))),
