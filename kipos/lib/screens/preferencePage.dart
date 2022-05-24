@@ -100,6 +100,27 @@ class _PreferencePageState extends State<PreferencePage> {
                             resource: fitbitActivityTimeseriesDataManager.type,
                           )) as List<FitbitActivityTimeseriesData>;
 
+                          //Instantiate a proper data manager
+                          FitbitActivityTimeseriesDataManager
+                              fitbitActivityTimeseriesDataManager_dist =
+                              FitbitActivityTimeseriesDataManager(
+                            clientID: Strings.fitbitClientID,
+                            clientSecret: Strings.fitbitClientSecret,
+                            type: 'distance',
+                          );
+
+                          //Fetch data
+                          final distData =
+                              await fitbitActivityTimeseriesDataManager_dist
+                                  .fetch(FitbitActivityTimeseriesAPIURL
+                                      .dateRangeWithResource(
+                            userID: userId,
+                            startDate: _selectedDate,
+                            endDate: _selectedDate.add(Duration(days: 115)),
+                            resource:
+                                fitbitActivityTimeseriesDataManager_dist.type,
+                          )) as List<FitbitActivityTimeseriesData>;
+
                           // Use them as you want
                           final snackBar = SnackBar(
                               content: Text(
