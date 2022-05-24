@@ -8,6 +8,9 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:kipos/database/entities/todo.dart';
+import 'package:kipos/repository/databaseRepository.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

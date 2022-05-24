@@ -8,7 +8,11 @@ import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:kipos/database/database.dart';
+import 'package:kipos/repository/databaseRepository.dart';
+import 'package:provider/provider.dart';
 
+//WidgetsFlutterBinding.ensureInitialized();
 void main() {
   runApp(const MyApp());
 } //main
