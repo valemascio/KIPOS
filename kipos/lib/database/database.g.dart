@@ -46,7 +46,7 @@ class _$AppDatabaseBuilder {
     final path = name != null
         ? await sqfliteDatabaseFactory.getDatabasePath(name!)
         : ':memory:';
-    final database = _$AppDatabase();
+    final database = _$KiposDatabase();
     database.database = await database.open(
       path,
       _migrations,
@@ -56,12 +56,12 @@ class _$AppDatabaseBuilder {
   }
 }
 
-class _$AppDatabase extends AppDatabase {
-  _$AppDatabase([StreamController<String>? listener]) {
+class _$KiposDatabase extends AppDatabase {
+  _$KiposDatabase([StreamController<String>? listener]) {
     changeListener = listener ?? StreamController<String>.broadcast();
   }
 
-  TodoDao? _todoDaoInstance;
+  DatiDao? _datiDaoInstance;
 
   Future<sqflite.Database> open(String path, List<Migration> migrations,
       [Callback? callback]) async {
@@ -91,24 +91,36 @@ class _$AppDatabase extends AppDatabase {
   }
 
   @override
-  TodoDao get todoDao {
-    return _todoDaoInstance ??= _$TodoDao(database, changeListener);
+  DatiDao get datiDao {
+    return _datiDaoInstance ??= _$DatiDao(database, changeListener);
   }
 }
 
-class _$TodoDao extends TodoDao {
-  _$TodoDao(this.database, this.changeListener)
+class _$DatiDao extends DatiDao {
+  _$DatiDao(this.database, this.changeListener)
       : _queryAdapter = QueryAdapter(database, changeListener),
         _todoInsertionAdapter = InsertionAdapter(
             database,
-            'Todo',
-            (Todo item) => <String, Object?>{'id': item.id, 'name': item.name},
+            'Dato',
+            (Dati item) => <String, Object?>{
+                  'id': item.id,
+                  'week': item.week,
+                  'distance': item.distance,
+                  'steps': item.steps,
+                  'calories': item.calories
+                },
             changeListener),
         _todoDeletionAdapter = DeletionAdapter(
             database,
             'Todo',
             ['id'],
-            (Todo item) => <String, Object?>{'id': item.id, 'name': item.name},
+            (Dati item) => <String, Object?>{
+                  'id': item.id,
+                  'week': item.week,
+                  'distance': item.distance,
+                  'steps': item.steps,
+                  'calories': item.calories
+                },
             changeListener);
 
   final sqflite.DatabaseExecutor database;
@@ -117,34 +129,42 @@ class _$TodoDao extends TodoDao {
 
   final QueryAdapter _queryAdapter;
 
-  final InsertionAdapter<Todo> _todoInsertionAdapter;
+  final InsertionAdapter<Dati> _todoInsertionAdapter;
 
-  final DeletionAdapter<Todo> _todoDeletionAdapter;
+  final DeletionAdapter<Dati> _todoDeletionAdapter;
 
   @override
-  Future<List<Todo>> findAllTodos() async {
+  Future<List<Dati>> findAllTodos() async {
     return _queryAdapter.queryList('SELECT * FROM Todo',
-        mapper: (Map<String, Object?> row) =>
-            Todo(row['id'] as int?, row['name'] as String));
+        mapper: (Map<String, Object?> row) => Dati(
+            row['id'] as int?,
+            row['week'] as int,
+            row['distance'] as double,
+            row['steps'] as int,
+            row['calories'] as double));
   }
 
   @override
-  Stream<Todo?> findTodoById(int id) {
+  Stream<Dati?> findTodoById(int id) {
     return _queryAdapter.queryStream('SELECT * FROM Todo WHERE id = ?1',
-        mapper: (Map<String, Object?> row) =>
-            Todo(row['id'] as int?, row['name'] as String),
+        mapper: (Map<String, Object?> row) => Dati(
+            row['id'] as int?,
+            row['week'] as int,
+            row['distance'] as double,
+            row['steps'] as int,
+            row['calories'] as double),
         arguments: [id],
         queryableName: 'Todo',
         isView: false);
   }
 
   @override
-  Future<void> insertTodo(Todo todo) async {
+  Future<void> insertTodo(Dati todo) async {
     await _todoInsertionAdapter.insert(todo, OnConflictStrategy.abort);
   }
 
   @override
-  Future<void> deleteTodo(Todo task) async {
+  Future<void> deleteTodo(Dati task) async {
     await _todoDeletionAdapter.delete(task);
   }
 }
