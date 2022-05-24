@@ -50,6 +50,9 @@ class BadgePage extends StatelessWidget {
                   front: Container(
                     child: BadgeCard(
                       titolo: 'Week 1 - Cacao Tree',
+                      //if km < 16
+                      //return urlImmagine:'https://www.treedom.net/images/medium_428702';
+                      //else return urlImmagine: getURL();
                       urlImmagine:
                           'https://www.treedom.net/images/medium_428702',
                     ),
@@ -691,3 +694,8 @@ class Background extends StatelessWidget {
     );
   }
 }
+
+// if steps >= 35000:
+//   urlImmagine:'',
+// else:
+//   urlImmagine: getURL(),
