@@ -12,8 +12,17 @@ import 'package:kipos/database/database.dart';
 import 'package:kipos/repository/databaseRepository.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final AppDatabase database =
+      await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+  final databaseRepository = DatabaseRepository(database: database);
+
+  runApp(ChangeNotifierProvider<DatabaseRepository>(
+    create: (context) => databaseRepository,
+    child: MyApp(),
+  ));
 } //main
 
 class MyApp extends StatelessWidget {
