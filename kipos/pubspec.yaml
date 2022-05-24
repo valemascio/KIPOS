@@ -38,11 +38,6 @@ dependencies:
 
   #Floor package dependency
   floor: ^1.2.0
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> d863666d2df0752a2b9871fe7befe2d8a4e53b66
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
