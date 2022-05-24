@@ -11,7 +11,7 @@ abstract class DatiDao {
 
   //Query #2: INSERT -> this allows to add a Todo in the table
   @insert
-  Future<void> insertTodo(Dati todo);
+  Future<void> insertTodo(Dati data);
 
   //Query #3: DELETE -> this allows to delete a Todo from the table
   @delete

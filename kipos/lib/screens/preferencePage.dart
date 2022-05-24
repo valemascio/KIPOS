@@ -6,6 +6,8 @@ import 'package:kipos/utilities/formSeparator.dart';
 import 'package:kipos/screens/homePage.dart';
 import 'package:fitbitter/fitbitter.dart';
 import 'package:kipos/utilities/strings.dart';
+import 'package:provider/provider.dart';
+import 'package:kipos/repository/databaseRepository.dart';
 
 class PreferencePage extends StatefulWidget {
   PreferencePage({Key? key}) : super(key: key);
@@ -99,6 +101,9 @@ class _PreferencePageState extends State<PreferencePage> {
                             endDate: _selectedDate.add(Duration(days: 115)),
                             resource: fitbitActivityTimeseriesDataManager.type,
                           )) as List<FitbitActivityTimeseriesData>;
+                          //creare una nuova lista con gli steps chiamata step
+                          //Provider.of<databaseRepository>(context, listen:false)
+                          //.insertTodo(Data(null, distance[1],step[1]))
 
                           //Instantiate a proper data manager
                           FitbitActivityTimeseriesDataManager
