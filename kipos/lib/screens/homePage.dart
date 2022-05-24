@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                 size: 35,
                 color: Colors.white,
               ),
-              customItemsIndexes: const [3],
+              customItemsIndexes: const [2],
               customItemsHeight: 8,
               items: [
                 ...MenuItems.firstItems.map(
@@ -414,13 +414,11 @@ class MenuItem {
 }
 
 class MenuItems {
-  static const List<MenuItem> firstItems = [settings, unauthorize, logout];
+  static const List<MenuItem> firstItems = [settings, logout];
   static const List<MenuItem> secondItems = [delete];
 
   static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
   static const logout = MenuItem(text: 'Log out', icon: Icons.logout_outlined);
-  static const unauthorize =
-      MenuItem(text: 'Unauthorize', icon: Icons.block_outlined);
   static const delete =
       MenuItem(text: 'Delete Data', icon: Icons.delete_forever_rounded);
 
@@ -446,9 +444,6 @@ class MenuItems {
       case MenuItems.logout:
         print('logout');
         Navigator.pushNamed(context, LogoutPage.route);
-        break;
-      case MenuItems.unauthorize:
-        print('unauthorize');
         break;
       case MenuItems.settings:
         Navigator.pushNamed(context, PreferencePage.route);
