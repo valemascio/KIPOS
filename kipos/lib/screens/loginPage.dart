@@ -42,9 +42,9 @@ class _LoginPageState extends State<LoginPage> {
     }
   } // _loginUser
 
-  Future<String> _signUpUser(SignupData data) async {
+  /*UpUser(SignupData data) async {
     return 'To be implemented';
-  } // _signUpUser
+  } // _signUpUser*/
 
   Future<String> _recoverPassword(String email) async {
     return 'Recover password functionality needs to be implemented';
@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
     return FlutterLogin(
       title: 'KÌPOS',
       onLogin: _loginUser,
-      onSignup: _signUpUser,
+      //onSignup: _signUpUser,
       onRecoverPassword: _recoverPassword,
       theme: //LOGIN THEME
           LoginTheme(
