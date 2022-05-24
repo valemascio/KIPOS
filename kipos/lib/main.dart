@@ -12,7 +12,6 @@ import 'package:kipos/database/database.dart';
 import 'package:kipos/repository/databaseRepository.dart';
 import 'package:provider/provider.dart';
 
-//WidgetsFlutterBinding.ensureInitialized();
 void main() {
   runApp(const MyApp());
 } //main
