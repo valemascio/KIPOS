@@ -16,8 +16,11 @@ class Dati {
 
   final int steps;
 
-  final double calories;
+  final double velocity;
+
+  final int calories;
 
   //Default constructor
-  Dati(this.id, this.week, this.distance, this.steps, this.calories);
+  Dati(this.id, this.week, this.distance, this.steps, this.velocity,
+      this.calories);
 }//Dati

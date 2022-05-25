@@ -107,6 +107,7 @@ class _$DatiDao extends DatiDao {
                   'week': item.week,
                   'distance': item.distance,
                   'steps': item.steps,
+                  'velocity': item.velocity,
                   'calories': item.calories
                 },
             changeListener),
@@ -119,6 +120,7 @@ class _$DatiDao extends DatiDao {
                   'week': item.week,
                   'distance': item.distance,
                   'steps': item.steps,
+                  'velocity': item.velocity,
                   'calories': item.calories
                 },
             changeListener);
@@ -141,7 +143,8 @@ class _$DatiDao extends DatiDao {
             row['week'] as int,
             row['distance'] as double,
             row['steps'] as int,
-            row['calories'] as double));
+            row['velocity'] as double,
+            row['calories'] as int));
   }
 
   @override
@@ -152,7 +155,8 @@ class _$DatiDao extends DatiDao {
             row['week'] as int,
             row['distance'] as double,
             row['steps'] as int,
-            row['calories'] as double),
+            row['velocity'] as double,
+            row['calories'] as int),
         arguments: [id],
         queryableName: 'Todo',
         isView: false);
