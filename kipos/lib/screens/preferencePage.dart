@@ -82,7 +82,7 @@ class _PreferencePageState extends State<PreferencePage> {
                               redirectUri: Strings.fitbitRedirectUri,
                               callbackUrlScheme: Strings.fitbitCallbackScheme);
 
-                          //Instantiate a proper data manager
+                          //Data manager steps
                           FitbitActivityTimeseriesDataManager
                               fitbitActivityTimeseriesDataManager =
                               FitbitActivityTimeseriesDataManager(
@@ -91,7 +91,7 @@ class _PreferencePageState extends State<PreferencePage> {
                             type: 'steps',
                           );
 
-                          //Fetch data
+                          //Fetch steps
                           final stepsData =
                               await fitbitActivityTimeseriesDataManager.fetch(
                                   FitbitActivityTimeseriesAPIURL
@@ -101,11 +101,12 @@ class _PreferencePageState extends State<PreferencePage> {
                             endDate: _selectedDate.add(Duration(days: 115)),
                             resource: fitbitActivityTimeseriesDataManager.type,
                           )) as List<FitbitActivityTimeseriesData>;
+
                           //creare una nuova lista con gli steps chiamata step
                           //Provider.of<databaseRepository>(context, listen:false)
                           //.insertTodo(Data(null, distance[1],step[1]))
 
-                          //Instantiate a proper data manager
+                          //Data manager distance
                           FitbitActivityTimeseriesDataManager
                               fitbitActivityTimeseriesDataManager_dist =
                               FitbitActivityTimeseriesDataManager(
@@ -114,7 +115,7 @@ class _PreferencePageState extends State<PreferencePage> {
                             type: 'distance',
                           );
 
-                          //Fetch data
+                          //Fetch distance
                           final distData =
                               await fitbitActivityTimeseriesDataManager_dist
                                   .fetch(FitbitActivityTimeseriesAPIURL
@@ -124,6 +125,27 @@ class _PreferencePageState extends State<PreferencePage> {
                             endDate: _selectedDate.add(Duration(days: 115)),
                             resource:
                                 fitbitActivityTimeseriesDataManager_dist.type,
+                          )) as List<FitbitActivityTimeseriesData>;
+
+                          //Data manager calories
+                          FitbitActivityTimeseriesDataManager
+                              fitbitActivityTimeseriesDataManager_cal =
+                              FitbitActivityTimeseriesDataManager(
+                            clientID: Strings.fitbitClientID,
+                            clientSecret: Strings.fitbitClientSecret,
+                            type: 'calories',
+                          );
+
+                          //Fetch steps
+                          final calData =
+                              await fitbitActivityTimeseriesDataManager_cal
+                                  .fetch(FitbitActivityTimeseriesAPIURL
+                                      .dateRangeWithResource(
+                            userID: userId,
+                            startDate: _selectedDate,
+                            endDate: _selectedDate.add(Duration(days: 115)),
+                            resource:
+                                fitbitActivityTimeseriesDataManager_cal.type,
                           )) as List<FitbitActivityTimeseriesData>;
 
                           // Use them as you want
