@@ -185,7 +185,8 @@ class _PreferencePageState extends State<PreferencePage> {
                           )) as List<FitbitSleepData>;
 
                           final snackBar = SnackBar(
-                              content: Text('sleep data: ${sleepData}'));
+                              content: Text(
+                                  'sleep data: ${(stepsData[0].value as double) + (stepsData[1].value as double)}'));
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
                         child: const Text('Authorize FitBit data'),
