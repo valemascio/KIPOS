@@ -24,6 +24,8 @@ class _PreferencePageState extends State<PreferencePage> {
 
   TextEditingController _choController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
+  int x = 7;
+  List<int> steps = [];
 
   @override
   void initState() {
@@ -102,6 +104,19 @@ class _PreferencePageState extends State<PreferencePage> {
                             resource: fitbitActivityTimeseriesDataManager.type,
                           )) as List<FitbitActivityTimeseriesData>;
 
+                          // Creo lista di steps
+                          // for (int i = 0; i == 16; i++) {
+                          //   for (int j = x * i; j < x * (i + 1); j++) {
+                          //     steps[i] = (stepsData[j] as int) + steps[i];
+                          //   }
+                          // }
+                          steps[0] = (stepsData[0] as int) +
+                              (stepsData[1] as int) +
+                              (stepsData[2] as int) +
+                              (stepsData[3] as int) +
+                              (stepsData[4] as int) +
+                              (stepsData[5] as int) +
+                              (stepsData[6] as int);
                           //creare una nuova lista con gli steps chiamata step
                           //Provider.of<databaseRepository>(context, listen:false)
                           //.insertTodo(Data(null, distance[1],step[1]))
@@ -176,7 +191,7 @@ class _PreferencePageState extends State<PreferencePage> {
                             clientSecret: Strings.fitbitClientSecret,
                           );
 
-                          //Fetch duration
+                          //Fetch sleep
                           final sleepData = await fitbitSleepDataManager_sleep
                               .fetch(FitbitSleepAPIURL.withUserIDAndDateRange(
                             userID: userId,
@@ -185,7 +200,8 @@ class _PreferencePageState extends State<PreferencePage> {
                           )) as List<FitbitSleepData>;
 
                           final snackBar = SnackBar(
-                              content: Text('sleep data: ${sleepData}'));
+                              content: Text(
+                                  'The authorization process was successful!'));
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
                         child: const Text('Authorize FitBit data'),
