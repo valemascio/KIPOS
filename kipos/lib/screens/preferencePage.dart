@@ -136,7 +136,7 @@ class _PreferencePageState extends State<PreferencePage> {
                             type: 'calories',
                           );
 
-                          //Fetch steps
+                          //Fetch calories
                           final calData =
                               await fitbitActivityTimeseriesDataManager_cal
                                   .fetch(FitbitActivityTimeseriesAPIURL
@@ -148,7 +148,27 @@ class _PreferencePageState extends State<PreferencePage> {
                                 fitbitActivityTimeseriesDataManager_cal.type,
                           )) as List<FitbitActivityTimeseriesData>;
 
-                          // Use them as you want
+                          //Data manager duration
+                          FitbitActivityTimeseriesDataManager
+                              fitbitActivityTimeseriesDataManager_dur =
+                              FitbitActivityTimeseriesDataManager(
+                            clientID: Strings.fitbitClientID,
+                            clientSecret: Strings.fitbitClientSecret,
+                            type: 'duration',
+                          );
+
+                          //Fetch duration
+                          final durData =
+                              await fitbitActivityTimeseriesDataManager_dur
+                                  .fetch(FitbitActivityTimeseriesAPIURL
+                                      .dateRangeWithResource(
+                            userID: userId,
+                            startDate: _selectedDate,
+                            endDate: _selectedDate.add(Duration(days: 115)),
+                            resource:
+                                fitbitActivityTimeseriesDataManager_dur.type,
+                          )) as List<FitbitActivityTimeseriesData>;
+
                           final snackBar = SnackBar(
                               content: Text(
                                   'The authorization process was successful!'));
