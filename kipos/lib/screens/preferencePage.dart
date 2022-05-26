@@ -148,25 +148,46 @@ class _PreferencePageState extends State<PreferencePage> {
                                 fitbitActivityTimeseriesDataManager_cal.type,
                           )) as List<FitbitActivityTimeseriesData>;
 
-                          //Data manager duration
+                          //Data manager floors
                           FitbitActivityTimeseriesDataManager
-                              fitbitActivityTimeseriesDataManager_dur =
+                              fitbitActivityTimeseriesDataManager_floors =
                               FitbitActivityTimeseriesDataManager(
                             clientID: Strings.fitbitClientID,
                             clientSecret: Strings.fitbitClientSecret,
-                            type: 'duration',
+                            type: 'floors',
                           );
 
                           //Fetch duration
-                          final durData =
-                              await fitbitActivityTimeseriesDataManager_dur
+                          final floorsData =
+                              await fitbitActivityTimeseriesDataManager_floors
                                   .fetch(FitbitActivityTimeseriesAPIURL
                                       .dateRangeWithResource(
                             userID: userId,
                             startDate: _selectedDate,
                             endDate: _selectedDate.add(Duration(days: 115)),
                             resource:
-                                fitbitActivityTimeseriesDataManager_dur.type,
+                                fitbitActivityTimeseriesDataManager_floors.type,
+                          )) as List<FitbitActivityTimeseriesData>;
+
+                          //Data manager floors
+                          FitbitActivityTimeseriesDataManager
+                              fitbitActivityTimeseriesDataManager_sleep =
+                              FitbitActivityTimeseriesDataManager(
+                            clientID: Strings.fitbitClientID,
+                            clientSecret: Strings.fitbitClientSecret,
+                            type: 'sleep',
+                          );
+
+                          //Fetch duration
+                          final sleepData =
+                              await fitbitActivityTimeseriesDataManager_sleep
+                                  .fetch(FitbitActivityTimeseriesAPIURL
+                                      .dateRangeWithResource(
+                            userID: userId,
+                            startDate: _selectedDate,
+                            endDate: _selectedDate.add(Duration(days: 115)),
+                            resource:
+                                fitbitActivityTimeseriesDataManager_sleep.type,
                           )) as List<FitbitActivityTimeseriesData>;
 
                           final snackBar = SnackBar(
