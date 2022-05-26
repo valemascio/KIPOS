@@ -169,30 +169,23 @@ class _PreferencePageState extends State<PreferencePage> {
                                 fitbitActivityTimeseriesDataManager_floors.type,
                           )) as List<FitbitActivityTimeseriesData>;
 
-                          //Data manager floors
-                          FitbitActivityTimeseriesDataManager
-                              fitbitActivityTimeseriesDataManager_sleep =
-                              FitbitActivityTimeseriesDataManager(
+                          //Data manager sleep
+                          FitbitSleepDataManager fitbitSleepDataManager_sleep =
+                              FitbitSleepDataManager(
                             clientID: Strings.fitbitClientID,
                             clientSecret: Strings.fitbitClientSecret,
-                            type: 'sleep',
                           );
 
                           //Fetch duration
-                          final sleepData =
-                              await fitbitActivityTimeseriesDataManager_sleep
-                                  .fetch(FitbitActivityTimeseriesAPIURL
-                                      .dateRangeWithResource(
+                          final sleepData = await fitbitSleepDataManager_sleep
+                              .fetch(FitbitSleepAPIURL.withUserIDAndDateRange(
                             userID: userId,
                             startDate: _selectedDate,
-                            endDate: _selectedDate.add(Duration(days: 115)),
-                            resource:
-                                fitbitActivityTimeseriesDataManager_sleep.type,
-                          )) as List<FitbitActivityTimeseriesData>;
+                            endDate: _selectedDate.add(Duration(days: 3)),
+                          )) as List<FitbitSleepData>;
 
                           final snackBar = SnackBar(
-                              content: Text(
-                                  'The authorization process was successful!'));
+                              content: Text('sleep data: ${sleepData}'));
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
                         child: const Text('Authorize FitBit data'),
