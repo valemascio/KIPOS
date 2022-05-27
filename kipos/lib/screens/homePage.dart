@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
+import 'package:kipos/screens/profilePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
@@ -75,57 +76,56 @@ class _HomePageState extends State<HomePage> {
               fontWeight: FontWeight.bold,
             ))),
         backgroundColor: Colors.lightGreen,
-        leading: IconButton(
-          icon: const Icon(
-            lightbulb,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            Navigator.pushNamed(context, '/tips/');
-          },
-        ),
         actions: [
-          DropdownButtonHideUnderline(
-            child: DropdownButton2(
-              customButton: Icon(
-                MdiIcons.accountCircle,
-                size: 35,
-                color: Colors.white,
-              ),
-              customItemsIndexes: const [2],
-              customItemsHeight: 8,
-              items: [
-                ...MenuItems.firstItems.map(
-                  (item) => DropdownMenuItem<MenuItem>(
-                    value: item,
-                    child: MenuItems.buildItem(item),
-                  ),
-                ),
-                const DropdownMenuItem<Divider>(
-                    enabled: false, child: Divider()),
-                ...MenuItems.secondItems.map(
-                  (item) => DropdownMenuItem<MenuItem>(
-                    value: item,
-                    child: MenuItems.buildItem(item),
-                  ),
-                ),
-              ],
-              onChanged: (value) {
-                MenuItems.onChanged(context, value as MenuItem);
-              },
-              itemHeight: 48,
-              itemPadding: const EdgeInsets.only(left: 16, right: 16),
-              dropdownWidth: 160,
-              dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
-              dropdownDecoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                color: Color.fromARGB(255, 139, 195, 74),
-              ),
-              dropdownElevation: 8,
-              offset: const Offset(0, 8),
+          IconButton(
+            icon: const Icon(
+              lightbulb,
+              color: Colors.white,
             ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/tips/');
+            },
           )
         ],
+        leading: DropdownButtonHideUnderline(
+          child: DropdownButton2(
+            customButton: Icon(
+              MdiIcons.menu,
+              size: 35,
+              color: Colors.white,
+            ),
+            customItemsIndexes: const [3],
+            customItemsHeight: 8,
+            items: [
+              ...MenuItems.firstItems.map(
+                (item) => DropdownMenuItem<MenuItem>(
+                  value: item,
+                  child: MenuItems.buildItem(item),
+                ),
+              ),
+              const DropdownMenuItem<Divider>(enabled: false, child: Divider()),
+              ...MenuItems.secondItems.map(
+                (item) => DropdownMenuItem<MenuItem>(
+                  value: item,
+                  child: MenuItems.buildItem(item),
+                ),
+              ),
+            ],
+            onChanged: (value) {
+              MenuItems.onChanged(context, value as MenuItem);
+            },
+            itemHeight: 48,
+            itemPadding: const EdgeInsets.only(left: 16, right: 16),
+            dropdownWidth: 160,
+            dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
+            dropdownDecoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4),
+              color: Color.fromARGB(255, 139, 195, 74),
+            ),
+            dropdownElevation: 8,
+            offset: const Offset(0, 8),
+          ),
+        ),
       ),
       body: ListView(children: [
         const Text(' '),
@@ -417,9 +417,11 @@ class MenuItem {
 }
 
 class MenuItems {
-  static const List<MenuItem> firstItems = [settings, logout];
+  static const List<MenuItem> firstItems = [profile, settings, logout];
   static const List<MenuItem> secondItems = [delete];
 
+  static const profile =
+      MenuItem(text: 'Profile', icon: MdiIcons.accountCircle);
   static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
   static const logout = MenuItem(text: 'Log out', icon: Icons.logout_outlined);
   static const delete =
@@ -444,6 +446,9 @@ class MenuItems {
 
   static onChanged(BuildContext context, MenuItem item) {
     switch (item) {
+      case MenuItems.profile:
+        Navigator.pushNamed(context, ProfilePage.route);
+        break;
       case MenuItems.logout:
         print('logout');
         Navigator.pushNamed(context, LogoutPage.route);

@@ -44,7 +44,7 @@ class _PreferencePageState extends State<PreferencePage> {
     return Scaffold(
       appBar: AppBar(
         title: (const Text(
-          'Settings',
+          '🛠 Settings',
           textAlign: TextAlign.center,
         )),
         backgroundColor: Colors.lightGreen,
@@ -110,13 +110,13 @@ class _PreferencePageState extends State<PreferencePage> {
                           //     steps[i] = (stepsData[j] as int) + steps[i];
                           //   }
                           // }
-                          steps[0] = (stepsData[0] as int) +
+                          /*steps[0] = (stepsData[0] as int) +
                               (stepsData[1] as int) +
                               (stepsData[2] as int) +
                               (stepsData[3] as int) +
                               (stepsData[4] as int) +
                               (stepsData[5] as int) +
-                              (stepsData[6] as int);
+                              (stepsData[6] as int);*/
                           //creare una nuova lista con gli steps chiamata step
                           //Provider.of<databaseRepository>(context, listen:false)
                           //.insertTodo(Data(null, distance[1],step[1]))

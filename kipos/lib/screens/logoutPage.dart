@@ -11,7 +11,7 @@ class LogoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Logout',
+      title: const Text('🚪 Logout',
           style: TextStyle(color: Color.fromARGB(255, 122, 164, 94))),
       content: const Text('Are you sure you want to logout?'),
       actions: <Widget>[
