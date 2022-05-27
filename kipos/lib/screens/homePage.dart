@@ -447,7 +447,8 @@ class MenuItems {
   static onChanged(BuildContext context, MenuItem item) {
     switch (item) {
       case MenuItems.profile:
-        Navigator.pushNamed(context, ProfilePage.route);
+        Navigator.push(context,
+            new MaterialPageRoute(builder: (context) => new ProfilePage()));
         break;
       case MenuItems.logout:
         print('logout');

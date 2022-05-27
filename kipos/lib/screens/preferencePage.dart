@@ -237,7 +237,7 @@ class _PreferencePageState extends State<PreferencePage> {
                                   'FitBit data access was unauthorized successfully.'));
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
-                        child: const Text('Unautorize FitBit data'),
+                        child: const Text('Unauthorize FitBit data'),
                       ),
                     ],
                   ),
