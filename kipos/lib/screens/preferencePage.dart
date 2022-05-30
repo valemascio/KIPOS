@@ -229,7 +229,7 @@ class _PreferencePageState extends State<PreferencePage> {
                           }
                           print('$floors');
 
-                          //Data manager sleep
+                          /* //Data manager sleep
                           FitbitSleepDataManager fitbitSleepDataManager_sleep =
                               FitbitSleepDataManager(
                             clientID: Strings.fitbitClientID,
@@ -241,11 +241,12 @@ class _PreferencePageState extends State<PreferencePage> {
                               .fetch(FitbitSleepAPIURL.withUserIDAndDateRange(
                             userID: userId,
                             startDate: _selectedDate,
-                            endDate: _selectedDate.add(Duration(days: 3)),
+                            endDate: _selectedDate.add(Duration(days: 0)),
                           )) as List<FitbitSleepData>;
-
-                          final snackBar =
-                              SnackBar(content: Text('sleep data: ${steps}'));
+*/
+                          final snackBar = SnackBar(
+                              content: Text(
+                                  'FitBit data access was authorized successfully.'));
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
                         child: const Text('Authorize FitBit data'),
