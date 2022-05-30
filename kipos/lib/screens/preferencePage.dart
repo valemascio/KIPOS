@@ -25,7 +25,11 @@ class _PreferencePageState extends State<PreferencePage> {
   TextEditingController _choController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
   int x = 7;
-  List<int> steps = [];
+  List<double> steps = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  List<double> distance = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  List<double> calories = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  List<double> floors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  double somma = 0;
 
   @override
   void initState() {
@@ -105,18 +109,23 @@ class _PreferencePageState extends State<PreferencePage> {
                           )) as List<FitbitActivityTimeseriesData>;
 
                           // Creo lista di steps
-                          // for (int i = 0; i == 16; i++) {
-                          //   for (int j = x * i; j < x * (i + 1); j++) {
-                          //     steps[i] = (stepsData[j] as int) + steps[i];
-                          //   }
-                          // }
-                          /*steps[0] = (stepsData[0] as int) +
-                              (stepsData[1] as int) +
-                              (stepsData[2] as int) +
-                              (stepsData[3] as int) +
-                              (stepsData[4] as int) +
-                              (stepsData[5] as int) +
-                              (stepsData[6] as int);*/
+                          for (int i = 0; i < 16; i++) {
+                            int inizio = x * i;
+                            int fine = x * (i + 1);
+                            for (int j = inizio; j < fine; j++) {
+                              somma = (stepsData[j].value as double) + somma;
+                            }
+                            steps[i] = somma;
+                            somma = 0;
+                          }
+                          // steps = (stepsData[0].value as double) +
+                          //     (stepsData[1].value as double) +
+                          //     (stepsData[2].value as double) +
+                          //     (stepsData[3].value as double) +
+                          //     (stepsData[4].value as double) +
+                          //     (stepsData[5].value as double) +
+                          //     (stepsData[6].value as double);
+                          print('$steps');
                           //creare una nuova lista con gli steps chiamata step
                           //Provider.of<databaseRepository>(context, listen:false)
                           //.insertTodo(Data(null, distance[1],step[1]))
@@ -142,6 +151,18 @@ class _PreferencePageState extends State<PreferencePage> {
                                 fitbitActivityTimeseriesDataManager_dist.type,
                           )) as List<FitbitActivityTimeseriesData>;
 
+                          // Creo lista di distance
+                          for (int i = 0; i < 16; i++) {
+                            int inizio = x * i;
+                            int fine = x * (i + 1);
+                            for (int j = inizio; j < fine; j++) {
+                              somma = (distData[j].value as double) + somma;
+                            }
+                            distance[i] = somma;
+                            somma = 0;
+                          }
+                          print('$distance');
+
                           //Data manager calories
                           FitbitActivityTimeseriesDataManager
                               fitbitActivityTimeseriesDataManager_cal =
@@ -162,6 +183,18 @@ class _PreferencePageState extends State<PreferencePage> {
                             resource:
                                 fitbitActivityTimeseriesDataManager_cal.type,
                           )) as List<FitbitActivityTimeseriesData>;
+
+                          // Creo lista di calories
+                          for (int i = 0; i < 16; i++) {
+                            int inizio = x * i;
+                            int fine = x * (i + 1);
+                            for (int j = inizio; j < fine; j++) {
+                              somma = (calData[j].value as double) + somma;
+                            }
+                            calories[i] = somma;
+                            somma = 0;
+                          }
+                          print('$calories');
 
                           //Data manager floors
                           FitbitActivityTimeseriesDataManager
@@ -184,6 +217,18 @@ class _PreferencePageState extends State<PreferencePage> {
                                 fitbitActivityTimeseriesDataManager_floors.type,
                           )) as List<FitbitActivityTimeseriesData>;
 
+                          // Creo lista di floors
+                          for (int i = 0; i < 16; i++) {
+                            int inizio = x * i;
+                            int fine = x * (i + 1);
+                            for (int j = inizio; j < fine; j++) {
+                              somma = (floorsData[j].value as double) + somma;
+                            }
+                            floors[i] = somma;
+                            somma = 0;
+                          }
+                          print('$floors');
+
                           //Data manager sleep
                           FitbitSleepDataManager fitbitSleepDataManager_sleep =
                               FitbitSleepDataManager(
@@ -199,9 +244,8 @@ class _PreferencePageState extends State<PreferencePage> {
                             endDate: _selectedDate.add(Duration(days: 3)),
                           )) as List<FitbitSleepData>;
 
-                          final snackBar = SnackBar(
-                              content: Text(
-                                  'sleep data: ${(stepsData[0].value as double) + (stepsData[1].value as double)}'));
+                          final snackBar =
+                              SnackBar(content: Text('sleep data: ${steps}'));
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
                         child: const Text('Authorize FitBit data'),
