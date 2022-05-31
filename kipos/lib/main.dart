@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
 import 'package:kipos/screens/homePage.dart';
@@ -16,8 +17,15 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final AppDatabase database =
-      await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+      await $FloorAppDatabase.databaseBuilder('flutter_database.db').build();
   final databaseRepository = DatabaseRepository(database: database);
+
+  /*final week_0 = database.datiDao;
+  final week = Dati(null, 0, 1, 2, 3);
+
+  await week_0.insertDati(week);
+  final result = await week_0.findDataById(1);
+  print(result);*/
 
   runApp(ChangeNotifierProvider<DatabaseRepository>(
     create: (context) => databaseRepository,

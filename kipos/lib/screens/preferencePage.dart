@@ -224,7 +224,7 @@ class _PreferencePageState extends State<PreferencePage> {
 
                           //DATABASE INSERT
                           for (int i = 0; i < 16; i++) {
-                            Provider.of<DatabaseRepository>(context,
+                            await Provider.of<DatabaseRepository>(context,
                                     listen: false)
                                 .insertDati(Dati(null, i + 1, distance[i],
                                     steps[i], calories[i]));

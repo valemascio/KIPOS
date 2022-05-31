@@ -98,7 +98,7 @@ class _$AppDatabase extends AppDatabase {
 
 class _$DatiDao extends DatiDao {
   _$DatiDao(this.database, this.changeListener)
-      : _queryAdapter = QueryAdapter(database),
+      : _queryAdapter = QueryAdapter(database, changeListener),
         _datiInsertionAdapter = InsertionAdapter(
             database,
             'Dati',
@@ -108,7 +108,8 @@ class _$DatiDao extends DatiDao {
                   'distance': item.distance,
                   'steps': item.steps,
                   'calories': item.calories
-                }),
+                },
+            changeListener),
         _datiDeletionAdapter = DeletionAdapter(
             database,
             'Dati',
@@ -119,7 +120,8 @@ class _$DatiDao extends DatiDao {
                   'distance': item.distance,
                   'steps': item.steps,
                   'calories': item.calories
-                });
+                },
+            changeListener);
 
   final sqflite.DatabaseExecutor database;
 
@@ -133,13 +135,27 @@ class _$DatiDao extends DatiDao {
 
   @override
   Future<List<Dati>> findAllDati() async {
-    return _queryAdapter.queryList('SELECT * FROM Todo',
+    return _queryAdapter.queryList('SELECT * FROM Dati',
         mapper: (Map<String, Object?> row) => Dati(
             row['id'] as int?,
             row['week'] as int,
             row['distance'] as double,
             row['steps'] as double,
             row['calories'] as double));
+  }
+
+  @override
+  Stream<Dati?> findDataById(int id) {
+    return _queryAdapter.queryStream('SELECT * FROM Dati WHERE id = ?1',
+        mapper: (Map<String, Object?> row) => Dati(
+            row['id'] as int?,
+            row['week'] as int,
+            row['distance'] as double,
+            row['steps'] as double,
+            row['calories'] as double),
+        arguments: [id],
+        queryableName: 'Dati',
+        isView: false);
   }
 
   @override
