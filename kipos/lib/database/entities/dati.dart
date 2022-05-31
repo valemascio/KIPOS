@@ -14,9 +14,9 @@ class Dati {
 
   final double distance;
 
-  final int steps;
+  final double steps;
 
-  final int calories;
+  final double calories;
 
   //Default constructor
   Dati(this.id, this.week, this.distance, this.steps, this.calories);

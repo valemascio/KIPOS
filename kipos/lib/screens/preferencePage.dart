@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kipos/main.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:kipos/utilities/formDateTiles.dart';
 import 'package:kipos/utilities/formats.dart';
@@ -7,6 +8,7 @@ import 'package:kipos/screens/homePage.dart';
 import 'package:fitbitter/fitbitter.dart';
 import 'package:kipos/utilities/strings.dart';
 import 'package:provider/provider.dart';
+import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/repository/databaseRepository.dart';
 
 class PreferencePage extends StatefulWidget {
@@ -118,17 +120,8 @@ class _PreferencePageState extends State<PreferencePage> {
                             steps[i] = somma;
                             somma = 0;
                           }
-                          // steps = (stepsData[0].value as double) +
-                          //     (stepsData[1].value as double) +
-                          //     (stepsData[2].value as double) +
-                          //     (stepsData[3].value as double) +
-                          //     (stepsData[4].value as double) +
-                          //     (stepsData[5].value as double) +
-                          //     (stepsData[6].value as double);
+
                           print('$steps');
-                          //creare una nuova lista con gli steps chiamata step
-                          //Provider.of<databaseRepository>(context, listen:false)
-                          //.insertTodo(Data(null, distance[1],step[1]))
 
                           //Data manager distance
                           FitbitActivityTimeseriesDataManager
@@ -228,6 +221,14 @@ class _PreferencePageState extends State<PreferencePage> {
                             somma = 0;
                           }
                           print('$floors');
+
+                          //DATABASE INSERT
+                          for (int i = 1; i < 17; i++) {
+                            Provider.of<DatabaseRepository>(context,
+                                    listen: false)
+                                .insertTodo(Dati(null, i, distance[i], steps[i],
+                                    calories[i]));
+                          }
 
                           /* //Data manager sleep
                           FitbitSleepDataManager fitbitSleepDataManager_sleep =

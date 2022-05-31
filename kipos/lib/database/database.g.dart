@@ -101,7 +101,7 @@ class _$DatiDao extends DatiDao {
       : _queryAdapter = QueryAdapter(database, changeListener),
         _todoInsertionAdapter = InsertionAdapter(
             database,
-            'Dato',
+            'Dati',
             (Dati item) => <String, Object?>{
                   'id': item.id,
                   'week': item.week,
@@ -112,7 +112,7 @@ class _$DatiDao extends DatiDao {
             changeListener),
         _todoDeletionAdapter = DeletionAdapter(
             database,
-            'Todo',
+            'Dati',
             ['id'],
             (Dati item) => <String, Object?>{
                   'id': item.id,
@@ -135,26 +135,26 @@ class _$DatiDao extends DatiDao {
 
   @override
   Future<List<Dati>> findAllTodos() async {
-    return _queryAdapter.queryList('SELECT * FROM Todo',
+    return _queryAdapter.queryList('SELECT * FROM Dati',
         mapper: (Map<String, Object?> row) => Dati(
             row['id'] as int?,
             row['week'] as int,
             row['distance'] as double,
-            row['steps'] as int,
-            row['calories'] as int));
+            row['steps'] as double,
+            row['calories'] as double));
   }
 
   @override
   Stream<Dati?> findTodoById(int id) {
-    return _queryAdapter.queryStream('SELECT * FROM Todo WHERE id = ?1',
+    return _queryAdapter.queryStream('SELECT * FROM Dati WHERE id = ?1',
         mapper: (Map<String, Object?> row) => Dati(
             row['id'] as int?,
             row['week'] as int,
             row['distance'] as double,
-            row['steps'] as int,
-            row['calories'] as int),
+            row['steps'] as double,
+            row['calories'] as double),
         arguments: [id],
-        queryableName: 'Todo',
+        queryableName: 'Dati',
         isView: false);
   }
 

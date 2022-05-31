@@ -6,7 +6,7 @@ import 'package:floor/floor.dart';
 @dao
 abstract class DatiDao {
   //Query #1: SELECT -> this allows to obtain all the entries of the Todo table
-  @Query('SELECT * FROM Todo')
+  @Query('SELECT * FROM Dati')
   Future<List<Dati>> findAllTodos();
 
   //Query #2: INSERT -> this allows to add a Todo in the table
