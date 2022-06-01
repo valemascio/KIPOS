@@ -34,11 +34,12 @@ class DeletePage extends StatelessWidget {
   }
 
   void _toPreferencePage(BuildContext context) async {
-    final listaDati = Provider.of<DatabaseRepository>(context, listen: false)
-        .findAllDati() as List<Dati>;
-    for (int i = 0; i <= listaDati.length; i++) {
+    final listaDati =
+        Provider.of<DatabaseRepository>(context, listen: false).findAllDati();
+    List<Dati> datoLista = await listaDati;
+    for (int i = 0; i < datoLista.length; i++) {
       Provider.of<DatabaseRepository>(context, listen: false)
-          .removeDati(listaDati[i]);
+          .removeDati(datoLista[i]);
     }
 
     //Pop the drawer first
