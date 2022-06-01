@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
@@ -147,9 +149,24 @@ class _HomePageState extends State<HomePage> {
                     itemCount: data.length,
                     itemBuilder: (context, datiIndex) {
                       final dato = data[datiIndex];
+                      String? sentence = '';
+                      Color? check = Colors.white;
+                      if (dato.distance > double.parse(preview[datiIndex])) {
+                        sentence =
+                            'GREAT WORK!! You accomplished the task of this week. Head over to the Badge section to see what you gained.';
+                      } else {
+                        sentence =
+                            'UH OH! It seems you have not accomplished the task of this week, keep running!';
+                      }
+                      if (dato.week > double.parse(numbers[datiIndex])) {
+                        check = Colors.lightGreen;
+                      } else {
+                        check = Colors.grey;
+                      }
+
                       return ExpansionTileCard(
                         leading: CircleAvatar(
-                          backgroundColor: Colors.green[300],
+                          backgroundColor: check,
                           foregroundColor: Colors.white,
                           child: Text(
                             numbers[datiIndex] + '/16',
@@ -178,8 +195,13 @@ class _HomePageState extends State<HomePage> {
                                 horizontal: 16.0,
                                 vertical: 8.0,
                               ),
-                              child: Text(
-                                  'You have run ${dato.distance}, burned ${dato.calories} cal and done ${dato.steps} steps'),
+                              child: Column(
+                                children: [
+                                  Text(
+                                      'You have run ${dato.distance}, burned ${dato.calories} cal and done ${dato.steps} steps'),
+                                  Text(sentence),
+                                ],
+                              ),
                             ),
                           ),
                           ButtonBar(
