@@ -64,6 +64,7 @@ class BadgePage extends StatelessWidget {
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
 Congratulations for your first badge! Good job, you run 16 km 😄 This is not just a simple badge, thanks to your efforts a Cacao tree will be planted in Cameroon!
+
 CO2 absorbed: 55kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -71,7 +72,7 @@ CO2 absorbed: 55kg''',
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 255, 255, 255),
                       boxShadow: const [
                         BoxShadow(
                             color: Color.fromARGB(255, 122, 164, 94),
@@ -99,6 +100,7 @@ CO2 absorbed: 55kg''',
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: Text('''
 Congratulations, you run 23 km! 😄 A Banana tree will be planted in Cameroon.
+
 CO2 absorbed: 10kg''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
