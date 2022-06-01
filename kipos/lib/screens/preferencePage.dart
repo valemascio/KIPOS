@@ -223,11 +223,11 @@ class _PreferencePageState extends State<PreferencePage> {
                           print('$floors');
 
                           //DATABASE INSERT
-                          for (int i = 0; i < 16; i++) {
+                          for (int k = 0; k < 16; k++) {
                             await Provider.of<DatabaseRepository>(context,
                                     listen: false)
-                                .insertDati(Dati(null, i + 1, distance[i],
-                                    steps[i], calories[i]));
+                                .insertDati(Dati(null, k + 1, distance[k],
+                                    steps[k], calories[k]));
                           }
 
                           /* //Data manager sleep

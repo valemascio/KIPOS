@@ -1,5 +1,6 @@
 import 'package:kipos/database/entities/dati.dart';
 import 'package:floor/floor.dart';
+import 'package:kipos/screens/deletePage.dart';
 
 //Here, we are saying that the following class defines a dao.
 
@@ -11,6 +12,9 @@ abstract class DatiDao {
 
   @Query('SELECT * FROM Dati WHERE id = :id')
   Stream<Dati?> findDataById(int id);
+
+  @Query('SELECT * FROM Dati WHERE week = :week')
+  Stream<Dati?> findDataByWeek(double week);
 
   //Query #2: INSERT -> this allows to add a Dati in the table
   @insert
