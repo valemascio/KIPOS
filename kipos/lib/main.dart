@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/screens/badgePage.dart';
+import 'package:kipos/screens/deletePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
 import 'package:kipos/screens/homePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
+import 'package:kipos/screens/deletePage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:kipos/database/database.dart';
@@ -19,6 +21,8 @@ Future<void> main() async {
   final AppDatabase database =
       await $FloorAppDatabase.databaseBuilder('flutter_database.db').build();
   final databaseRepository = DatabaseRepository(database: database);
+
+  //print('The resulting data is: ${result}');
 
   /*final week_0 = database.datiDao;
   final week = Dati(null, 0, 1, 2, 3);
@@ -205,6 +209,7 @@ Did you know?
       routes: {
         LoginPage.route: (context) => LoginPage(),
         PreferencePage.route: (context) => PreferencePage(),
+        DeletePage.route: (context) => DeletePage(),
         HomePage.route: (context) => HomePage(),
         LogoutPage.route: (context) => LogoutPage(),
         BadgePage.route: (context) => BadgePage(),

@@ -159,6 +159,20 @@ class _$DatiDao extends DatiDao {
   }
 
   @override
+  Stream<Dati?> findDataByWeek(double week) {
+    return _queryAdapter.queryStream('SELECT * FROM Dati WHERE week = ?1',
+        mapper: (Map<String, Object?> row) => Dati(
+            row['id'] as int?,
+            row['week'] as int,
+            row['distance'] as double,
+            row['steps'] as double,
+            row['calories'] as double),
+        arguments: [week],
+        queryableName: 'Dati',
+        isView: false);
+  }
+
+  @override
   Future<void> insertDati(Dati todo) async {
     await _datiInsertionAdapter.insert(todo, OnConflictStrategy.abort);
   }

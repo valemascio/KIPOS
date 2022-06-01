@@ -5,6 +5,7 @@ import 'package:kipos/screens/profilePage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
+import 'package:kipos/screens/deletePage.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -127,7 +128,59 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: ListView(children: [
+      body: Center(
+        child:
+            //We will show the todo table with a ListView.
+            //To do so, we use a Consumer of DatabaseRepository in order to rebuild the widget tree when
+            //entries are deleted or created.
+            Consumer<DatabaseRepository>(builder: (context, dbr, child) {
+          //The logic is to query the DB for the entire list of Todo using dbr.findAllTodos()
+          //and then populate the ListView accordingly.
+          //We need to use a FutureBuilder since the result of dbr.findAllTodos() is a Future.
+          return FutureBuilder(
+            initialData: null,
+            future: dbr.findAllDati(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final data = snapshot.data as List<Dati>;
+                return ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, datiIndex) {
+                      final dato = data[datiIndex];
+                      return Card(
+                        elevation: 5,
+                        //Here we use a Dismissible widget to create a nicer UI.
+                        child: Dismissible(
+                          //Just create a dummy unique key
+                          key: UniqueKey(),
+                          //This is the background to show when the ListTile is swiped
+                          background: Container(color: Colors.red),
+                          //The ListTile is used to show the Todo entry
+                          child: ListTile(
+                            leading: Icon(MdiIcons.note),
+                            title: Text('${dato.distance}'),
+                            subtitle: Text('ID: ${dato.id}'),
+                            //If the ListTile is tapped, it is deleted
+                          ),
+                          //This method is called when the ListTile is dismissed
+                          onDismissed: (direction) async {
+                            //No need to use a Consumer, we are just using a method of the DatabaseRepository
+                            await Provider.of<DatabaseRepository>(context,
+                                    listen: false)
+                                .removeDati(dato);
+                          },
+                        ),
+                      );
+                    });
+              } else {
+                //A CircularProgressIndicator is shown while the list of Todo is loading.
+                return CircularProgressIndicator();
+              } //else
+            }, //builder of FutureBuilder
+          );
+        }),
+      ),
+      /* ListView(children: [
         const Text(' '),
         const Text('🏃🏻‍♂️ Training Schedule 🏋🏻‍♂️',
             textAlign: TextAlign.center,
@@ -368,7 +421,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-      ]),
+      ]),*/
+
       bottomNavigationBar: Container(
         height: 90,
         child: Row(
@@ -458,7 +512,7 @@ class MenuItems {
         Navigator.pushNamed(context, PreferencePage.route);
         break;
       case MenuItems.delete:
-        print('delete');
+        Navigator.pushNamed(context, DeletePage.route);
         break;
     }
   }
