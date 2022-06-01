@@ -147,7 +147,57 @@ class _HomePageState extends State<HomePage> {
                     itemCount: data.length,
                     itemBuilder: (context, datiIndex) {
                       final dato = data[datiIndex];
-                      return Card(
+                      return ExpansionTileCard(
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.green[300],
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            numbers[datiIndex] + '/16',
+                            style: TextStyle(
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                        title: Text('${dato.week} Week',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            )),
+                        subtitle:
+                            Text('Weekly goal: ' + preview[datiIndex] + 'km'),
+                        children: <Widget>[
+                          const Divider(
+                            thickness: 1.0,
+                            height: 1.0,
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 8.0,
+                              ),
+                              child: Text(
+                                  'You have run ${dato.distance}, burned ${dato.calories} cal and done ${dato.steps} steps'),
+                            ),
+                          ),
+                          ButtonBar(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                      context, StatisticsPage.route);
+                                },
+                                icon: const Icon(Icons.bar_chart),
+                              )
+                            ],
+                          ),
+                        ],
+                      );
+                    });
+
+                /*Card(
                         elevation: 5,
                         //Here we use a Dismissible widget to create a nicer UI.
                         child: Dismissible(
@@ -171,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                           },
                         ),
                       );
-                    });
+                    });*/
               } else {
                 //A CircularProgressIndicator is shown while the list of Todo is loading.
                 return CircularProgressIndicator();
