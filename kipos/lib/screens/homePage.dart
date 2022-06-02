@@ -193,18 +193,25 @@ class _HomePageState extends State<HomePage> {
                                   vertical: 8.0,
                                 ),
                                 child: Text(
-                                    'You have run ${dato.distance}, burned ${dato.calories} cal and done ${dato.steps} steps. ' +
+                                    'You have run ${dato.distance.toStringAsFixed(2)} km, burned ${dato.calories.toStringAsFixed(0)} cal and done ${dato.steps.toStringAsFixed(0)} steps. ' +
                                         sentence)),
                           ),
                           ButtonBar(
                             children: [
                               IconButton(
-                                onPressed: () {
-                                  Navigator.pushNamed(
-                                      context, StatisticsPage.route);
-                                },
-                                icon: const Icon(Icons.bar_chart),
-                              )
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                        context, BadgePage.route);
+                                  },
+                                  icon: const Icon(Icons.shield_rounded,
+                                      semanticLabel: 'Badges')),
+                              IconButton(
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                        context, StatisticsPage.route);
+                                  },
+                                  icon: const Icon(Icons.bar_chart,
+                                      semanticLabel: 'Statistic page')),
                             ],
                           ),
                         ],
