@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
@@ -158,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                         sentence =
                             'UH OH! It seems you have not accomplished the task of this week, keep running!';
                       }
-                      if (dato.week > double.parse(numbers[datiIndex])) {
+                      if (dato.distance > double.parse(preview[datiIndex])) {
                         check = Colors.lightGreen;
                       } else {
                         check = Colors.grey;
@@ -191,18 +189,13 @@ class _HomePageState extends State<HomePage> {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 16.0,
-                                vertical: 8.0,
-                              ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                      'You have run ${dato.distance}, burned ${dato.calories} cal and done ${dato.steps} steps'),
-                                  Text(sentence),
-                                ],
-                              ),
-                            ),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 16.0,
+                                  vertical: 8.0,
+                                ),
+                                child: Text(
+                                    'You have run ${dato.distance}, burned ${dato.calories} cal and done ${dato.steps} steps. ' +
+                                        sentence)),
                           ),
                           ButtonBar(
                             children: [
