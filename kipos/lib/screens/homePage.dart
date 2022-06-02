@@ -160,7 +160,6 @@ class _HomePageState extends State<HomePage> {
                       } else {
                         check = Colors.grey;
                       }
-
                       return ExpansionTileCard(
                         leading: CircleAvatar(
                           backgroundColor: check,

@@ -230,6 +230,36 @@ class _PreferencePageState extends State<PreferencePage> {
                                     steps[k], calories[k]));
                           }
 
+                          //User data manager
+                          FitbitAccountDataManager fitbitAccountDataManager =
+                              FitbitAccountDataManager(
+                            clientID: Strings.fitbitClientID,
+                            clientSecret: Strings.fitbitClientSecret,
+                          );
+
+                          FitbitUserAPIURL fitbitUserApiUrl =
+                              FitbitUserAPIURL.withUserID(userID: userId);
+
+                          final fitbitAccountDatas =
+                              await fitbitAccountDataManager
+                                  .fetch(fitbitUserApiUrl);
+                          FitbitAccountData fitbitAccountData =
+                              fitbitAccountDatas[0] as FitbitAccountData;
+
+                          /*print(
+                              'Name: ${fitbitAccountData.firstName}, Surname: ${fitbitAccountData.lastName}, Age: ${fitbitAccountData.age}, avatar: ${fitbitAccountData.avatar}, Weight: ${fitbitAccountData.weight}, Height: ${fitbitAccountData.height}');*/
+
+                          await Provider.of<DatabaseRepository>(context,
+                                  listen: false)
+                              .insertPerson(Person(
+                                  null,
+                                  fitbitAccountData.firstName,
+                                  fitbitAccountData.lastName,
+                                  fitbitAccountData.age,
+                                  fitbitAccountData.avatar,
+                                  fitbitAccountData.weight,
+                                  fitbitAccountData.height));
+
                           /* //Data manager sleep
                           FitbitSleepDataManager fitbitSleepDataManager_sleep =
                               FitbitSleepDataManager(

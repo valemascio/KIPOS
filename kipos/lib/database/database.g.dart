@@ -63,6 +63,8 @@ class _$AppDatabase extends AppDatabase {
 
   DatiDao? _datiDaoInstance;
 
+  PersonDao? _personDaoInstance;
+
   Future<sqflite.Database> open(String path, List<Migration> migrations,
       [Callback? callback]) async {
     final databaseOptions = sqflite.OpenDatabaseOptions(
@@ -83,6 +85,8 @@ class _$AppDatabase extends AppDatabase {
       onCreate: (database, version) async {
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `Dati` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `week` INTEGER NOT NULL, `distance` REAL NOT NULL, `steps` REAL NOT NULL, `calories` REAL NOT NULL)');
+        await database.execute(
+            'CREATE TABLE IF NOT EXISTS `Person` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `surname` TEXT, `age` INTEGER, `avatar` TEXT, `weight` REAL, `height` REAL)');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -93,6 +97,11 @@ class _$AppDatabase extends AppDatabase {
   @override
   DatiDao get datiDao {
     return _datiDaoInstance ??= _$DatiDao(database, changeListener);
+  }
+
+  @override
+  PersonDao get personDao {
+    return _personDaoInstance ??= _$PersonDao(database, changeListener);
   }
 }
 
@@ -180,5 +189,86 @@ class _$DatiDao extends DatiDao {
   @override
   Future<void> deleteDati(Dati task) async {
     await _datiDeletionAdapter.delete(task);
+  }
+}
+
+class _$PersonDao extends PersonDao {
+  _$PersonDao(this.database, this.changeListener)
+      : _queryAdapter = QueryAdapter(database, changeListener),
+        _personInsertionAdapter = InsertionAdapter(
+            database,
+            'Person',
+            (Person item) => <String, Object?>{
+                  'id': item.id,
+                  'name': item.name,
+                  'surname': item.surname,
+                  'age': item.age,
+                  'avatar': item.avatar,
+                  'weight': item.weight,
+                  'height': item.height
+                },
+            changeListener),
+        _personDeletionAdapter = DeletionAdapter(
+            database,
+            'Person',
+            ['id'],
+            (Person item) => <String, Object?>{
+                  'id': item.id,
+                  'name': item.name,
+                  'surname': item.surname,
+                  'age': item.age,
+                  'avatar': item.avatar,
+                  'weight': item.weight,
+                  'height': item.height
+                },
+            changeListener);
+
+  final sqflite.DatabaseExecutor database;
+
+  final StreamController<String> changeListener;
+
+  final QueryAdapter _queryAdapter;
+
+  final InsertionAdapter<Person> _personInsertionAdapter;
+
+  final DeletionAdapter<Person> _personDeletionAdapter;
+
+  @override
+  Future<List<Person>> findAllPerson() async {
+    return _queryAdapter.queryList('SELECT * FROM Person',
+        mapper: (Map<String, Object?> row) => Person(
+            row['id'] as int?,
+            row['name'] as String?,
+            row['surname'] as String?,
+            row['age'] as int?,
+            row['avatar'] as String?,
+            row['weight'] as double?,
+            row['height'] as double?));
+  }
+
+  @override
+  Stream<Person?> findDataById(int id) {
+    return _queryAdapter.queryStream('SELECT * FROM Person WHERE id = ?1',
+        mapper: (Map<String, Object?> row) => Person(
+            row['id'] as int?,
+            row['name'] as String?,
+            row['surname'] as String?,
+            row['age'] as int?,
+            row['avatar'] as String?,
+            row['weight'] as double?,
+            row['height'] as double?),
+        arguments: [id],
+        queryableName: 'Person',
+        isView: false);
+  }
+
+  @override
+  Future<void> insertPerson(Person todo) async {
+    await _personInsertionAdapter.insert(todo, OnConflictStrategy.abort);
+  }
+
+  @override
+  Future<void> deletePerson(Person task) async {
+    await _personDeletionAdapter.delete(task);
   }
 }

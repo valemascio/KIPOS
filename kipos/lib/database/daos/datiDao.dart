@@ -23,4 +23,7 @@ abstract class DatiDao {
   //Query #3: DELETE -> this allows to delete a Dati from the table
   @delete
   Future<void> deleteDati(Dati task);
-}//TodoDao
+} //DatiDao
+
+
+

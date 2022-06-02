@@ -20,3 +20,27 @@ class Dati {
   //Default constructor
   Dati(this.id, this.week, this.distance, this.steps, this.calories);
 }
+
+@entity
+class Person {
+  @PrimaryKey(autoGenerate: true)
+  final int? id;
+
+  final String? name;
+
+  final String? surname;
+
+  final int? age;
+
+  final String? avatar;
+
+  //final DateTime dateOfBirth;
+
+  final double? weight;
+
+  final double? height;
+
+  //Default constructor
+  Person(this.id, this.name, this.surname, this.age, this.avatar,
+      /*this.dateOfBirth,*/ this.weight, this.height);
+}

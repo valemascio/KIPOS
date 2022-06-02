@@ -19,7 +19,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final AppDatabase database =
-      await $FloorAppDatabase.databaseBuilder('flutter_database.db').build();
+      await $FloorAppDatabase.databaseBuilder('database_kipos.db').build();
   final databaseRepository = DatabaseRepository(database: database);
 
   //print('The resulting data is: ${result}');
