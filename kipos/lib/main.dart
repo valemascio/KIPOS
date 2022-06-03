@@ -222,8 +222,8 @@ Did you know?
                 color: Color.fromARGB(255, 122, 164, 94), spreadRadius: 3),
           ],
         ),
-        height: 150,
-        width: 230,
+        height: 100,
+        width: 250,
       ), //music
       Builder(
         builder: (context) => ElevatedButton(

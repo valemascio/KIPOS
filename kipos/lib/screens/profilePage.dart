@@ -141,6 +141,36 @@ class ProfilePage extends StatelessWidget {
                           const SizedBox(
                             height: 3,
                           ),
+                          const ListTile(
+                            title: Text(
+                              '',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text(''),
+                          ),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          const ListTile(
+                            title: Text(
+                              '',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text(''),
+                          ),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          const ListTile(
+                            title: Text(
+                              '',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text(''),
+                          ),
+                          const SizedBox(
+                            height: 3,
+                          ),
                         ],
                       );
                     });
