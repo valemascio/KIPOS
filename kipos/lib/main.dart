@@ -187,32 +187,30 @@ Did you know?
       Container(
         child: Center(
           child: Padding(
-              padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
-              child: Consumer<DatabaseRepository>(
-                builder: (context, value, child) {
-                  return FutureBuilder(
-                      initialData: null,
-                      future: value.findAllPerson(),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          final userDati = snapshot.data as List<Person>;
-                          String? userName = userDati[0].name;
-                          int? userAge = userDati[0].age;
-                          return Text(
-                            'Hello $userName! Since your age is $userAge, your maximum heart rate will be ${220 - (userAge as int)}, and the target heart rate range will be [${(0.7 * (220 - (userAge))).toInt()} - ${(0.85 * (220 - (userAge))).toInt()}].',
-                          );
-                        } else {
-                          //A CircularProgressIndicator is shown while the list of Todo is loading.
-                          return CircularProgressIndicator();
-                        }
-                      });
-                },
-              )
-              //  Text(
-              //     'Since your age is , your maximum heart rate will be (220-), and the target heart rate range will be [0.7*(220-23) - 0.85*(220-23)].',
-              //     textAlign: TextAlign.center,
-              //     style: TextStyle(color: Colors.black, fontSize: 15))
-              ),
+            padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
+            child: Consumer<DatabaseRepository>(
+              builder: (context, value, child) {
+                return FutureBuilder(
+                    initialData: null,
+                    future: value.findAllPerson(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final userDati = snapshot.data as List<Person>;
+                        String? userName = userDati[0].name;
+                        int? userAge = userDati[0].age;
+                        return Text(
+                          'Hello $userName! Since your age is $userAge, your maximum heart rate will be ${220 - (userAge as int)}, and the target heart rate range will be [${(0.7 * (220 - (userAge))).toInt()} - ${(0.85 * (220 - (userAge))).toInt()}].',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.black, fontSize: 15),
+                        );
+                      } else {
+                        //A CircularProgressIndicator is shown while the list of Todo is loading.
+                        return CircularProgressIndicator();
+                      }
+                    });
+              },
+            ),
+          ),
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
