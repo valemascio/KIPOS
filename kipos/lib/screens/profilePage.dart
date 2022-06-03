@@ -7,11 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/repository/databaseRepository.dart';
 
-/*static const route = '/profile/';
-  static const routename = 'profilePage';*/
-
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -30,16 +25,9 @@ class ProfilePage extends StatelessWidget {
         ),
         backgroundColor: Colors.lightGreen,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 246, 246, 246),
       body: Center(
-        child:
-            //We will show the todo table with a ListView.
-            //To do so, we use a Consumer of DatabaseRepository in order to rebuild the widget tree when
-            //entries are deleted or created.
-            Consumer<DatabaseRepository>(builder: (context, dbr, child) {
-          //The logic is to query the DB for the entire list of Todo using dbr.findAllTodos()
-          //and then populate the ListView accordingly.
-          //We need to use a FutureBuilder since the result of dbr.findAllTodos() is a Future.
+        child: Consumer<DatabaseRepository>(builder: (context, dbr, child) {
           return FutureBuilder(
             initialData: null,
             future: dbr.findAllPerson(),
@@ -51,32 +39,32 @@ class ProfilePage extends StatelessWidget {
                     itemBuilder: (context, datiIndex) {
                       final dato = user_data[datiIndex];
                       return ListView(
-                        scrollDirection: Axis.vertical,
+                        //scrollDirection: Axis.vertical,
                         shrinkWrap: true,
                         children: [
                           Stack(
-                            clipBehavior: Clip.none,
-                            alignment: Alignment.bottomCenter,
-                            children: [
-                              Image(
-                                height: MediaQuery.of(context).size.height / 3,
-                                fit: BoxFit.cover,
-                                image: const NetworkImage(
-                                    'https://i.pinimg.com/564x/85/a3/ad/85a3ada3b8f459e574d9eaf060516744.jpg'),
-                              ),
-                              Positioned(
-                                  bottom: -50.0,
-                                  child: CircleAvatar(
-                                    radius: 80,
-                                    backgroundColor: Colors.black,
+                              clipBehavior: Clip.none,
+                              alignment: Alignment.bottomCenter,
+                              children: [
+                                Image(
+                                  height:
+                                      MediaQuery.of(context).size.height / 4,
+                                  fit: BoxFit.cover,
+                                  image: const NetworkImage(
+                                      'https://i.pinimg.com/564x/ac/dd/16/acdd160c95fe9edd32017ee83b46d2be.jpg'),
+                                ),
+                                Positioned(
+                                    bottom: -40.0,
                                     child: CircleAvatar(
-                                      radius: 75,
-                                      backgroundImage:
-                                          NetworkImage('${dato.avatar}'),
-                                    ),
-                                  ))
-                            ],
-                          ),
+                                      radius: 70,
+                                      backgroundColor: Colors.black,
+                                      child: CircleAvatar(
+                                        radius: 65,
+                                        backgroundImage:
+                                            NetworkImage('${dato.avatar}'),
+                                      ),
+                                    ))
+                              ]),
                           SizedBox(
                             height: 40,
                           ),
@@ -87,45 +75,71 @@ class ProfilePage extends StatelessWidget {
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )),
                           ),
+                          Divider(
+                            height: 5,
+                            thickness: 2.5,
+                            indent: 10,
+                            endIndent: 10,
+                          ),
                           ListTile(
-                            title: Text(
+                            title: const Text(
                               'Age',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             subtitle: Text('${dato.age} y.o.'),
                           ),
-                          SizedBox(
-                            height: 10,
+                          const SizedBox(
+                            height: 3,
                           ),
-                          ListTile(
+                          const ListTile(
                             title: Text(
                               'Date of birth',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             subtitle: Text('Insert here date of birth'),
                           ),
-                          SizedBox(
-                            height: 10,
+                          const SizedBox(
+                            height: 3,
                           ),
                           ListTile(
-                            title: Text(
+                            title: const Text(
                               'Weight',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             subtitle: Text('${dato.weight} kg'),
                           ),
-                          SizedBox(
-                            height: 10,
+                          const SizedBox(
+                            height: 3,
                           ),
                           ListTile(
-                            title: Text(
+                            title: const Text(
                               'Height',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             subtitle: Text('${dato.height} cm'),
                           ),
-                          SizedBox(
-                            height: 10,
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          ListTile(
+                            title: const Text(
+                              'Average daily steps',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text('${dato.avgDailySteps}'),
+                          ),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          const ListTile(
+                            title: Text(
+                              '',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text(''),
+                          ),
+                          const SizedBox(
+                            height: 3,
                           ),
                         ],
                       );

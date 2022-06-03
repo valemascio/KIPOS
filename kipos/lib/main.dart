@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/screens/badgePage.dart';
@@ -19,7 +21,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final AppDatabase database =
-      await $FloorAppDatabase.databaseBuilder('database_kipos.db').build();
+      await $FloorAppDatabase.databaseBuilder('databasekipos.db').build();
   final databaseRepository = DatabaseRepository(database: database);
 
   //print('The resulting data is: ${result}');
@@ -39,6 +41,8 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  //final userAge = _fetchUserData(user_age);
 
   // This widget is the root of your application.
   @override
@@ -83,9 +87,7 @@ Before each run it is extremely important to stretch your muscles. You can do it
 When you run, monitoring the heart rate is very important. 
 It is recommended a target heart rate equal to the 70-85% of your maximum heart rate. 
 To compute it, you can start by estimating your maximum heart rate, subtracting your age from 220. 
-Then, multiply the result first with 0.7 (that is the lowest index in the range) and then with 0.85 (that is the highest). 
-
-For example, if you age is 25, you maximum heart rate will be 195, and the target heart rate range will be [136 - 166].''',
+Then, multiply the result first with 0.7 (that is the lowest index in the range) and then with 0.85 (that is the highest). ''',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black, fontSize: 15))),
       //
@@ -186,7 +188,26 @@ Did you know?
     List<Widget> box = [
       SizedBox(), //shoes
       SizedBox(), //stretching
-      SizedBox(), //music
+      Container(
+        child: const Center(
+          child: Padding(
+              padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
+              child: Text(
+                  'Since your age is , your maximum heart rate will be (220-23), and the target heart rate range will be [0.7*(220-23) - 0.85*(220-23)].',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.black, fontSize: 15))),
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Color.fromARGB(255, 255, 255, 255),
+          boxShadow: const [
+            BoxShadow(
+                color: Color.fromARGB(255, 122, 164, 94), spreadRadius: 3),
+          ],
+        ),
+        height: 150,
+        width: 230,
+      ), //music
       Builder(
         builder: (context) => ElevatedButton(
           onPressed: () {
@@ -227,6 +248,14 @@ Did you know?
             )),
       },
     );
-  } //build
+  }
 
+  //build
+  Future<int?> _fetchUserData(BuildContext context) async {
+    final listaDatiUser =
+        Provider.of<DatabaseRepository>(context, listen: false).findAllPerson();
+    List<Person> datoLista = await listaDatiUser;
+    final user_age = datoLista[0].age;
+    return user_age;
+  }
 }

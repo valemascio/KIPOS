@@ -258,23 +258,27 @@ class _PreferencePageState extends State<PreferencePage> {
                                   fitbitAccountData.age,
                                   fitbitAccountData.avatar,
                                   fitbitAccountData.weight,
-                                  fitbitAccountData.height));
+                                  fitbitAccountData.height,
+                                  fitbitAccountData.averageDailySteps));
 
-                          /* //Data manager sleep
-                          FitbitSleepDataManager fitbitSleepDataManager_sleep =
+                          //Data manager sleep
+                          /*FitbitSleepDataManager fitbitSleepDataManager_sleep =
                               FitbitSleepDataManager(
                             clientID: Strings.fitbitClientID,
                             clientSecret: Strings.fitbitClientSecret,
                           );
 
                           //Fetch sleep
-                          final sleepData = await fitbitSleepDataManager_sleep
-                              .fetch(FitbitSleepAPIURL.withUserIDAndDateRange(
+                          FitbitSleepAPIURL fitbitSleepAPIURL =
+                              FitbitSleepAPIURL.withUserIDAndDay(
+                            date: DateTime.now(),
                             userID: userId,
-                            startDate: _selectedDate,
-                            endDate: _selectedDate.add(Duration(days: 0)),
-                          )) as List<FitbitSleepData>;
-*/
+                          );
+
+                          List<FitbitSleepAPIURL> fitbitSleepAPIURL =
+                              await fitbitSleepDataManager_sleep
+                                  .fetch(fitbitSleepAPIURL);*/
+
                           final snackBar = SnackBar(
                               content: Text(
                                   'FitBit data access was authorized successfully.'));

@@ -86,7 +86,7 @@ class _$AppDatabase extends AppDatabase {
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `Dati` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `week` INTEGER NOT NULL, `distance` REAL NOT NULL, `steps` REAL NOT NULL, `calories` REAL NOT NULL)');
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Person` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `surname` TEXT, `age` INTEGER, `avatar` TEXT, `weight` REAL, `height` REAL)');
+            'CREATE TABLE IF NOT EXISTS `Person` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `surname` TEXT, `age` INTEGER, `avatar` TEXT, `weight` REAL, `height` REAL, `avgDailySteps` INTEGER)');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -205,7 +205,8 @@ class _$PersonDao extends PersonDao {
                   'age': item.age,
                   'avatar': item.avatar,
                   'weight': item.weight,
-                  'height': item.height
+                  'height': item.height,
+                  'avgDailySteps': item.avgDailySteps
                 },
             changeListener),
         _personDeletionAdapter = DeletionAdapter(
@@ -219,7 +220,8 @@ class _$PersonDao extends PersonDao {
                   'age': item.age,
                   'avatar': item.avatar,
                   'weight': item.weight,
-                  'height': item.height
+                  'height': item.height,
+                  'avgDailySteps': item.avgDailySteps
                 },
             changeListener);
 
@@ -243,7 +245,8 @@ class _$PersonDao extends PersonDao {
             row['age'] as int?,
             row['avatar'] as String?,
             row['weight'] as double?,
-            row['height'] as double?));
+            row['height'] as double?,
+            row['avgDailySteps'] as int?));
   }
 
   @override
@@ -256,7 +259,8 @@ class _$PersonDao extends PersonDao {
             row['age'] as int?,
             row['avatar'] as String?,
             row['weight'] as double?,
-            row['height'] as double?),
+            row['height'] as double?,
+            row['avgDailySteps'] as int?),
         arguments: [id],
         queryableName: 'Person',
         isView: false);

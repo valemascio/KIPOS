@@ -72,7 +72,7 @@ class DetailScreen extends StatelessWidget {
           title: tips.tips_name,
           backgroundColor: Colors.lightGreen,
         ),
-        body: Column(
+        body: ListView(
           children: <Widget>[
             const Align(
               alignment: Alignment.center,

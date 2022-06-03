@@ -34,13 +34,13 @@ class Person {
 
   final String? avatar;
 
-  //final DateTime dateOfBirth;
-
   final double? weight;
 
   final double? height;
 
+  final int? avgDailySteps;
+
   //Default constructor
   Person(this.id, this.name, this.surname, this.age, this.avatar,
-      /*this.dateOfBirth,*/ this.weight, this.height);
+      /*this.dateOfBirth,*/ this.weight, this.height, this.avgDailySteps);
 }
