@@ -150,10 +150,10 @@ class _HomePageState extends State<HomePage> {
                       Color? check = Colors.white;
                       if (dato.distance > double.parse(preview[datiIndex])) {
                         sentence =
-                            'GREAT WORK!! You accomplished the task of this week. Head over to the Badge section to see what you gained.';
+                            'GREAT WORK!! You accomplished the goal of this week. Head over to the Badge section to see what you gained.';
                       } else {
                         sentence =
-                            'UH OH! It seems you have not accomplished the task of this week, keep running!';
+                            'UH OH! It seems you have not accomplished the goal of this week, keep running!';
                       }
                       if (dato.distance > double.parse(preview[datiIndex])) {
                         check = Colors.lightGreen;

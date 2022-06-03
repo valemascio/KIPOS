@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/screens/badgePage.dart';
@@ -41,8 +39,6 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  //final userAge = _fetchUserData(user_age);
 
   // This widget is the root of your application.
   @override
@@ -189,13 +185,34 @@ Did you know?
       SizedBox(), //shoes
       SizedBox(), //stretching
       Container(
-        child: const Center(
+        child: Center(
           child: Padding(
               padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
-              child: Text(
-                  'Since your age is , your maximum heart rate will be (220-23), and the target heart rate range will be [0.7*(220-23) - 0.85*(220-23)].',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black, fontSize: 15))),
+              child: Consumer<DatabaseRepository>(
+                builder: (context, value, child) {
+                  return FutureBuilder(
+                      initialData: null,
+                      future: value.findAllPerson(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          final userDati = snapshot.data as List<Person>;
+                          String? userName = userDati[0].name;
+                          int? userAge = userDati[0].age;
+                          return Text(
+                            'Hello $userName! Since your age is $userAge, your maximum heart rate will be ${220 - (userAge as int)}, and the target heart rate range will be [${(0.7 * (220 - (userAge))).toInt()} - ${(0.85 * (220 - (userAge))).toInt()}].',
+                          );
+                        } else {
+                          //A CircularProgressIndicator is shown while the list of Todo is loading.
+                          return CircularProgressIndicator();
+                        }
+                      });
+                },
+              )
+              //  Text(
+              //     'Since your age is , your maximum heart rate will be (220-), and the target heart rate range will be [0.7*(220-23) - 0.85*(220-23)].',
+              //     textAlign: TextAlign.center,
+              //     style: TextStyle(color: Colors.black, fontSize: 15))
+              ),
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -248,14 +265,5 @@ Did you know?
             )),
       },
     );
-  }
-
-  //build
-  Future<int?> _fetchUserData(BuildContext context) async {
-    final listaDatiUser =
-        Provider.of<DatabaseRepository>(context, listen: false).findAllPerson();
-    List<Person> datoLista = await listaDatiUser;
-    final user_age = datoLista[0].age;
-    return user_age;
   }
 }
