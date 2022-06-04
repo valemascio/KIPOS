@@ -50,6 +50,13 @@ class BadgePage extends StatelessWidget {
                   front: Container(
                     child: BadgeCard(
                       titolo: 'Week 1 - Cacao Tree',
+                      /*urlImmagine:
+                        if (dato.distance > double.parse(preview[datiIndex])) {
+                          urlImmagine:
+                            'https://www.treedom.net/images/medium_428702';
+                        } else {
+                          urlImmagine: 'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+                        }*/
                       //if km < 16
                       //return urlImmagine:'https://www.treedom.net/images/medium_428702';
                       //else return urlImmagine: getURL();
