@@ -703,8 +703,3 @@ class Background extends StatelessWidget {
     );
   }
 }
-
-// if steps >= 35000:
-//   urlImmagine:'',
-// else:
-//   urlImmagine: getURL(),
