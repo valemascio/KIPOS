@@ -28,78 +28,166 @@ class _StatisticsPageState extends State<StatisticsPage> {
           backgroundColor: Colors.lightGreen,
         ),
         body: Center(
-          child: /*Consumer<DatabaseRepository>(builder: (context, dbr, child) {
+          child: Consumer<DatabaseRepository>(builder: (context, dbr, child) {
             return FutureBuilder(
               initialData: null,
               future: dbr.findAllDati(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   final dataStat = snapshot.data as List<Dati>;
-                  return ListView.builder(
-                      itemCount: dataStat.length,
-                      itemBuilder: (context, datiIndex) {
-                        final datoStat = dataStat[datiIndex];
-                        return*/
-              ListView(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  children: [
-                Text(' '),
-                Padding(
-                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    child: ExpansionTileCard(
-                        title: Text('📏 Distance',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 122, 164, 94),
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
-                            )),
-                        subtitle: Text(
-                            'Tap to see the statistics about your distances',
-                            textAlign: TextAlign.center),
-                        children: <Widget>[
-                          ListView(shrinkWrap: true, children: [
-                            //Initialize the chart widget
-                            SfCartesianChart(
-                                primaryXAxis: CategoryAxis(),
-                                // Chart title
-                                title: ChartTitle(text: 'Distances'),
-                                // Enable legend
-                                legend: Legend(isVisible: false),
-                                // Enable tooltip
-                                tooltipBehavior: TooltipBehavior(enable: true),
-                                series: <ChartSeries<_SalesData, String>>[
-                                  LineSeries<_SalesData, String>(
-                                      dataSource: data,
-                                      xValueMapper: (_SalesData sales, _) =>
-                                          sales.year,
-                                      //datoStat.week
-                                      //.toStringAsFixed(0),
-                                      yValueMapper: (_SalesData sales, _) =>
-                                          //datoStat.distance,
-                                          sales.sales,
-                                      name: 'Km',
-                                      // Enable data label
-                                      dataLabelSettings:
-                                          DataLabelSettings(isVisible: true))
-                                ]),
-                          ]),
-                        ])),
-                Divider(
-                  height: 5,
-                  thickness: 1.5,
-                  indent: 10,
-                  endIndent: 10,
-                ),
-              ]),
-          /* });
+                  return ListView(
+                      //scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: ExpansionTileCard(
+                              title: Text('📏 Distances',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              subtitle: Text(
+                                  'Tap to see the statistics about your distances',
+                                  textAlign: TextAlign.center),
+                              children: <Widget>[
+                                //Initialize the chart widget
+                                SfCartesianChart(
+                                    primaryXAxis: CategoryAxis(),
+                                    // Chart title
+                                    title: ChartTitle(text: 'Distances'),
+                                    // Enable legend
+                                    legend: Legend(isVisible: false),
+                                    // Enable tooltip
+                                    tooltipBehavior:
+                                        TooltipBehavior(enable: true),
+                                    series: <ChartSeries<Dati, String>>[
+                                      LineSeries<Dati, String>(
+                                          dataSource: dataStat,
+                                          xValueMapper: (Dati dataStat, _) =>
+                                              dataStat.week.toString(),
+                                          //datoStat.week
+                                          //.toStringAsFixed(0),
+                                          yValueMapper: (Dati dataStat, _) =>
+                                              //datoStat.distance,
+                                              dataStat.distance,
+                                          name: 'Km',
+                                          // Enable data label
+                                          dataLabelSettings: DataLabelSettings(
+                                              isVisible: true))
+                                    ]),
+                              ]),
+                        ),
+                        Divider(
+                          height: 5,
+                          thickness: 1.5,
+                          indent: 10,
+                          endIndent: 10,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: ExpansionTileCard(
+                              title: Text('👣 Steps',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              subtitle: Text(
+                                  'Tap to see the statistics about your steps',
+                                  textAlign: TextAlign.center),
+                              children: <Widget>[
+                                //Initialize the chart widget
+                                SfCartesianChart(
+                                    primaryXAxis: CategoryAxis(),
+                                    // Chart title
+                                    title: ChartTitle(text: 'Steps'),
+                                    // Enable legend
+                                    legend: Legend(isVisible: false),
+                                    // Enable tooltip
+                                    tooltipBehavior:
+                                        TooltipBehavior(enable: true),
+                                    series: <ChartSeries<Dati, String>>[
+                                      LineSeries<Dati, String>(
+                                          dataSource: dataStat,
+                                          xValueMapper: (Dati dataStat, _) =>
+                                              dataStat.week.toString(),
+                                          //datoStat.week
+                                          //.toStringAsFixed(0),
+                                          yValueMapper: (Dati dataStat, _) =>
+                                              //datoStat.distance,
+                                              dataStat.steps,
+                                          name: 'number of steps',
+                                          // Enable data label
+                                          dataLabelSettings: DataLabelSettings(
+                                              isVisible: true))
+                                    ]),
+                              ]),
+                        ),
+                        Divider(
+                          height: 5,
+                          thickness: 1.5,
+                          indent: 10,
+                          endIndent: 10,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: ExpansionTileCard(
+                              title: Text('🔥 Calories',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              subtitle: Text(
+                                  'Tap to see the statistics about your burned calories',
+                                  textAlign: TextAlign.center),
+                              children: <Widget>[
+                                //Initialize the chart widget
+                                SfCartesianChart(
+                                    primaryXAxis: CategoryAxis(),
+                                    // Chart title
+                                    title: ChartTitle(text: 'Calories'),
+                                    // Enable legend
+                                    legend: Legend(isVisible: false),
+                                    // Enable tooltip
+                                    tooltipBehavior:
+                                        TooltipBehavior(enable: true),
+                                    series: <ChartSeries<Dati, String>>[
+                                      LineSeries<Dati, String>(
+                                          dataSource: dataStat,
+                                          xValueMapper: (Dati dataStat, _) =>
+                                              dataStat.week.toString(),
+                                          //datoStat.week
+                                          //.toStringAsFixed(0),
+                                          yValueMapper: (Dati dataStat, _) =>
+                                              //datoStat.distance,
+                                              dataStat.calories,
+                                          name: 'calories',
+                                          // Enable data label
+                                          dataLabelSettings: DataLabelSettings(
+                                              isVisible: true))
+                                    ]),
+                              ]),
+                        ),
+                        Divider(
+                          height: 5,
+                          thickness: 1.5,
+                          indent: 10,
+                          endIndent: 10,
+                        ),
+                      ]);
                 } else {
                   //A CircularProgressIndicator is shown while the list of Todo is loading.
                   return CircularProgressIndicator();
                 } //else
               }, //builder of FutureBuilder
-            );*/
+            );
+          }),
         ),
         bottomNavigationBar: Container(
             height: 90,
@@ -122,30 +210,4 @@ class _StatisticsPageState extends State<StatisticsPage> {
               ],
             )));
   }
-
-  List<_SalesData> data = [
-    _SalesData('1', 1000),
-    _SalesData('2', 2000),
-    _SalesData('3', 3000),
-    _SalesData('4', 4000),
-    _SalesData('5', 5000),
-    _SalesData('6', 6000),
-    _SalesData('7', 7000),
-    _SalesData('8', 8000),
-    _SalesData('9', 9000),
-    _SalesData('10', 10000),
-    _SalesData('11', 11000),
-    _SalesData('12', 12000),
-    _SalesData('13', 13000),
-    _SalesData('14', 14000),
-    _SalesData('15', 15000),
-    _SalesData('16', 16000)
-  ];
-}
-
-class _SalesData {
-  _SalesData(this.year, this.sales);
-
-  final String year;
-  final double sales;
 }
