@@ -20,10 +20,6 @@ class _IntroPageState extends State<IntroPage> {
     Navigator.of(context).pushReplacementNamed(HomePage.route);
   }
 
-  Widget _buildImage(String assetName, [double width = 350]) {
-    return Image.asset('assets/images/$assetName', width: width);
-  }
-
   @override
   Widget build(BuildContext context) {
     const bodyStyle = TextStyle(fontSize: 19.0);
@@ -44,109 +40,34 @@ class _IntroPageState extends State<IntroPage> {
         body: IntroductionScreen(
           key: introKey,
           globalBackgroundColor: Colors.white,
-          // globalHeader: Align(
-          //   alignment: Alignment.topRight,
-          //   child: SafeArea(
-          //     child: Padding(
-          //       padding: const EdgeInsets.only(top: 16, right: 16),
-          //       //child: _buildImage('garden.jpeg', 100),
-          //     ),
-          //   ),
-          // ),
           pages: [
             PageViewModel(
-              title: "Fractional shares",
+                title: "Welcome to Kìpos!",
+                body:
+                    "The aim of this app is to never let you loose interest while you train for a marathon! You'll find a weekly goal to keep up with and, if you succeed, you'll gain rewards building week after week your own personal garden! Your gains will also help the environment: after completing the training program, all the trees present in your garden will be planted in their place of origin! And now... LET'S GET TO WORK",
+                image: Image.asset('assets/Littlefield_Garden_Trees.jpg'),
+                decoration: pageDecoration),
+            PageViewModel(
+              title: "First things first",
               body:
-                  "Instead of having to buy an entire share, invest any amount you want.",
-              image: Image.asset('assets/image/garden.jpeg'),
-              // _buildImage('garden.jpeg', 100),
+                  "Before starting you'll need to authorize the app to access your FitBit data: Head over to the Homepage and in the 'Settings' tile of the Menu you can decide when you want to start your training.",
+              image: Image.asset(
+                  'assets/simulator_screenshot_154FF569-1E6D-4290-B1E4-987D33C4BE2F.png'),
               decoration: pageDecoration,
             ),
-            /* PageViewModel(
-              title: "Learn as you go",
-              body:
-                  "Download the Stockpile app and master the market with our mini-lesson.",
-              image: _buildImage('img2.jpg'),
-              decoration: pageDecoration,
-            ),
-            PageViewModel(
-              title: "Kids and teens",
-              body:
-                  "Kids and teens can track their stocks 24/7 and place trades that you approve.",
-              image: _buildImage('img3.jpg'),
-              decoration: pageDecoration,
-            ),
-            PageViewModel(
-              title: "Full Screen Page",
-              body:
-                  "Pages can be full screen as well.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id euismod lectus, non tempor felis. Nam rutrum rhoncus est ac venenatis.",
-              image: _buildFullscreenImage(),
-              decoration: pageDecoration.copyWith(
-                contentMargin: const EdgeInsets.symmetric(horizontal: 16),
-                fullScreen: true,
-                bodyFlex: 2,
-                imageFlex: 3,
-              ),
-            ),
-            PageViewModel(
-              title: "Another title page",
-              body: "Another beautiful body text for this example onboarding",
-              image: _buildImage('img2.jpg'),
-              footer: ElevatedButton(
-                onPressed: () {
-                  introKey.currentState?.animateScroll(0);
-                },
-                child: const Text(
-                  'FooButton',
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.lightBlue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-              ),
-              decoration: pageDecoration,
-            ),
-            PageViewModel(
-              title: "Title of last page - reversed",
-              bodyWidget: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text("Click on ", style: bodyStyle),
-                  Icon(Icons.edit),
-                  Text(" to edit a post", style: bodyStyle),
-                ],
-              ),
-              decoration: pageDecoration.copyWith(
-                bodyFlex: 2,
-                imageFlex: 4,
-                bodyAlignment: Alignment.bottomCenter,
-                imageAlignment: Alignment.topCenter,
-              ),
-              image: _buildImage('img1.jpg'),
-              reverse: true,
-            ),*/
           ],
           onDone: () => _onIntroEnd(context),
-          //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
           showSkipButton: false,
           skipOrBackFlex: 0,
           nextFlex: 0,
           showBackButton: true,
           //rtl: true, // Display as right-to-left
           back: const Icon(Icons.arrow_back),
-          skip:
-              const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600)),
           next: const Icon(Icons.arrow_forward),
-          done:
-              const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+          done: const Text('Homepage',
+              style: TextStyle(fontWeight: FontWeight.w600)),
           curve: Curves.fastLinearToSlowEaseIn,
           controlsMargin: const EdgeInsets.all(16),
-          // controlsPadding: kIsWeb
-          //     ? const EdgeInsets.all(12.0)
-          //     : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
           dotsDecorator: const DotsDecorator(
             size: Size(10.0, 10.0),
             color: Color(0xFFBDBDBD),
@@ -156,7 +77,7 @@ class _IntroPageState extends State<IntroPage> {
             ),
           ),
           dotsContainerDecorator: const ShapeDecoration(
-            color: Colors.black87,
+            //color: Colors.black87,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(8.0)),
             ),
