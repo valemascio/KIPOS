@@ -9,6 +9,7 @@ import 'package:kipos/screens/tipsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
 import 'package:kipos/screens/deletePage.dart';
+import 'package:kipos/screens/introPage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:kipos/database/database.dart';
@@ -250,6 +251,7 @@ Did you know?
         LogoutPage.route: (context) => LogoutPage(),
         BadgePage.route: (context) => BadgePage(),
         StatisticsPage.route: (context) => StatisticsPage(),
+        IntroPage.route: (context) => IntroPage(),
         TipsPage.route: (context) => TipsPage(
                 tips: List.generate(
               6,
