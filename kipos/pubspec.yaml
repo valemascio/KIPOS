@@ -35,6 +35,7 @@ dependencies:
   flip_card: ^0.6.0
   shared_preferences: ^2.0.15
   dropdown_button2: ^1.5.1
+  introduction_screen: ^3.0.1
 
   #Floor package dependency
   floor: ^1.2.0
@@ -70,7 +71,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   
-
+  assets:
+    - assets/images/garden.jpeg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
