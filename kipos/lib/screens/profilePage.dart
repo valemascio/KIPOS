@@ -86,17 +86,18 @@ class ProfilePage extends StatelessWidget {
                               'Age',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            subtitle: Text('${dato.age} y.o.'),
+                            subtitle: Text('${dato.age} years old'),
                           ),
                           const SizedBox(
                             height: 3,
                           ),
-                          const ListTile(
+                          ListTile(
                             title: Text(
                               'Date of birth',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            subtitle: Text('Insert here date of birth'),
+                            subtitle: Text(
+                                '${DateTime.fromMillisecondsSinceEpoch(dato.dateOfBirth!).day}/${DateTime.fromMillisecondsSinceEpoch(dato.dateOfBirth!).month}/${DateTime.fromMillisecondsSinceEpoch(dato.dateOfBirth!).year} '),
                           ),
                           const SizedBox(
                             height: 3,

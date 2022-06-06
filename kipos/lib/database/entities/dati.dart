@@ -43,6 +43,15 @@ class Person {
   final int? dateOfBirth;
 
   //Default constructor
-  Person(this.id, this.name, this.surname, this.age, this.avatar, this.weight,
-      this.height, this.avgDailySteps, this.dateOfBirth);
+  Person(
+    this.id,
+    this.name,
+    this.surname,
+    this.age,
+    this.avatar,
+    this.weight,
+    this.height,
+    this.avgDailySteps,
+    this.dateOfBirth,
+  );
 }
