@@ -86,7 +86,7 @@ class _$AppDatabase extends AppDatabase {
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `Dati` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `week` INTEGER NOT NULL, `distance` REAL NOT NULL, `steps` REAL NOT NULL, `calories` REAL NOT NULL)');
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Person` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `surname` TEXT, `age` INTEGER, `avatar` TEXT, `weight` REAL, `height` REAL, `avgDailySteps` INTEGER)');
+            'CREATE TABLE IF NOT EXISTS `Person` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `surname` TEXT, `age` INTEGER, `avatar` TEXT, `weight` REAL, `height` REAL, `avgDailySteps` INTEGER, `dateOfBirth` INTEGER)');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -206,7 +206,8 @@ class _$PersonDao extends PersonDao {
                   'avatar': item.avatar,
                   'weight': item.weight,
                   'height': item.height,
-                  'avgDailySteps': item.avgDailySteps
+                  'avgDailySteps': item.avgDailySteps,
+                  'dateOfBirth': item.dateOfBirth
                 },
             changeListener),
         _personDeletionAdapter = DeletionAdapter(
@@ -221,7 +222,8 @@ class _$PersonDao extends PersonDao {
                   'avatar': item.avatar,
                   'weight': item.weight,
                   'height': item.height,
-                  'avgDailySteps': item.avgDailySteps
+                  'avgDailySteps': item.avgDailySteps,
+                  'dateOfBirth': item.dateOfBirth
                 },
             changeListener);
 
@@ -246,7 +248,8 @@ class _$PersonDao extends PersonDao {
             row['avatar'] as String?,
             row['weight'] as double?,
             row['height'] as double?,
-            row['avgDailySteps'] as int?));
+            row['avgDailySteps'] as int?,
+            row['dateOfBirth'] as int?));
   }
 
   @override
@@ -260,7 +263,8 @@ class _$PersonDao extends PersonDao {
             row['avatar'] as String?,
             row['weight'] as double?,
             row['height'] as double?,
-            row['avgDailySteps'] as int?),
+            row['avgDailySteps'] as int?,
+            row['dateOfBirth'] as int?),
         arguments: [id],
         queryableName: 'Person',
         isView: false);

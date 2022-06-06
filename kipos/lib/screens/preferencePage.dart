@@ -10,6 +10,7 @@ import 'package:kipos/utilities/strings.dart';
 import 'package:provider/provider.dart';
 import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/repository/databaseRepository.dart';
+import "package:intl/intl_browser.dart";
 
 class PreferencePage extends StatefulWidget {
   PreferencePage({Key? key}) : super(key: key);
@@ -259,7 +260,16 @@ class _PreferencePageState extends State<PreferencePage> {
                                   fitbitAccountData.avatar,
                                   fitbitAccountData.weight,
                                   fitbitAccountData.height,
-                                  fitbitAccountData.averageDailySteps));
+                                  fitbitAccountData.averageDailySteps,
+                                  fitbitAccountData
+                                      .dateOfBirth?.millisecondsSinceEpoch));
+
+                          /*final date = fitbitAccountData
+                              .dateOfBirth?.millisecondsSinceEpoch;
+                          final dateConverted =
+                              DateTime.fromMillisecondsSinceEpoch(date!);
+
+                          print("data di nascita: ${dateConverted}");*/
 
                           //Data manager sleep
                           /*FitbitSleepDataManager fitbitSleepDataManager_sleep =
