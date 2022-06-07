@@ -235,6 +235,94 @@ CO2 absorbed: 500kg''';
                     '''Sorry, you didn't achive your weekly goal 😢''';
               }
 
+              String? image_week9 = '';
+              double? distance_week9 =
+                  dato[8].distance; //distanza nona settimana
+              if (distance_week9 > double.parse(preview[8])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week9 = 'https://www.treedom.net/images/medium_428774';
+              } else {
+                image_week9 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week9 = '';
+              if (distance_week9 > double.parse(preview[8])) {
+                sentence_week9 = '''Congratulations! 🥳 
+You run ${preview[8]} km 💪🏼 
+
+                
+CO2 absorbed: 800kg''';
+              } else {
+                sentence_week9 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
+              String? image_week10 = '';
+              double? distance_week10 =
+                  dato[9].distance; //distanza decima settimana
+              if (distance_week10 > double.parse(preview[9])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week10 = 'https://www.treedom.net/images/medium_428705';
+              } else {
+                image_week10 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week10 = '';
+              if (distance_week10 > double.parse(preview[9])) {
+                sentence_week10 = '''Congratulations! 🥳 
+You run ${preview[9]} km 💪🏼 
+
+                
+CO2 absorbed: 500kg''';
+              } else {
+                sentence_week10 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
+              String? image_week11 = '';
+              double? distance_week11 =
+                  dato[10].distance; //distanza 11a settimana
+              if (distance_week11 > double.parse(preview[10])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week11 = 'https://www.treedom.net/images/medium_428807';
+              } else {
+                image_week11 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week11 = '';
+              if (distance_week11 > double.parse(preview[10])) {
+                sentence_week11 = '''Congratulations! 🥳 
+You run ${preview[10]} km 💪🏼 
+
+                
+CO2 absorbed: 300kg''';
+              } else {
+                sentence_week11 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
+              String? image_week12 = '';
+              double? distance_week12 =
+                  dato[11].distance; //distanza 12a settimana
+              if (distance_week12 > double.parse(preview[11])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week12 = 'https://www.treedom.net/images/medium_1244610';
+              } else {
+                image_week12 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week12 = '';
+              if (distance_week12 > double.parse(preview[11])) {
+                sentence_week12 = '''Congratulations! 🥳 
+You run ${preview[11]} km 💪🏼 
+
+                
+CO2 absorbed: 900kg''';
+              } else {
+                sentence_week12 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
               return Stack(children: [
                 // Flutter in versione web non supporta quanto fatto per la classe Background,
                 // per questo ho preferito lasciare come background solo lo sfondo nero
@@ -499,6 +587,141 @@ CO2 absorbed: 500kg''';
                               child: Padding(
                                   padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                                   child: Text(sentence_week8, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 9 - Grevillea''',
+                              urlImmagine: image_week9, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(sentence_week9, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 10 - Avocado''',
+                              urlImmagine: image_week10, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(
+                                      sentence_week10, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 11 - Macadamia''',
+                              urlImmagine: image_week11, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(
+                                      sentence_week11, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 12 - Neem''',
+                              urlImmagine: image_week12, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(
+                                      sentence_week12, //TESTO CHE CAMBIA
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.black, fontSize: 15))),
