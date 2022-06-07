@@ -45,14 +45,20 @@ class _IntroPageState extends State<IntroPage> {
                 title: "Welcome to Kìpos!",
                 body:
                     "The aim of this app is to never let you loose interest while you train for a marathon! You'll find a weekly goal to keep up with and, if you succeed, you'll gain rewards building week after week your own personal garden! Your gains will also help the environment: after completing the training program, all the trees present in your garden will be planted in their place of origin! And now... LET'S GET TO WORK",
-                image: Image.asset('assets/Littlefield_Garden_Trees.jpg'),
+                image: Image.asset('assets/garden.jpg'),
                 decoration: pageDecoration),
             PageViewModel(
               title: "First things first",
               body:
                   "Before starting you'll need to authorize the app to access your FitBit data: Head over to the Homepage and in the 'Settings' tile of the Menu you can decide when you want to start your training.",
-              image: Image.asset(
-                  'assets/simulator_screenshot_154FF569-1E6D-4290-B1E4-987D33C4BE2F.png'),
+              image: Image.asset('assets/Settings.png'),
+              decoration: pageDecoration,
+            ),
+            PageViewModel(
+              title: "Consent for personal data treatment",
+              body:
+                  "We inform you that to use Kìpos your explicit consent for treatment of your personal data (Profile informations and Health data) is required. By clicking on 'Authorize FitBit Data' you acquiesce to the use of your personal data.",
+              image: Image.asset('assets/Authorize.png'),
               decoration: pageDecoration,
             ),
           ],
