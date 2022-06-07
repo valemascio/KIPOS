@@ -69,8 +69,9 @@ class BadgePage extends StatelessWidget {
               }
               String sentence_week1 = '';
               if (distance_week1 > double.parse(preview[0])) {
-                sentence_week1 =
-                    '''Congratulations for your first badge! Good job, you run ${preview[0]} km 😊 
+                sentence_week1 = '''Congratulations! 🥳 
+You run ${preview[0]} km 💪🏼 
+
                 
 CO2 absorbed: 55kg''';
               } else {
@@ -90,8 +91,9 @@ CO2 absorbed: 55kg''';
               }
               String sentence_week2 = '';
               if (distance_week2 > double.parse(preview[1])) {
-                sentence_week2 =
-                    '''Congratulations for your first badge! Good job, you run ${preview[1]} km 😊 
+                sentence_week2 = '''Congratulations! 🥳 
+You run ${preview[1]} km 💪🏼 
+
                 
 CO2 absorbed: 10kg''';
               } else {
@@ -111,8 +113,9 @@ CO2 absorbed: 10kg''';
               }
               String sentence_week3 = '';
               if (distance_week3 > double.parse(preview[2])) {
-                sentence_week3 =
-                    '''Congratulations for your first badge! Good job, you run ${preview[2]} km 😊 
+                sentence_week3 = '''Congratulations! 🥳 
+You run ${preview[2]} km 💪🏼 
+
                 
 CO2 absorbed: 55kg''';
               } else {
@@ -133,12 +136,36 @@ CO2 absorbed: 55kg''';
               }
               String sentence_week4 = '';
               if (distance_week4 > double.parse(preview[3])) {
-                sentence_week4 =
-                    '''Congratulations for your first badge! Good job, you run ${preview[3]} km 😊 
+                sentence_week4 = '''Congratulations! 🥳 
+You run ${preview[3]} km 💪🏼 
+
                 
 CO2 absorbed: 100kg''';
               } else {
                 sentence_week4 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
+              String? image_week5 = '';
+              double? distance_week5 =
+                  dato[4].distance; //distanza quinta settimana
+              if (distance_week5 > double.parse(preview[4])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week5 =
+                    'https://medias.treedom.net/images/medium/e28ae4c8e5759accd4215a6df49c7b89.png';
+              } else {
+                image_week5 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week5 = '';
+              if (distance_week5 > double.parse(preview[4])) {
+                sentence_week5 = '''Congratulations! 🥳 
+You run ${preview[4]} km 💪🏼 
+
+                
+CO2 absorbed: 200kg''';
+              } else {
+                sentence_week5 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
               }
 
@@ -274,6 +301,39 @@ CO2 absorbed: 100kg''';
                               child: Padding(
                                   padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                                   child: Text(sentence_week4, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 5 - Guava''',
+                              urlImmagine: image_week5, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(sentence_week5, //TESTO CHE CAMBIA
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.black, fontSize: 15))),
