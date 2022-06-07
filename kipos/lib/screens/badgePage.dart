@@ -169,6 +169,72 @@ CO2 absorbed: 200kg''';
                     '''Sorry, you didn't achive your weekly goal 😢''';
               }
 
+              String? image_week6 = '';
+              double? distance_week6 =
+                  dato[5].distance; //distanza sesta settimana
+              if (distance_week6 > double.parse(preview[5])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week6 = 'https://www.treedom.net/images/medium_1038818';
+              } else {
+                image_week6 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week6 = '';
+              if (distance_week6 > double.parse(preview[5])) {
+                sentence_week6 = '''Congratulations! 🥳 
+You run ${preview[5]} km 💪🏼 
+
+                
+CO2 absorbed: 50kg''';
+              } else {
+                sentence_week6 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
+              String? image_week7 = '';
+              double? distance_week7 =
+                  dato[6].distance; //distanza settima settimana
+              if (distance_week7 > double.parse(preview[6])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week7 = 'https://www.treedom.net/images/medium_876236';
+              } else {
+                image_week7 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week7 = '';
+              if (distance_week7 > double.parse(preview[6])) {
+                sentence_week7 = '''Congratulations! 🥳 
+You run ${preview[6]} km 💪🏼 
+
+                
+CO2 absorbed: 300kg''';
+              } else {
+                sentence_week7 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
+              String? image_week8 = '';
+              double? distance_week8 =
+                  dato[7].distance; //distanza ottava settimana
+              if (distance_week8 > double.parse(preview[7])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week8 = 'https://www.treedom.net/images/medium_428739';
+              } else {
+                image_week8 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week8 = '';
+              if (distance_week8 > double.parse(preview[7])) {
+                sentence_week8 = '''Congratulations! 🥳 
+You run ${preview[7]} km 💪🏼 
+
+                
+CO2 absorbed: 500kg''';
+              } else {
+                sentence_week8 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
               return Stack(children: [
                 // Flutter in versione web non supporta quanto fatto per la classe Background,
                 // per questo ho preferito lasciare come background solo lo sfondo nero
@@ -334,6 +400,105 @@ CO2 absorbed: 200kg''';
                               child: Padding(
                                   padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                                   child: Text(sentence_week5, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 6 - White Mangrove''',
+                              urlImmagine: image_week6, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(sentence_week6, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 7 - Cashew''',
+                              urlImmagine: image_week7, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(sentence_week7, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 8 - Spanish Cedar''',
+                              urlImmagine: image_week8, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(sentence_week8, //TESTO CHE CAMBIA
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.black, fontSize: 15))),
