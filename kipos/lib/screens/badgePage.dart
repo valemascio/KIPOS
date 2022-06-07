@@ -323,6 +323,96 @@ CO2 absorbed: 900kg''';
                     '''Sorry, you didn't achive your weekly goal 😢''';
               }
 
+              String? image_week13 = '';
+              double? distance_week13 =
+                  dato[12].distance; //distanza 13a settimana
+              if (distance_week13 > double.parse(preview[12])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week13 = 'https://www.treedom.net/images/medium_428713';
+              } else {
+                image_week13 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week13 = '';
+              if (distance_week13 > double.parse(preview[12])) {
+                sentence_week13 = '''Congratulations! 🥳 
+You run ${preview[12]} km 💪🏼 
+
+                
+CO2 absorbed: 2000kg''';
+              } else {
+                sentence_week13 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
+              String? image_week14 = '';
+              double? distance_week14 =
+                  dato[13].distance; //distanza 14a settimana
+              if (distance_week14 > double.parse(preview[13])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week14 =
+                    'https://medias.treedom.net/images/medium/d74d0426991bb2a5437ee9ed40caec68.png';
+              } else {
+                image_week14 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week14 = '';
+              if (distance_week14 > double.parse(preview[13])) {
+                sentence_week14 = '''Congratulations! 🥳 
+You run ${preview[13]} km 💪🏼 
+
+                
+CO2 absorbed: 310kg''';
+              } else {
+                sentence_week14 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
+              String? image_week15 = '';
+              double? distance_week15 =
+                  dato[14].distance; //distanza 15a settimana
+              if (distance_week15 > double.parse(preview[14])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week15 = 'https://www.treedom.net/images/medium_428701';
+              } else {
+                image_week15 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week15 = '';
+              if (distance_week15 > double.parse(preview[14])) {
+                sentence_week15 = '''Congratulations! 🥳 
+You run ${preview[14]} km 💪🏼 
+
+                
+CO2 absorbed: 3000kg''';
+              } else {
+                sentence_week15 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
+              String? image_week16 = '';
+              double? distance_week16 =
+                  dato[15].distance; //distanza 16a settimana
+              if (distance_week16 > double.parse(preview[15])) {
+                //preview[0] = lista di distanze da confrontare
+                image_week16 =
+                    'https://medias.treedom.net/images/medium/a287de0108bed40d2427f44567011c12.png';
+              } else {
+                image_week16 =
+                    'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
+              }
+              String sentence_week16 = '';
+              if (distance_week16 > double.parse(preview[15])) {
+                sentence_week16 = '''Congratulations! 🥳 
+You run ${preview[15]} km 💪🏼 
+
+                
+CO2 absorbed: 1170kg''';
+              } else {
+                sentence_week16 =
+                    '''Sorry, you didn't achive your weekly goal 😢''';
+              }
+
               return Stack(children: [
                 // Flutter in versione web non supporta quanto fatto per la classe Background,
                 // per questo ho preferito lasciare come background solo lo sfondo nero
@@ -739,7 +829,141 @@ CO2 absorbed: 900kg''';
                             width: 272,
                           ))),
 
-                      //RIPETE DA QUI IN POI LE 16 FLIPCARD
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 13 - Kapok''',
+                              urlImmagine: image_week13, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(
+                                      sentence_week13, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 14 - Three Trees Kit''',
+                              urlImmagine: image_week14, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(
+                                      sentence_week14, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 15 - Baobab''',
+                              urlImmagine: image_week15, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(
+                                      sentence_week15, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
+
+                      FlipCard(
+                          fill: Fill
+                              .fillBack, // Fill the back side of the card to make in the same size as the front.
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Container(
+                            child: BadgeCard(
+                              titolo: '''Week 16 - Six Trees Kit''',
+                              urlImmagine: image_week16, //IMMAGINE CHE CAMBIA
+                            ),
+                          ),
+                          back: Center(
+                              child: Container(
+                            child: Center(
+                              child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Text(
+                                      sentence_week16, //TESTO CHE CAMBIA
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    spreadRadius: 3),
+                              ],
+                            ),
+                            height: 272,
+                            width: 272,
+                          ))),
                     ])
               ]);
             } else {
