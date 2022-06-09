@@ -50,7 +50,8 @@ class MyApp extends StatelessWidget {
       const Text('Which is your ideal running heart rate?'),
       const Text('Get enough sleep'),
       const Text('Keep hydrated'),
-      const Text('Some numbers')
+      const Text('Some numbers'),
+      const Text('Optimize your marathon training diet')
     ];
 
     List<Widget> descriptions = [
@@ -114,6 +115,13 @@ Did you know?
 - The global average time for a marathon stands at around 4 hours 21 minutes – with men’s average times at 4 hours 13 minutes, and women at 4 hours 42 minutes.''',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black, fontSize: 15))),
+      //
+      const Padding(
+          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+          child: Text('''
+Meals should be balanced and include whole grains, protein, fat, fruits and vegetables. Meal timing matters as well! You should eat a full meal about three to four hours before your run. It's also wise to consume a small snack of carbohydrates and protein one to two hours before your workout.''',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black, fontSize: 15))),
     ];
 
     List<IconData> icon = [
@@ -122,7 +130,8 @@ Did you know?
       MdiIcons.heartPulse,
       MdiIcons.sleep,
       MdiIcons.water,
-      MdiIcons.numeric
+      MdiIcons.numeric,
+      MdiIcons.food
     ];
 
     List<Widget> wid = [
@@ -177,6 +186,15 @@ Did you know?
           size: Size.fromRadius(100), // Image radius
           child: Image.network(
               'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apple-watch-5-1584723939.png?resize=480:*',
+              fit: BoxFit.cover),
+        ),
+      ),
+      ClipRRect(
+        borderRadius: BorderRadius.circular(20), // Image border
+        child: SizedBox.fromSize(
+          size: Size.fromRadius(100), // Image radius
+          child: Image.network(
+              'https://as2.ftcdn.net/v2/jpg/02/75/95/13/1000_F_275951321_4osarXAs3yKN8aTk8N70iNGFZDgiWW6Q.jpg',
               fit: BoxFit.cover),
         ),
       ),
@@ -238,6 +256,7 @@ Did you know?
         ),
       ), //sleep
       SizedBox(), //keep hydrated
+      SizedBox(),
       SizedBox() //numbers
     ];
 
@@ -254,7 +273,7 @@ Did you know?
         IntroPage.route: (context) => IntroPage(),
         TipsPage.route: (context) => TipsPage(
                 tips: List.generate(
-              6,
+              7,
               (i) => Tips(
                 icon[i],
                 title[i],
