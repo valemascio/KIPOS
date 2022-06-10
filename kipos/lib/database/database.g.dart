@@ -86,7 +86,7 @@ class _$AppDatabase extends AppDatabase {
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `Dati` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `week` INTEGER NOT NULL, `distance` REAL NOT NULL, `steps` REAL NOT NULL, `calories` REAL NOT NULL)');
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Person` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `surname` TEXT, `age` INTEGER, `avatar` TEXT, `weight` REAL, `height` REAL, `avgDailySteps` INTEGER, `dateOfBirth` INTEGER)');
+            'CREATE TABLE IF NOT EXISTS `Person` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `surname` TEXT, `age` INTEGER, `avatar` TEXT, `weight` REAL, `height` REAL, `avgDailySteps` INTEGER, `dateOfBirth` INTEGER, `durationOfSleep` INTEGER)');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -207,7 +207,8 @@ class _$PersonDao extends PersonDao {
                   'weight': item.weight,
                   'height': item.height,
                   'avgDailySteps': item.avgDailySteps,
-                  'dateOfBirth': item.dateOfBirth
+                  'dateOfBirth': item.dateOfBirth,
+                  'durationOfSleep': item.durationOfSleep
                 },
             changeListener),
         _personDeletionAdapter = DeletionAdapter(
@@ -223,7 +224,8 @@ class _$PersonDao extends PersonDao {
                   'weight': item.weight,
                   'height': item.height,
                   'avgDailySteps': item.avgDailySteps,
-                  'dateOfBirth': item.dateOfBirth
+                  'dateOfBirth': item.dateOfBirth,
+                  'durationOfSleep': item.durationOfSleep
                 },
             changeListener);
 
@@ -249,7 +251,8 @@ class _$PersonDao extends PersonDao {
             row['weight'] as double?,
             row['height'] as double?,
             row['avgDailySteps'] as int?,
-            row['dateOfBirth'] as int?));
+            row['dateOfBirth'] as int?,
+            row['durationOfSleep'] as int?));
   }
 
   @override
@@ -264,7 +267,8 @@ class _$PersonDao extends PersonDao {
             row['weight'] as double?,
             row['height'] as double?,
             row['avgDailySteps'] as int?,
-            row['dateOfBirth'] as int?),
+            row['dateOfBirth'] as int?,
+            row['durationOfSleep'] as int?),
         arguments: [id],
         queryableName: 'Person',
         isView: false);

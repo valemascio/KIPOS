@@ -32,6 +32,108 @@ class _PreferencePageState extends State<PreferencePage> {
   List<double> calories = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   List<double> floors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   double somma = 0;
+  List<int> durationSleep = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ];
 
   @override
   void initState() {
@@ -246,23 +348,6 @@ class _PreferencePageState extends State<PreferencePage> {
                           FitbitAccountData fitbitAccountData =
                               fitbitAccountDatas[0] as FitbitAccountData;
 
-                          /*print(
-                              'Name: ${fitbitAccountData.firstName}, Surname: ${fitbitAccountData.lastName}, Age: ${fitbitAccountData.age}, avatar: ${fitbitAccountData.avatar}, Weight: ${fitbitAccountData.weight}, Height: ${fitbitAccountData.height}');*/
-
-                          await Provider.of<DatabaseRepository>(context,
-                                  listen: false)
-                              .insertPerson(Person(
-                                  null,
-                                  fitbitAccountData.firstName,
-                                  fitbitAccountData.lastName,
-                                  fitbitAccountData.age,
-                                  fitbitAccountData.avatar,
-                                  fitbitAccountData.weight,
-                                  fitbitAccountData.height,
-                                  fitbitAccountData.averageDailySteps,
-                                  fitbitAccountData
-                                      .dateOfBirth?.millisecondsSinceEpoch));
-
                           final date = fitbitAccountData
                               .dateOfBirth?.millisecondsSinceEpoch;
                           final dateConverted =
@@ -271,22 +356,44 @@ class _PreferencePageState extends State<PreferencePage> {
                           print("data di nascita: ${dateConverted}");
 
                           //Data manager sleep
-                          /*FitbitSleepDataManager fitbitSleepDataManager_sleep =
+                          FitbitSleepDataManager fitbitSleepDataManager =
                               FitbitSleepDataManager(
                             clientID: Strings.fitbitClientID,
                             clientSecret: Strings.fitbitClientSecret,
                           );
 
                           //Fetch sleep
-                          FitbitSleepAPIURL fitbitSleepAPIURL =
+                          final sleepData = await fitbitSleepDataManager.fetch(
                               FitbitSleepAPIURL.withUserIDAndDay(
-                            date: DateTime.now(),
-                            userID: userId,
+                                  date: DateTime.now(),
+                                  userID: userId)) as List<FitbitSleepData>;
+
+                          DateTime? start = sleepData[0].entryDateTime;
+                          DateTime? end =
+                              sleepData[sleepData.length - 1].entryDateTime;
+                          int sleepDurHours =
+                              end!.difference(start!).inMinutes ~/ 60;
+
+                          await Provider.of<DatabaseRepository>(context,
+                                  listen: false)
+                              .insertPerson(
+                            Person(
+                              null,
+                              fitbitAccountData.firstName,
+                              fitbitAccountData.lastName,
+                              fitbitAccountData.age,
+                              fitbitAccountData.avatar,
+                              fitbitAccountData.weight,
+                              fitbitAccountData.height,
+                              fitbitAccountData.averageDailySteps,
+                              fitbitAccountData
+                                  .dateOfBirth?.millisecondsSinceEpoch,
+                              sleepDurHours,
+                            ),
                           );
 
-                          List<FitbitSleepAPIURL> fitbitSleepAPIURL =
-                              await fitbitSleepDataManager_sleep
-                                  .fetch(fitbitSleepAPIURL);*/
+                          print(
+                              "Yesterday night you went to bed at ${start.hour}:${start.minute}:${start.second} and you woke up this morning at ${end.hour}:${end.minute}:${end.second}, so you slept about ${sleepDurHours} hours.");
 
                           final snackBar = SnackBar(
                               content: Text(

@@ -20,7 +20,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final AppDatabase database =
-      await $FloorAppDatabase.databaseBuilder('databasekiposapp.db').build();
+      await $FloorAppDatabase.databaseBuilder('database_kiposapp.db').build();
   final databaseRepository = DatabaseRepository(database: database);
 
   //print('The resulting data is: ${result}');
@@ -93,7 +93,7 @@ Then, multiply the result first with 0.7 (that is the lowest index in the range)
           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
           child: Text('''
 Running without enough amount of sleep can leads to injury, poor performances and overtraining syndrome. This is because not getting enough sleep doesn’t allow time for your body to do what it need to repair itself and it doesn’t have so much fuel/energy. 
-Are you getting enough sleep? Let’s check the statistics 👇🏻''',
+Are you getting enough sleep? Let’s check. 👇🏻''',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black, fontSize: 15))),
       //
@@ -242,18 +242,50 @@ Meals should be balanced and include whole grains, protein, fat, fruits and vege
         height: 100,
         width: 250,
       ), //music
-      Builder(
-        builder: (context) => ElevatedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, StatisticsPage.route);
-          },
-          child: Text('📊 Statistics'),
-          style: ElevatedButton.styleFrom(
-              primary: Color.fromARGB(255, 122, 164, 94),
-              fixedSize: const Size(130, 60),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50))),
+      Container(
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
+            child: Consumer<DatabaseRepository>(
+              builder: (context, value, child) {
+                return FutureBuilder(
+                    initialData: null,
+                    future: value.findAllPerson(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final userDati = snapshot.data as List<Person>;
+                        int? averageSleep = userDati[0].durationOfSleep;
+                        String? sentence = '';
+                        if (averageSleep! >= 8) {
+                          sentence = 'Good job! Keep this way!';
+                        } else {
+                          sentence = 'Ouch, you can do better!';
+                        }
+
+                        return Text(
+                          'It seems that yesterday night you slept about ${averageSleep} hours. 😴 ${sentence}',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.black, fontSize: 15),
+                        );
+                      } else {
+                        //A CircularProgressIndicator is shown while the list of Todo is loading.
+                        return CircularProgressIndicator();
+                      }
+                    });
+              },
+            ),
+          ),
         ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Color.fromARGB(255, 255, 255, 255),
+          boxShadow: const [
+            BoxShadow(
+                color: Color.fromARGB(255, 122, 164, 94), spreadRadius: 3),
+          ],
+        ),
+        height: 100,
+        width: 250,
       ), //sleep
       SizedBox(), //keep hydrated
       SizedBox(),
