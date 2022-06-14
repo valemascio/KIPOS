@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                     itemCount: data.length,
                     itemBuilder: (context, datiIndex) {
                       final dato = data[datiIndex];
-                      dbr.updateDati(dato);
+                      //dbr.updateDati(dato);
                       String? sentence = '';
                       Color? check = Colors.white;
                       if (dato.distance > double.parse(preview[datiIndex])) {
@@ -238,7 +238,10 @@ class _HomePageState extends State<HomePage> {
                 icon:
                     const Icon(Icons.shield_rounded, semanticLabel: 'Badges')),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  _updatePage(context);
+                  print('Refresh');
+                },
                 icon: const Icon(Icons.refresh, semanticLabel: 'Refresh')),
             IconButton(
                 onPressed: () {
@@ -249,6 +252,16 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+}
+
+void _updatePage(BuildContext context) async {
+  final listaDati =
+      Provider.of<DatabaseRepository>(context, listen: false).findAllDati();
+  List<Dati> datoLista = await listaDati;
+  for (int i = 0; i < datoLista.length; i++) {
+    Provider.of<DatabaseRepository>(context, listen: false)
+        .updateDati(datoLista[i]);
   }
 }
 
