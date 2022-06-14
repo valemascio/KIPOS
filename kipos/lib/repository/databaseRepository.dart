@@ -51,4 +51,9 @@ class DatabaseRepository extends ChangeNotifier {
     notifyListeners();
   } //removePerson
 
+  Future<void> updateDati(Dati todo) async {
+    await database.datiDao.updateDati(todo);
+    notifyListeners();
+  } //updateMeal
+
 } //DatabaseRepository

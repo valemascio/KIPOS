@@ -119,6 +119,18 @@ class _$DatiDao extends DatiDao {
                   'calories': item.calories
                 },
             changeListener),
+        _datiUpdateAdapter = UpdateAdapter(
+            database,
+            'Dati',
+            ['id'],
+            (Dati item) => <String, Object?>{
+                  'id': item.id,
+                  'week': item.week,
+                  'distance': item.distance,
+                  'steps': item.steps,
+                  'calories': item.calories
+                },
+            changeListener),
         _datiDeletionAdapter = DeletionAdapter(
             database,
             'Dati',
@@ -139,6 +151,8 @@ class _$DatiDao extends DatiDao {
   final QueryAdapter _queryAdapter;
 
   final InsertionAdapter<Dati> _datiInsertionAdapter;
+
+  final UpdateAdapter<Dati> _datiUpdateAdapter;
 
   final DeletionAdapter<Dati> _datiDeletionAdapter;
 
@@ -184,6 +198,11 @@ class _$DatiDao extends DatiDao {
   @override
   Future<void> insertDati(Dati todo) async {
     await _datiInsertionAdapter.insert(todo, OnConflictStrategy.abort);
+  }
+
+  @override
+  Future<void> updateDati(Dati todo) async {
+    await _datiUpdateAdapter.update(todo, OnConflictStrategy.replace);
   }
 
   @override

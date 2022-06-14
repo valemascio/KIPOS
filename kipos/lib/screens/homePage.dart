@@ -142,10 +142,12 @@ class _HomePageState extends State<HomePage> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 final data = snapshot.data as List<Dati>;
+                //dbr.updateDati(data[0]);
                 return ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (context, datiIndex) {
                       final dato = data[datiIndex];
+                      dbr.updateDati(dato);
                       String? sentence = '';
                       Color? check = Colors.white;
                       if (dato.distance > double.parse(preview[datiIndex])) {
@@ -237,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                     const Icon(Icons.shield_rounded, semanticLabel: 'Badges')),
             IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.home, semanticLabel: 'Home')),
+                icon: const Icon(Icons.refresh, semanticLabel: 'Refresh')),
             IconButton(
                 onPressed: () {
                   Navigator.pushNamed(context, StatisticsPage.route);

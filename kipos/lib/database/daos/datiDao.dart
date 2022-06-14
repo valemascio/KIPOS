@@ -23,6 +23,10 @@ abstract class DatiDao {
   //Query #3: DELETE -> this allows to delete a Dati from the table
   @delete
   Future<void> deleteDati(Dati task);
+
+  //Query #4: UPDATE -> this allows to update data
+  @Update(onConflict: OnConflictStrategy.replace)
+  Future<void> updateDati(Dati todo);
 } //DatiDao
 
 
