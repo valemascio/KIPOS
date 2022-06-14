@@ -119,7 +119,9 @@ Did you know?
       const Padding(
           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
           child: Text('''
-Meals should be balanced and include whole grains, protein, fat, fruits and vegetables. Meal timing matters as well! You should eat a full meal about three to four hours before your run. It's also wise to consume a small snack of carbohydrates and protein one to two hours before your workout.''',
+Meals should be balanced and include whole grains, protein, fat, fruits and vegetables. 
+Meal timing matters as well! You should eat a full meal about three to four hours before your run. 
+It's also wise to consume a small snack of carbohydrates and protein one to two hours before your workout.''',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black, fontSize: 15))),
     ];
