@@ -11,6 +11,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:fitbitter/fitbitter.dart';
+import 'package:kipos/utilities/strings.dart';
 import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/repository/databaseRepository.dart';
 
@@ -255,13 +257,160 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// void _updatePage(BuildContext context) async {
+//   final listaDati =
+//       Provider.of<DatabaseRepository>(context, listen: false).findAllDati();
+//   List<Dati> datoLista = await listaDati;
+//   for (int i = 0; i < datoLista.length; i++) {
+//     Provider.of<DatabaseRepository>(context, listen: false)
+//         .updateDati(datoLista[i]);
+//   }
+// }
+
 void _updatePage(BuildContext context) async {
-  final listaDati =
+  int x = 7;
+  List<double> steps = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  List<double> distance = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  List<double> calories = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  List<double> floors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  double somma = 0;
+
+  String? userId = await FitbitConnector.authorize(
+      context: context,
+      clientID: Strings.fitbitClientID,
+      clientSecret: Strings.fitbitClientSecret,
+      redirectUri: Strings.fitbitRedirectUri,
+      callbackUrlScheme: Strings.fitbitCallbackScheme);
+
+  FitbitActivityTimeseriesDataManager fitbitActivityTimeseriesDataManager =
+      FitbitActivityTimeseriesDataManager(
+    clientID: Strings.fitbitClientID,
+    clientSecret: Strings.fitbitClientSecret,
+    type: 'steps',
+  );
+
+  //Fetch steps
+  final stepsData = await fitbitActivityTimeseriesDataManager
+      .fetch(FitbitActivityTimeseriesAPIURL.dateRangeWithResource(
+    userID: userId,
+    startDate: DateTime(2022, 6, 7, 0, 0), //_selectedDate,
+    endDate: DateTime(2022, 6, 7, 0, 0)
+        .add(Duration(days: 115)), //_selectedDate.add(Duration(days: 115)),
+    resource: fitbitActivityTimeseriesDataManager.type,
+  )) as List<FitbitActivityTimeseriesData>;
+
+  // Creo lista di steps
+  for (int i = 0; i < 16; i++) {
+    int inizio = x * i;
+    int fine = x * (i + 1);
+    for (int j = inizio; j < fine; j++) {
+      somma = (stepsData[j].value as double) + somma;
+    }
+    steps[i] = somma;
+    somma = 0;
+  }
+
+  print('$steps');
+
+  //Data manager distance
+  FitbitActivityTimeseriesDataManager fitbitActivityTimeseriesDataManager_dist =
+      FitbitActivityTimeseriesDataManager(
+    clientID: Strings.fitbitClientID,
+    clientSecret: Strings.fitbitClientSecret,
+    type: 'distance',
+  );
+
+  //Fetch distance
+  final distData = await fitbitActivityTimeseriesDataManager_dist
+      .fetch(FitbitActivityTimeseriesAPIURL.dateRangeWithResource(
+    userID: userId,
+    startDate: DateTime(2022, 6, 7, 0, 0), //_selectedDate,
+    endDate: DateTime(2022, 6, 7, 0, 0)
+        .add(Duration(days: 115)), //_selectedDate.add(Duration(days: 115)),
+    resource: fitbitActivityTimeseriesDataManager_dist.type,
+  )) as List<FitbitActivityTimeseriesData>;
+
+  // Creo lista di distance
+  for (int i = 0; i < 16; i++) {
+    int inizio = x * i;
+    int fine = x * (i + 1);
+    for (int j = inizio; j < fine; j++) {
+      somma = (distData[j].value as double) + somma;
+    }
+    distance[i] = somma;
+    somma = 0;
+  }
+  print('$distance');
+
+  //Data manager calories
+  FitbitActivityTimeseriesDataManager fitbitActivityTimeseriesDataManager_cal =
+      FitbitActivityTimeseriesDataManager(
+    clientID: Strings.fitbitClientID,
+    clientSecret: Strings.fitbitClientSecret,
+    type: 'calories',
+  );
+
+  //Fetch calories
+  final calData = await fitbitActivityTimeseriesDataManager_cal
+      .fetch(FitbitActivityTimeseriesAPIURL.dateRangeWithResource(
+    userID: userId,
+    startDate: DateTime(2022, 6, 7, 0, 0), //_selectedDate,
+    endDate: DateTime(2022, 6, 7, 0, 0)
+        .add(Duration(days: 115)), //_selectedDate.add(Duration(days: 115)),
+    resource: fitbitActivityTimeseriesDataManager_cal.type,
+  )) as List<FitbitActivityTimeseriesData>;
+
+  // Creo lista di calories
+  for (int i = 0; i < 16; i++) {
+    int inizio = x * i;
+    int fine = x * (i + 1);
+    for (int j = inizio; j < fine; j++) {
+      somma = (calData[j].value as double) + somma;
+    }
+    calories[i] = somma;
+    somma = 0;
+  }
+  print('$calories');
+
+  //Data manager floors
+  FitbitActivityTimeseriesDataManager
+      fitbitActivityTimeseriesDataManager_floors =
+      FitbitActivityTimeseriesDataManager(
+    clientID: Strings.fitbitClientID,
+    clientSecret: Strings.fitbitClientSecret,
+    type: 'floors',
+  );
+
+  //Fetch duration
+  final floorsData = await fitbitActivityTimeseriesDataManager_floors
+      .fetch(FitbitActivityTimeseriesAPIURL.dateRangeWithResource(
+    userID: userId,
+    startDate: DateTime(2022, 6, 7, 0, 0), //_selectedDate,
+    endDate: DateTime(2022, 6, 7, 0, 0)
+        .add(Duration(days: 115)), //_selectedDate.add(Duration(days: 115)),
+    resource: fitbitActivityTimeseriesDataManager_floors.type,
+  )) as List<FitbitActivityTimeseriesData>;
+
+  // Creo lista di floors
+  for (int i = 0; i < 16; i++) {
+    int inizio = x * i;
+    int fine = x * (i + 1);
+    for (int j = inizio; j < fine; j++) {
+      somma = (floorsData[j].value as double) + somma;
+    }
+    floors[i] = somma;
+    somma = 0;
+  }
+  print('$floors');
+
+  //DATABASE UPDATE
+  final listaDati_old =
       Provider.of<DatabaseRepository>(context, listen: false).findAllDati();
-  List<Dati> datoLista = await listaDati;
-  for (int i = 0; i < datoLista.length; i++) {
-    Provider.of<DatabaseRepository>(context, listen: false)
-        .updateDati(datoLista[i]);
+  List<Dati> datoLista_old = await listaDati_old;
+  for (int k = 0; k < 16; k++) {
+    await Provider.of<DatabaseRepository>(context, listen: false).updateDati(
+        Dati(datoLista_old[k].id, datoLista_old[k].week, distance[k], steps[k],
+            calories[k]));
   }
 }
 
