@@ -63,12 +63,13 @@ class _IntroPageState extends State<IntroPage> {
             ),
           ],
           onDone: () => _onIntroEnd(context),
-          showSkipButton: false,
-          skipOrBackFlex: 0,
-          nextFlex: 0,
-          showBackButton: true,
+          onSkip: () => _onIntroEnd(context),
+          showSkipButton: true,
+          showBackButton: false,
           //rtl: true, // Display as right-to-left
-          back: const Icon(Icons.arrow_back),
+          //back: const Icon(Icons.arrow_back),
+          skip:
+              const Text("Skip", style: TextStyle(fontWeight: FontWeight.w600)),
           next: const Icon(Icons.arrow_forward),
           done: const Text('Homepage',
               style: TextStyle(fontWeight: FontWeight.w600)),
