@@ -153,11 +153,13 @@ class _HomePageState extends State<HomePage> {
                       String? sentence = '';
                       Color? check = Colors.white;
                       if (dato.distance > double.parse(preview[datiIndex])) {
-                        sentence =
-                            'GREAT WORK!! You accomplished the goal of this week. Head over to the Badge section to see what you gained.';
+                        sentence = '''
+GREAT WORK!! You accomplished the goal of this week. 
+
+Head over to the 🏅Badge section to see which tree you gained and to the 📊Statistic page to see your performances! 👇🏻''';
                       } else {
                         sentence =
-                            'UH OH! It seems you have not accomplished the goal of this week, keep running!';
+                            'UH OH! It seems you have not accomplished the goal of this week, keep running! ';
                       }
                       if (dato.distance > double.parse(preview[datiIndex])) {
                         check = Colors.lightGreen;
@@ -195,9 +197,13 @@ class _HomePageState extends State<HomePage> {
                                   horizontal: 16.0,
                                   vertical: 8.0,
                                 ),
-                                child: Text(
-                                    'You have run ${dato.distance.toStringAsFixed(2)} km, burned ${dato.calories.toStringAsFixed(0)} cal and done ${dato.steps.toStringAsFixed(0)} steps. ' +
-                                        sentence)),
+                                child: Text('''
+🏃🏻‍♂️ Ran ${dato.distance.toStringAsFixed(2)} km, 
+🚶🏻‍♀️ Walked ${dato.steps.toStringAsFixed(0)} steps,
+🔥 Burned ${dato.calories.toStringAsFixed(0)} kcal. 
+
+''' +
+                                    sentence)),
                           ),
                           ButtonBar(
                             children: [
@@ -229,7 +235,8 @@ class _HomePageState extends State<HomePage> {
         }),
       ),
       bottomNavigationBar: Container(
-        height: 90,
+        color: Color.fromARGB(255, 254, 254, 254),
+        height: 80,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -237,8 +244,10 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, BadgePage.route);
                 },
-                icon:
-                    const Icon(Icons.shield_rounded, semanticLabel: 'Badges')),
+                icon: const Icon(
+                  Icons.shield_rounded,
+                  semanticLabel: 'Badges',
+                )),
             IconButton(
                 onPressed: () {
                   _updatePage(context);
