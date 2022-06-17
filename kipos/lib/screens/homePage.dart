@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
 import 'package:kipos/screens/profilePage.dart';
+import 'package:kipos/screens/settingsPage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
@@ -515,7 +516,7 @@ class MenuItems {
         Navigator.pushNamed(context, LogoutPage.route);
         break;
       case MenuItems.settings:
-        Navigator.pushNamed(context, PreferencePage.route);
+        Navigator.pushNamed(context, SettingsPage.route);
         break;
       case MenuItems.delete:
         Navigator.pushNamed(context, DeletePage.route);
