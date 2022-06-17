@@ -29,6 +29,11 @@ class DatabaseRepository extends ChangeNotifier {
     notifyListeners();
   } //removeDati
 
+  Future<void> updateDati(Dati todo) async {
+    await database.datiDao.updateDati(todo);
+    notifyListeners();
+  } //updateDati
+
   /////
 
   //This method wraps the findAllTodos() method of the DAO
@@ -51,9 +56,9 @@ class DatabaseRepository extends ChangeNotifier {
     notifyListeners();
   } //removePerson
 
-  Future<void> updateDati(Dati todo) async {
-    await database.datiDao.updateDati(todo);
+  Future<void> updatePerson(Person todo) async {
+    await database.personDao.updatePerson(todo);
     notifyListeners();
-  } //updateMeal
+  } //updatePerson
 
 } //DatabaseRepository

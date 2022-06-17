@@ -18,4 +18,8 @@ abstract class PersonDao {
   //Query #3: DELETE -> this allows to delete a Dati from the table
   @delete
   Future<void> deletePerson(Person task);
+
+  //Query #4: UPDATE -> this allows to update data
+  @Update(onConflict: OnConflictStrategy.replace)
+  Future<void> updatePerson(Person todo);
 }//DatiDao

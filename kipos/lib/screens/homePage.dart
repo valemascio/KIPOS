@@ -273,6 +273,9 @@ void _updatePage(BuildContext context) async {
   List<double> distance = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   List<double> calories = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   List<double> floors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  final prefs = await SharedPreferences.getInstance();
+  int? timestamp = prefs.getInt('timeStamp');
+  DateTime _selDate = DateTime.fromMillisecondsSinceEpoch(timestamp!);
   double somma = 0;
 
   String? userId = await FitbitConnector.authorize(
@@ -293,9 +296,8 @@ void _updatePage(BuildContext context) async {
   final stepsData = await fitbitActivityTimeseriesDataManager
       .fetch(FitbitActivityTimeseriesAPIURL.dateRangeWithResource(
     userID: userId,
-    startDate: DateTime(2022, 6, 7, 0, 0), //_selectedDate,
-    endDate: DateTime(2022, 6, 7, 0, 0)
-        .add(Duration(days: 115)), //_selectedDate.add(Duration(days: 115)),
+    startDate: _selDate,
+    endDate: _selDate.add(Duration(days: 115)),
     resource: fitbitActivityTimeseriesDataManager.type,
   )) as List<FitbitActivityTimeseriesData>;
 
@@ -324,9 +326,8 @@ void _updatePage(BuildContext context) async {
   final distData = await fitbitActivityTimeseriesDataManager_dist
       .fetch(FitbitActivityTimeseriesAPIURL.dateRangeWithResource(
     userID: userId,
-    startDate: DateTime(2022, 6, 7, 0, 0), //_selectedDate,
-    endDate: DateTime(2022, 6, 7, 0, 0)
-        .add(Duration(days: 115)), //_selectedDate.add(Duration(days: 115)),
+    startDate: _selDate,
+    endDate: _selDate.add(Duration(days: 115)),
     resource: fitbitActivityTimeseriesDataManager_dist.type,
   )) as List<FitbitActivityTimeseriesData>;
 
@@ -354,9 +355,8 @@ void _updatePage(BuildContext context) async {
   final calData = await fitbitActivityTimeseriesDataManager_cal
       .fetch(FitbitActivityTimeseriesAPIURL.dateRangeWithResource(
     userID: userId,
-    startDate: DateTime(2022, 6, 7, 0, 0), //_selectedDate,
-    endDate: DateTime(2022, 6, 7, 0, 0)
-        .add(Duration(days: 115)), //_selectedDate.add(Duration(days: 115)),
+    startDate: _selDate,
+    endDate: _selDate.add(Duration(days: 115)),
     resource: fitbitActivityTimeseriesDataManager_cal.type,
   )) as List<FitbitActivityTimeseriesData>;
 
@@ -385,9 +385,8 @@ void _updatePage(BuildContext context) async {
   final floorsData = await fitbitActivityTimeseriesDataManager_floors
       .fetch(FitbitActivityTimeseriesAPIURL.dateRangeWithResource(
     userID: userId,
-    startDate: DateTime(2022, 6, 7, 0, 0), //_selectedDate,
-    endDate: DateTime(2022, 6, 7, 0, 0)
-        .add(Duration(days: 115)), //_selectedDate.add(Duration(days: 115)),
+    startDate: _selDate,
+    endDate: _selDate.add(Duration(days: 115)),
     resource: fitbitActivityTimeseriesDataManager_floors.type,
   )) as List<FitbitActivityTimeseriesData>;
 
@@ -403,6 +402,21 @@ void _updatePage(BuildContext context) async {
   }
   print('$floors');
 
+  //Fetch sleep
+  //Data manager sleep
+  FitbitSleepDataManager fitbitSleepDataManager = FitbitSleepDataManager(
+    clientID: Strings.fitbitClientID,
+    clientSecret: Strings.fitbitClientSecret,
+  );
+
+  final sleepData = await fitbitSleepDataManager.fetch(
+      FitbitSleepAPIURL.withUserIDAndDay(
+          date: DateTime.now(), userID: userId)) as List<FitbitSleepData>;
+
+  DateTime? start = sleepData[0].entryDateTime;
+  DateTime? end = sleepData[sleepData.length - 1].entryDateTime;
+  int sleepDurHours = end!.difference(start!).inMinutes ~/ 60;
+
   //DATABASE UPDATE
   final listaDati_old =
       Provider.of<DatabaseRepository>(context, listen: false).findAllDati();
@@ -411,6 +425,24 @@ void _updatePage(BuildContext context) async {
     await Provider.of<DatabaseRepository>(context, listen: false).updateDati(
         Dati(datoLista_old[k].id, datoLista_old[k].week, distance[k], steps[k],
             calories[k]));
+  }
+
+  final person_old =
+      Provider.of<DatabaseRepository>(context, listen: false).findAllPerson();
+  List<Person> datiPerson_old = await person_old;
+  for (int k = 0; k < datiPerson_old.length; k++) {
+    await Provider.of<DatabaseRepository>(context, listen: false).updatePerson(
+        Person(
+            datiPerson_old[k].id,
+            datiPerson_old[k].name,
+            datiPerson_old[k].surname,
+            datiPerson_old[k].age,
+            datiPerson_old[k].avatar,
+            datiPerson_old[k].weight,
+            datiPerson_old[k].height,
+            datiPerson_old[k].avgDailySteps,
+            datiPerson_old[k].dateOfBirth,
+            sleepDurHours));
   }
 }
 

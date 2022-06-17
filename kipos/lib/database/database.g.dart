@@ -230,6 +230,23 @@ class _$PersonDao extends PersonDao {
                   'durationOfSleep': item.durationOfSleep
                 },
             changeListener),
+        _personUpdateAdapter = UpdateAdapter(
+            database,
+            'Person',
+            ['id'],
+            (Person item) => <String, Object?>{
+                  'id': item.id,
+                  'name': item.name,
+                  'surname': item.surname,
+                  'age': item.age,
+                  'avatar': item.avatar,
+                  'weight': item.weight,
+                  'height': item.height,
+                  'avgDailySteps': item.avgDailySteps,
+                  'dateOfBirth': item.dateOfBirth,
+                  'durationOfSleep': item.durationOfSleep
+                },
+            changeListener),
         _personDeletionAdapter = DeletionAdapter(
             database,
             'Person',
@@ -255,6 +272,8 @@ class _$PersonDao extends PersonDao {
   final QueryAdapter _queryAdapter;
 
   final InsertionAdapter<Person> _personInsertionAdapter;
+
+  final UpdateAdapter<Person> _personUpdateAdapter;
 
   final DeletionAdapter<Person> _personDeletionAdapter;
 
@@ -296,6 +315,11 @@ class _$PersonDao extends PersonDao {
   @override
   Future<void> insertPerson(Person todo) async {
     await _personInsertionAdapter.insert(todo, OnConflictStrategy.abort);
+  }
+
+  @override
+  Future<void> updatePerson(Person todo) async {
+    await _personUpdateAdapter.update(todo, OnConflictStrategy.replace);
   }
 
   @override

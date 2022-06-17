@@ -9,6 +9,7 @@ import 'package:fitbitter/fitbitter.dart';
 import 'package:kipos/utilities/strings.dart';
 import 'package:provider/provider.dart';
 import 'package:kipos/database/entities/dati.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:kipos/repository/databaseRepository.dart';
 
 class PreferencePage extends StatefulWidget {
@@ -26,114 +27,13 @@ class _PreferencePageState extends State<PreferencePage> {
 
   TextEditingController _choController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
+
   int x = 7;
   List<double> steps = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   List<double> distance = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   List<double> calories = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   List<double> floors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   double somma = 0;
-  List<int> durationSleep = [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ];
 
   @override
   void initState() {
@@ -505,6 +405,9 @@ class _PreferencePageState extends State<PreferencePage> {
       setState(() {
         _selectedDate = picked;
       });
+    int timeStamp = _selectedDate.millisecondsSinceEpoch;
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setInt('timeStamp', timeStamp);
   } //_selectDate
 
   void _validateAndSave(BuildContext context) {
