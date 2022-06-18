@@ -41,6 +41,15 @@ class _SettingsPageState extends State<SettingsPage> {
       home: Scaffold(
         //backgroundColor: Colors.white.withOpacity(.94),
         appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
           title: (const Text(
             '🛠 Settings',
             textAlign: TextAlign.center,

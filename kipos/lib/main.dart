@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
     List<String> title = [
       'Choose the right pair of shoes',
       'How to do stretching',
-      'Which is your ideal running heart rate?',
+      'Which your the ideal running heart rate?',
       'Get enough sleep',
       'Keep hydrated',
       'Some numbers',
@@ -137,16 +137,6 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
       MdiIcons.numeric,
       MdiIcons.food
     ];
-
-    /*List<CupertinoIcons> icon = [
-      CupertinoIcons.pencil_outline,
-      CupertinoIcons.pencil_outline,
-      CupertinoIcons.pencil_outline,
-      CupertinoIcons.pencil_outline,
-      CupertinoIcons.pencil_outline,
-      CupertinoIcons.pencil_outline,
-      CupertinoIcons.pencil_outline
-    ];*/
 
     List<Widget> wid = [
       ClipRRect(
