@@ -4,7 +4,7 @@ import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 class Tips {
-  final Text tips_name;
+  final String tips_name;
   final Widget description;
   final IconData icon;
   final Widget wid;
