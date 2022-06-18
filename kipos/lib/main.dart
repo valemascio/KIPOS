@@ -322,7 +322,7 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
               7,
               (i) => Tips(
                 icon[i],
-                Text(title[i]),
+                title[i],
                 descriptions[i],
                 wid[i],
                 box[i],
