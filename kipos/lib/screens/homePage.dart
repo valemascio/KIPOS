@@ -516,7 +516,8 @@ class MenuItems {
         Navigator.pushNamed(context, LogoutPage.route);
         break;
       case MenuItems.settings:
-        Navigator.pushNamed(context, SettingsPage.route);
+        Navigator.push(context,
+            new MaterialPageRoute(builder: (context) => new SettingsPage()));
         break;
       case MenuItems.delete:
         Navigator.pushNamed(context, DeletePage.route);
