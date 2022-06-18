@@ -35,7 +35,6 @@ class TipsPage extends StatelessWidget {
               //scrollDirection: Axis.vertical,
               shrinkWrap: true,
               children: [
-                // User card
                 SettingsGroup(
                   items: [
                     SettingsItem(
@@ -47,7 +46,7 @@ class TipsPage extends StatelessWidget {
                                   DetailScreen(tips: tips[index]),
                             ));
                       },
-                      icons: CupertinoIcons.pencil_outline,
+                      icons: tips[index].icon,
                       iconStyle: IconStyle(
                         iconsColor: Colors.white,
                         withBackground: true,
