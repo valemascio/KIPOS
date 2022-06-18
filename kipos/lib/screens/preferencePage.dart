@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/main.dart';
+import 'package:kipos/screens/settingsPage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:kipos/utilities/formDateTiles.dart';
 import 'package:kipos/utilities/formats.dart';
 import 'package:kipos/utilities/formSeparator.dart';
 import 'package:kipos/screens/homePage.dart';
+import 'package:kipos/screens/settingsPage.dart';
 import 'package:fitbitter/fitbitter.dart';
 import 'package:kipos/utilities/strings.dart';
 import 'package:provider/provider.dart';
@@ -52,16 +54,17 @@ class _PreferencePageState extends State<PreferencePage> {
     return Scaffold(
       appBar: AppBar(
         title: (const Text(
-          '🛠 Settings',
+          '📆 Date Picker',
           textAlign: TextAlign.center,
         )),
         backgroundColor: Colors.lightGreen,
       ),
       body: SafeArea(
-          child: Stack(
-        children: [
-          _buildForm(context),
-          Padding(
+        child:
+            //Stack(
+            //children: [
+            _buildForm(context),
+        /*Padding(
             padding: const EdgeInsets.fromLTRB(80, 230, 10, 10),
             child: Column(
               children: [
@@ -366,9 +369,10 @@ class _PreferencePageState extends State<PreferencePage> {
                 ),
               ],
             ),
-          ),
-        ],
-      )),
+          ),*/
+        //],
+        //)
+      ),
     );
   } //build
 
@@ -408,11 +412,13 @@ class _PreferencePageState extends State<PreferencePage> {
     int timeStamp = _selectedDate.millisecondsSinceEpoch;
     final prefs = await SharedPreferences.getInstance();
     prefs.setInt('timeStamp', timeStamp);
+    Navigator.pushNamed(context, SettingsPage.route);
   } //_selectDate
 
   void _validateAndSave(BuildContext context) {
     if (formKey.currentState!.validate()) {
       Navigator.pop(context);
+      Navigator.popAndPushNamed(context, SettingsPage.route);
     }
   } // _validateAndSave
 

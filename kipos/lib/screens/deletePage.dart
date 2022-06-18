@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kipos/screens/homePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
 import 'package:provider/provider.dart';
 import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/repository/databaseRepository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DeletePage extends StatelessWidget {
   const DeletePage({Key? key}) : super(key: key);
@@ -23,8 +25,10 @@ class DeletePage extends StatelessWidget {
               style: TextStyle(color: Color.fromARGB(255, 122, 164, 94))),
         ),
         TextButton(
-          onPressed: () {
-            _toPreferencePage(context);
+          onPressed: () async {
+            _toHomePage(context);
+            final access = await SharedPreferences.getInstance();
+            access.setString('pass', 'ok');
           },
           child: const Text('OK',
               style: TextStyle(color: Color.fromARGB(255, 122, 164, 94))),
@@ -33,7 +37,7 @@ class DeletePage extends StatelessWidget {
     );
   }
 
-  void _toPreferencePage(BuildContext context) async {
+  void _toHomePage(BuildContext context) async {
     final listaDati =
         Provider.of<DatabaseRepository>(context, listen: false).findAllDati();
     List<Dati> datoLista = await listaDati;
@@ -45,6 +49,6 @@ class DeletePage extends StatelessWidget {
     //Pop the drawer first
     Navigator.pop(context);
     //Then pop the HomePage
-    Navigator.of(context).pushReplacementNamed(PreferencePage.route);
+    Navigator.of(context).pushReplacementNamed(HomePage.route);
   } //_toCalendarPage
 }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kipos/main.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:kipos/utilities/formDateTiles.dart';
-import 'package:kipos/utilities/formats.dart';
-import 'package:kipos/utilities/formSeparator.dart';
+import 'package:kipos/screens/deletePage.dart';
+import 'package:kipos/screens/preferencePage.dart';
 import 'package:kipos/screens/homePage.dart';
+import 'package:kipos/screens/alertPage.dart';
 import 'package:fitbitter/fitbitter.dart';
 import 'package:kipos/utilities/strings.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +23,7 @@ class SettingsPage extends StatefulWidget {
 } //SettingsPage
 
 class _SettingsPageState extends State<SettingsPage> {
-  DateTime _selectedDate = DateTime.now();
+  //DateTime _selectedDate = DateTime.now();
   final formKey = GlobalKey<FormState>();
 
   int x = 7;
@@ -34,6 +32,12 @@ class _SettingsPageState extends State<SettingsPage> {
   List<double> calories = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   List<double> floors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   double somma = 0;
+//  bool access = true;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +66,16 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               SettingsGroup(settingsGroupTitle: "1. DatePicker", items: [
                 SettingsItem(
-                  onTap: () {},
+                  onTap: () async {
+                    final access = await SharedPreferences.getInstance();
+                    String? auth = access.getString('pass');
+                    if (auth != 'stop') {
+                      Navigator.pushNamed(context, PreferencePage.route);
+                      //access.setString('pass', 'stop');
+                    } else {
+                      Navigator.pushNamed(context, AlertPage.route);
+                    }
+                  },
                   icons: CupertinoIcons.calendar,
                   iconStyle: IconStyle(
                     iconsColor: Colors.white,
@@ -70,12 +83,19 @@ class _SettingsPageState extends State<SettingsPage> {
                     backgroundColor: Colors.lightGreen,
                   ),
                   title: 'Date',
-                  subtitle: "Choose when to start your training",
+                  subtitle: "Training starting date",
                 ),
               ]),
               SettingsGroup(settingsGroupTitle: "2. Authorization", items: [
                 SettingsItem(
                   onTap: () async {
+                    final access = await SharedPreferences.getInstance();
+                    access.setString('pass', 'stop');
+                    final prefs = await SharedPreferences.getInstance();
+                    int? timestamp = prefs.getInt('timeStamp');
+                    DateTime _selDate =
+                        DateTime.fromMillisecondsSinceEpoch(timestamp!);
+
                     // Authorize the app
                     String? userId = await FitbitConnector.authorize(
                         context: context,
@@ -98,8 +118,8 @@ class _SettingsPageState extends State<SettingsPage> {
                         .fetch(FitbitActivityTimeseriesAPIURL
                             .dateRangeWithResource(
                       userID: userId,
-                      startDate: _selectedDate,
-                      endDate: _selectedDate.add(Duration(days: 115)),
+                      startDate: _selDate,
+                      endDate: _selDate.add(Duration(days: 115)),
                       resource: fitbitActivityTimeseriesDataManager.type,
                     )) as List<FitbitActivityTimeseriesData>;
 
@@ -131,8 +151,8 @@ class _SettingsPageState extends State<SettingsPage> {
                             FitbitActivityTimeseriesAPIURL
                                 .dateRangeWithResource(
                       userID: userId,
-                      startDate: _selectedDate,
-                      endDate: _selectedDate.add(Duration(days: 115)),
+                      startDate: _selDate,
+                      endDate: _selDate.add(Duration(days: 115)),
                       resource: fitbitActivityTimeseriesDataManager_dist.type,
                     )) as List<FitbitActivityTimeseriesData>;
 
@@ -163,8 +183,8 @@ class _SettingsPageState extends State<SettingsPage> {
                             FitbitActivityTimeseriesAPIURL
                                 .dateRangeWithResource(
                       userID: userId,
-                      startDate: _selectedDate,
-                      endDate: _selectedDate.add(Duration(days: 115)),
+                      startDate: _selDate,
+                      endDate: _selDate.add(Duration(days: 115)),
                       resource: fitbitActivityTimeseriesDataManager_cal.type,
                     )) as List<FitbitActivityTimeseriesData>;
 
@@ -195,8 +215,8 @@ class _SettingsPageState extends State<SettingsPage> {
                             FitbitActivityTimeseriesAPIURL
                                 .dateRangeWithResource(
                       userID: userId,
-                      startDate: _selectedDate,
-                      endDate: _selectedDate.add(Duration(days: 115)),
+                      startDate: _selDate,
+                      endDate: _selDate.add(Duration(days: 115)),
                       resource: fitbitActivityTimeseriesDataManager_floors.type,
                     )) as List<FitbitActivityTimeseriesData>;
 
@@ -332,7 +352,9 @@ class _SettingsPageState extends State<SettingsPage> {
               ]),
               SettingsGroup(settingsGroupTitle: "Delete data", items: [
                 SettingsItem(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, DeletePage.route);
+                  },
                   icons: CupertinoIcons.delete,
                   iconStyle: IconStyle(
                     iconsColor: Colors.white,
@@ -340,7 +362,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     backgroundColor: Colors.lightGreen,
                   ),
                   title: 'Delete data',
-                  subtitle: "Delete the data and restart your training",
+                  subtitle: "Erase all data",
                 ),
               ]),
               // You can add a settings title
@@ -350,25 +372,4 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
     );
   }
-
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: _selectedDate,
-        firstDate: DateTime(2010),
-        lastDate: DateTime(2101));
-    if (picked != null && picked != _selectedDate)
-      setState(() {
-        _selectedDate = picked;
-      });
-    int timeStamp = _selectedDate.millisecondsSinceEpoch;
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setInt('timeStamp', timeStamp);
-  } //_selectDate
-
-  void _validateAndSave(BuildContext context) {
-    if (formKey.currentState!.validate()) {
-      Navigator.pop(context);
-    }
-  } // _validateAndSave
 }

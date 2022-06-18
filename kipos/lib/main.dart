@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/database/entities/dati.dart';
+import 'package:kipos/screens/alertPage.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/deletePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
 import 'package:kipos/screens/homePage.dart';
+import 'package:kipos/screens/profilePage.dart';
+import 'package:kipos/screens/settingsPage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
@@ -306,6 +309,9 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
         LogoutPage.route: (context) => LogoutPage(),
         BadgePage.route: (context) => BadgePage(),
         StatisticsPage.route: (context) => StatisticsPage(),
+        SettingsPage.route: (context) => SettingsPage(),
+        AlertPage.route: (context) => AlertPage(),
+        ProfilePage.route: (context) => ProfilePage(),
         IntroPage.route: (context) => IntroPage(),
         TipsPage.route: (context) => TipsPage(
                 tips: List.generate(

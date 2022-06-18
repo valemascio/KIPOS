@@ -267,16 +267,6 @@ Head over to the 🏅Badge section to see which tree you gained and to the 📊S
   }
 }
 
-// void _updatePage(BuildContext context) async {
-//   final listaDati =
-//       Provider.of<DatabaseRepository>(context, listen: false).findAllDati();
-//   List<Dati> datoLista = await listaDati;
-//   for (int i = 0; i < datoLista.length; i++) {
-//     Provider.of<DatabaseRepository>(context, listen: false)
-//         .updateDati(datoLista[i]);
-//   }
-// }
-
 void _updatePage(BuildContext context) async {
   int x = 7;
   List<double> steps = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -508,12 +498,10 @@ class MenuItems {
   static onChanged(BuildContext context, MenuItem item) {
     switch (item) {
       case MenuItems.profile:
-        Navigator.push(context,
-            new MaterialPageRoute(builder: (context) => new ProfilePage()));
+        Navigator.pushNamed(context, ProfilePage.route);
         break;
       case MenuItems.settings:
-        Navigator.push(context,
-            new MaterialPageRoute(builder: (context) => new SettingsPage()));
+        Navigator.pushNamed(context, SettingsPage.route);
         break;
       case MenuItems.logout:
         print('logout');
