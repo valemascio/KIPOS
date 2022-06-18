@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
+import 'package:flutter/cupertino.dart';
 
 class Tips {
   final Text tips_name;
@@ -24,36 +26,55 @@ class TipsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('💡 Tips'),
-          /*leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },*/
-          backgroundColor: Colors.lightGreen),
+          title: const Text('💡 Tips'), backgroundColor: Colors.lightGreen),
       // List builder
       body: ListView.builder(
         itemCount: tips.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: tips[index].tips_name,
-            leading: Icon(tips[index].icon),
-            trailing: const Icon(
-              Icons.arrow_right,
-              color: Colors.grey,
-            ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailScreen(tips: tips[index]),
+          return ListView(
+              //scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              children: [
+                // User card
+                SettingsGroup(
+                  items: [
+                    SettingsItem(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  DetailScreen(tips: tips[index]),
+                            ));
+                      },
+                      icons: CupertinoIcons.pencil_outline,
+                      iconStyle: IconStyle(
+                        iconsColor: Colors.white,
+                        withBackground: true,
+                        backgroundColor: Colors.lightGreen,
+                      ),
+                      title: '${tips[index].tips_name}'.toString(),
+                      //subtitle: "Make Ziar'App yours",
+                    ),
+                  ],
                 ),
-              );
-            },
-          );
+                /*ListTile(
+                  title: tips[index].tips_name,
+                  leading: Icon(tips[index].icon),
+                  trailing: const Icon(
+                    Icons.arrow_right,
+                    color: Colors.grey,
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(tips: tips[index]),
+                      ),
+                    );
+                  },
+                )*/
+              ]);
         },
       ),
     );
@@ -69,7 +90,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: tips.tips_name,
+          title: Text('${tips.tips_name}'),
           backgroundColor: Colors.lightGreen,
         ),
         body: ListView(

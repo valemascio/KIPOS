@@ -15,6 +15,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:kipos/database/database.dart';
 import 'package:kipos/repository/databaseRepository.dart';
 import 'package:provider/provider.dart';
+import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
+import 'package:flutter/cupertino.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,14 +46,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    List<Text> title = [
-      const Text('Choose the right pair of shoes'),
-      const Text('How to do stretching'),
-      const Text('Which is your ideal running heart rate?'),
-      const Text('Get enough sleep'),
-      const Text('Keep hydrated'),
-      const Text('Some numbers'),
-      const Text('Optimize your marathon training diet')
+    List<String> title = [
+      'Choose the right pair of shoes',
+      'How to do stretching',
+      'Which is your ideal running heart rate?',
+      'Get enough sleep',
+      'Keep hydrated',
+      'Some numbers',
+      'Optimize your marathon training diet'
     ];
 
     List<Widget> descriptions = [
@@ -135,6 +137,16 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
       MdiIcons.numeric,
       MdiIcons.food
     ];
+
+    /*List<CupertinoIcons> icon = [
+      CupertinoIcons.pencil_outline,
+      CupertinoIcons.pencil_outline,
+      CupertinoIcons.pencil_outline,
+      CupertinoIcons.pencil_outline,
+      CupertinoIcons.pencil_outline,
+      CupertinoIcons.pencil_outline,
+      CupertinoIcons.pencil_outline
+    ];*/
 
     List<Widget> wid = [
       ClipRRect(
@@ -310,7 +322,7 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
               7,
               (i) => Tips(
                 icon[i],
-                title[i],
+                Text(title[i]),
                 descriptions[i],
                 wid[i],
                 box[i],

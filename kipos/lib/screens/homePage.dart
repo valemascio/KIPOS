@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
               size: 35,
               color: Colors.white,
             ),
-            customItemsIndexes: const [3],
+            customItemsIndexes: const [2],
             customItemsHeight: 8,
             items: [
               ...MenuItems.firstItems.map(
@@ -478,15 +478,15 @@ class MenuItem {
 }
 
 class MenuItems {
-  static const List<MenuItem> firstItems = [profile, settings, logout];
-  static const List<MenuItem> secondItems = [delete];
+  static const List<MenuItem> firstItems = [profile, settings];
+  static const List<MenuItem> secondItems = [logout];
 
   static const profile =
       MenuItem(text: 'Profile', icon: MdiIcons.accountCircle);
   static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
   static const logout = MenuItem(text: 'Log out', icon: Icons.logout_outlined);
-  static const delete =
-      MenuItem(text: 'Delete Data', icon: Icons.delete_forever_rounded);
+  /*static const delete =
+      MenuItem(text: 'Delete Data', icon: Icons.delete_forever_rounded);*/
 
   static Widget buildItem(MenuItem item) {
     return Row(
@@ -511,17 +511,17 @@ class MenuItems {
         Navigator.push(context,
             new MaterialPageRoute(builder: (context) => new ProfilePage()));
         break;
-      case MenuItems.logout:
-        print('logout');
-        Navigator.pushNamed(context, LogoutPage.route);
-        break;
       case MenuItems.settings:
         Navigator.push(context,
             new MaterialPageRoute(builder: (context) => new SettingsPage()));
         break;
-      case MenuItems.delete:
-        Navigator.pushNamed(context, DeletePage.route);
+      case MenuItems.logout:
+        print('logout');
+        Navigator.pushNamed(context, LogoutPage.route);
         break;
+      /*case MenuItems.delete:
+        Navigator.pushNamed(context, DeletePage.route);
+        break;*/
     }
   }
 }

@@ -306,7 +306,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   subtitle: "Unauthorize FitBit data",
                 ),
               ]),
-              SettingsGroup(settingsGroupTitle: "3. Last step", items: [
+              SettingsGroup(settingsGroupTitle: "3. HomePage", items: [
                 SettingsItem(
                   onTap: () {
                     Navigator.pushNamed(context, HomePage.route);
