@@ -45,8 +45,6 @@ class Person {
 
   final int? dateOfBirth;
 
-  final int? durationOfSleep;
-
   //Default constructor
   Person(
     this.id,
@@ -58,6 +56,5 @@ class Person {
     this.height,
     this.avgDailySteps,
     this.dateOfBirth,
-    this.durationOfSleep,
   );
 }

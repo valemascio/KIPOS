@@ -263,7 +263,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     print("data di nascita: ${dateConverted}");
 
                     //Data manager sleep
-                    FitbitSleepDataManager fitbitSleepDataManager =
+                    /*FitbitSleepDataManager fitbitSleepDataManager =
                         FitbitSleepDataManager(
                       clientID: Strings.fitbitClientID,
                       clientSecret: Strings.fitbitClientSecret,
@@ -278,7 +278,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     DateTime? start = sleepData[0].entryDateTime;
                     DateTime? end =
                         sleepData[sleepData.length - 1].entryDateTime;
-                    int sleepDurHours = end!.difference(start!).inMinutes ~/ 60;
+                    int sleepDurHours = end!.difference(start!).inMinutes ~/ 60;*/
 
                     await Provider.of<DatabaseRepository>(context,
                             listen: false)
@@ -293,12 +293,11 @@ class _SettingsPageState extends State<SettingsPage> {
                         fitbitAccountData.height,
                         fitbitAccountData.averageDailySteps,
                         fitbitAccountData.dateOfBirth?.millisecondsSinceEpoch,
-                        sleepDurHours,
                       ),
                     );
 
-                    print(
-                        "Yesterday night you went to bed at ${start.hour}:${start.minute}:${start.second} and you woke up this morning at ${end.hour}:${end.minute}:${end.second}, so you slept about ${sleepDurHours} hours.");
+                    //print(
+                    //"Yesterday night you went to bed at ${start.hour}:${start.minute}:${start.second} and you woke up this morning at ${end.hour}:${end.minute}:${end.second}, so you slept about ${sleepDurHours} hours.");
 
                     final snackBar = SnackBar(
                         content: Text(
