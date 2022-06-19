@@ -44,21 +44,35 @@ class _IntroPageState extends State<IntroPage> {
             PageViewModel(
                 title: "Welcome to Kìpos!",
                 body:
-                    "The aim of this app is to never let you loose interest while you train for a marathon! You'll find a weekly goal to keep up with and, if you succeed, you'll gain rewards building week after week your own personal garden! Your gains will also help the environment: after completing the training program, all the trees present in your garden will be planted in their place of origin! And now... LET'S GET TO WORK",
+                    '''The aim of this app is to never let you loose interest while you train for a marathon!
+You'll find a weekly goal to keep up with and, if you succeed, you'll gain rewards building week after week your own personal garden!
+Your gains will also help the environment: after completing the training program, all the trees present in your garden will be planted in their place of origin! 
+And now... LET'S GET TO WORK''',
                 image: Image.asset('assets/garden.jpg'),
                 decoration: pageDecoration),
             PageViewModel(
               title: "First things first",
               body:
-                  "Before starting you'll need to authorize the app to access your FitBit data: Head over to the Homepage and in the 'Settings' tile of the Menu you can decide when you want to start your training.",
+                  '''Before starting you'll need to authorize the app to access your FitBit data: Head over to the Homepage and in the 'Settings' tile of the Menu you can decide when you want to start your training.''',
               image: Image.asset('assets/tendina.png'),
+              decoration: pageDecoration,
+            ),
+            PageViewModel(
+              title: "Follow the steps",
+              body: '''1. Pick a starting date for your training,
+2. Authorize Kìpos to process your personal data,
+3. Head over to the HomePage! ''',
+              image: Image.asset('assets/settingsPage.png'),
               decoration: pageDecoration,
             ),
             PageViewModel(
               title: "Consent for personal data treatment",
               body:
-                  "We inform you that to use Kìpos your explicit consent for treatment of your personal data (Profile informations and Health data) is required. By clicking on 'Authorize FitBit Data' you acquiesce to the use of your personal data.",
-              image: Image.asset('assets/settingsPage.png'),
+                  '''Please note that in order to use Kìpos your consent to the processing of your personal data is required.
+By clicking on "Authorize" you consent to such processing. 
+You can withdraw your consent at any time by clicking on "Unauthorize". 
+We also inform you that you can exercise your right to delete your data by clicking on "Delete Data".''',
+              image: Image.asset('assets/settingsPage_underlined.png'),
               decoration: pageDecoration,
             ),
           ],
