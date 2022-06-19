@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 
 class Tips {
   final String tips_name;
-  final Widget description;
+  final String description;
   final IconData icon;
   final Widget wid;
   final Widget box;
@@ -53,7 +53,7 @@ class TipsPage extends StatelessWidget {
                         backgroundColor: Colors.lightGreen,
                       ),
                       title: '${tips[index].tips_name}'.toString(),
-                      //subtitle: "Make Ziar'App yours",
+                      subtitle: '${tips[index].description}'.toString(),
                     ),
                   ],
                 ),
@@ -103,9 +103,13 @@ class DetailScreen extends StatelessWidget {
               child: tips.wid,
             ),
             Align(
-              alignment: Alignment.bottomCenter,
-              child: tips.description,
-            ),
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                  child: Text(tips.description,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.black, fontSize: 15)),
+                )),
             Align(
               alignment: Alignment.bottomCenter,
               child: tips.box,
