@@ -404,7 +404,7 @@ void _updatePage(BuildContext context) async {
 
   //Fetch sleep
   //Data manager sleep
-  FitbitSleepDataManager fitbitSleepDataManager = FitbitSleepDataManager(
+  /*FitbitSleepDataManager fitbitSleepDataManager = FitbitSleepDataManager(
     clientID: Strings.fitbitClientID,
     clientSecret: Strings.fitbitClientSecret,
   );
@@ -415,7 +415,7 @@ void _updatePage(BuildContext context) async {
 
   DateTime? start = sleepData[0].entryDateTime;
   DateTime? end = sleepData[sleepData.length - 1].entryDateTime;
-  int sleepDurHours = end!.difference(start!).inMinutes ~/ 60;
+  int sleepDurHours = end!.difference(start!).inMinutes ~/ 60;*/
 
   //DATABASE UPDATE
   final listaDati_old =
@@ -441,8 +441,7 @@ void _updatePage(BuildContext context) async {
             datiPerson_old[k].weight,
             datiPerson_old[k].height,
             datiPerson_old[k].avgDailySteps,
-            datiPerson_old[k].dateOfBirth,
-            sleepDurHours));
+            datiPerson_old[k].dateOfBirth));
   }
 }
 

@@ -78,7 +78,7 @@ It is recommended a target heart rate equal to the 70-85% of your maximum heart 
 To compute it, you can start by estimating your maximum heart rate, subtracting your age from 220. 
 Then, multiply the result first with 0.7 (that is the lowest index in the range) and then with 0.85 (that is the highest). ''',
       ''' Running without enough amount of sleep can leads to injury, poor performances and overtraining syndrome. This is because not getting enough sleep doesn’t allow time for your body to do what it need to repair itself and it doesn’t have so much fuel/energy. 
-Are you getting enough sleep? Let’s check. 👇🏻''',
+''',
       '''
 Did you know?
 - A runner can easily lose 2-3+ pints of fluid an hour in warm conditions.
@@ -211,8 +211,9 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
         ),
         height: 100,
         width: 250,
-      ), //music
-      Container(
+      ),
+      SizedBox(), //music
+      /*Container(
         child: Center(
           child: Padding(
             padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
@@ -256,7 +257,7 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
         ),
         height: 100,
         width: 250,
-      ), //sleep
+      ),*/ //sleep
       SizedBox(), //keep hydrated
       SizedBox(),
       SizedBox() //numbers
