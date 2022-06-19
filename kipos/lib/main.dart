@@ -59,10 +59,8 @@ class MyApp extends StatelessWidget {
       'Optimize your marathon training diet'
     ];
 
-    List<Widget> descriptions = [
-      const Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-          child: Text('''
+    List<String> descriptions = [
+      '''
 Choose the right pair of shoes is important to prevent injuries. When looking for a pair oh shoes you need to look for the following elements: 
 - the upper side should shape just like your foot and that should be smooth and should not scratch you foot. 
 - the back side should not irritates the Achilles tendon + the heel should allows you to have a comfortable ankle motion.
@@ -71,64 +69,29 @@ Choose the right pair of shoes is important to prevent injuries. When looking fo
 - it is important that the shoe has the so called ‘toe spring’ in order to help you roll your foot through the stride.
 - the material used in the midsole need to minimise the impact shock of the heel strike. 
 ''',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 15))),
-      //
-      const Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-          child: Text('''
-Before each run it is extremely important to stretch your muscles. You can do it following these three steps:
+      '''Before each run it is extremely important to stretch your muscles. You can do it following these three steps:
 1. Mobilise you joints (ankles, knees and hips). 
 2. Warm up encouraging the blood flow to the muscles. You can try a 5 minutes jog or a fast walk.
 3. Finally, you can stretch your muscle. Focus on your quadriceps, hamstrings, inner thighs and glutes. ''',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 15))),
-      //
-      const Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-          child: Text('''
-When you run, monitoring the heart rate is very important. 
+      '''When you run, monitoring the heart rate is very important. 
 It is recommended a target heart rate equal to the 70-85% of your maximum heart rate. 
 To compute it, you can start by estimating your maximum heart rate, subtracting your age from 220. 
 Then, multiply the result first with 0.7 (that is the lowest index in the range) and then with 0.85 (that is the highest). ''',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 15))),
-      //
-      const Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-          child: Text('''
-Running without enough amount of sleep can leads to injury, poor performances and overtraining syndrome. This is because not getting enough sleep doesn’t allow time for your body to do what it need to repair itself and it doesn’t have so much fuel/energy. 
+      ''' Running without enough amount of sleep can leads to injury, poor performances and overtraining syndrome. This is because not getting enough sleep doesn’t allow time for your body to do what it need to repair itself and it doesn’t have so much fuel/energy. 
 Are you getting enough sleep? Let’s check. 👇🏻''',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 15))),
-      //
-      const Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-          child: Text('''
+      '''
 Did you know?
 - A runner can easily lose 2-3+ pints of fluid an hour in warm conditions.
 - A 2% decrease in hydration, leads to a 10-20% decrease in aerobic capacity.
 - A carbohydrate-electrolyte drink is absorbed faster than water.''',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 15))),
-      //
-      const Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-          child: Text('''
+      '''
 - Only the top 5 per cent of runners complete marathons in under three hours.
 - The world record for marathon times are 2:01:39 for men and 2:15:25 for women. 
 - The global average time for a marathon stands at around 4 hours 21 minutes – with men’s average times at 4 hours 13 minutes, and women at 4 hours 42 minutes.''',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 15))),
-      //
-      const Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-          child: Text('''
+      '''
 Meals should be balanced and include whole grains, protein, fat, fruits and vegetables. 
 Meal timing matters as well! You should eat a full meal about three to four hours before your run. 
-It's also wise to consume a small snack of carbohydrates and protein one to two hours before your workout.''',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 15))),
+It's also wise to consume a small snack of carbohydrates and protein one to two hours before your workout.'''
     ];
 
     List<IconData> icon = [
