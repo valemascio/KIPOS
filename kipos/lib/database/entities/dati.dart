@@ -17,8 +17,11 @@ class Dati {
 
   final double calories;
 
+  final double floors;
+
   //Default constructor
-  Dati(this.id, this.week, this.distance, this.steps, this.calories);
+  Dati(this.id, this.week, this.distance, this.steps, this.calories,
+      this.floors);
 }
 
 @entity

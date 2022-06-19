@@ -39,6 +39,12 @@ class _StatisticsPageState extends State<StatisticsPage> {
                       //scrollDirection: Axis.vertical,
                       shrinkWrap: true,
                       children: [
+                        Divider(
+                          height: 5,
+                          thickness: 1.5,
+                          indent: 10,
+                          endIndent: 10,
+                        ),
                         Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                           child: ExpansionTileCard(
@@ -50,7 +56,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
                                     fontWeight: FontWeight.bold,
                                   )),
                               subtitle: Text(
-                                  'Tap to see the statistics about your distances',
+                                  'Tap to see the statistics about distances',
                                   textAlign: TextAlign.center),
                               children: <Widget>[
                                 //Initialize the chart widget
@@ -97,7 +103,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
                                     fontWeight: FontWeight.bold,
                                   )),
                               subtitle: Text(
-                                  'Tap to see the statistics about your steps',
+                                  'Tap to see the statistics about steps',
                                   textAlign: TextAlign.center),
                               children: <Widget>[
                                 //Initialize the chart widget
@@ -144,7 +150,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
                                     fontWeight: FontWeight.bold,
                                   )),
                               subtitle: Text(
-                                  'Tap to see the statistics about your burned calories',
+                                  'Tap to see the statistics about calories',
                                   textAlign: TextAlign.center),
                               children: <Widget>[
                                 //Initialize the chart widget
@@ -168,6 +174,53 @@ class _StatisticsPageState extends State<StatisticsPage> {
                                               //datoStat.distance,
                                               dataStat.calories,
                                           name: 'calories',
+                                          // Enable data label
+                                          dataLabelSettings: DataLabelSettings(
+                                              isVisible: true))
+                                    ]),
+                              ]),
+                        ),
+                        Divider(
+                          height: 5,
+                          thickness: 1.5,
+                          indent: 10,
+                          endIndent: 10,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child: ExpansionTileCard(
+                              title: Text('📶 Floors',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 122, 164, 94),
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              subtitle: Text(
+                                  'Tap to see the statistics about floors',
+                                  textAlign: TextAlign.center),
+                              children: <Widget>[
+                                //Initialize the chart widget
+                                SfCartesianChart(
+                                    primaryXAxis: CategoryAxis(),
+                                    // Chart title
+                                    title: ChartTitle(text: 'Floors'),
+                                    // Enable legend
+                                    legend: Legend(isVisible: false),
+                                    // Enable tooltip
+                                    tooltipBehavior:
+                                        TooltipBehavior(enable: true),
+                                    series: <ChartSeries<Dati, String>>[
+                                      LineSeries<Dati, String>(
+                                          dataSource: dataStat,
+                                          xValueMapper: (Dati dataStat, _) =>
+                                              dataStat.week.toString(),
+                                          //datoStat.week
+                                          //.toStringAsFixed(0),
+                                          yValueMapper: (Dati dataStat, _) =>
+                                              //datoStat.distance,
+                                              dataStat.floors,
+                                          name: 'number of floors',
                                           // Enable data label
                                           dataLabelSettings: DataLabelSettings(
                                               isVisible: true))

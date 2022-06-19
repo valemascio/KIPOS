@@ -51,14 +51,14 @@ class _IntroPageState extends State<IntroPage> {
               title: "First things first",
               body:
                   "Before starting you'll need to authorize the app to access your FitBit data: Head over to the Homepage and in the 'Settings' tile of the Menu you can decide when you want to start your training.",
-              image: Image.asset('assets/homepage.png'),
+              //image: Image.asset('assets/homepage.png'),
               decoration: pageDecoration,
             ),
             PageViewModel(
               title: "Consent for personal data treatment",
               body:
                   "We inform you that to use Kìpos your explicit consent for treatment of your personal data (Profile informations and Health data) is required. By clicking on 'Authorize FitBit Data' you acquiesce to the use of your personal data.",
-              image: Image.asset('assets/settings.png'),
+              //image: Image.asset('assets/settings.png'),
               decoration: pageDecoration,
             ),
           ],

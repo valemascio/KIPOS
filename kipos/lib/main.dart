@@ -25,7 +25,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final AppDatabase database =
-      await $FloorAppDatabase.databaseBuilder('database_kiposapp.db').build();
+      await $FloorAppDatabase.databaseBuilder('database_kipos_app.db').build();
   final databaseRepository = DatabaseRepository(database: database);
 
   //print('The resulting data is: ${result}');

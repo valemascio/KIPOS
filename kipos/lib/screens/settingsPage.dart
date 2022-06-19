@@ -236,8 +236,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     for (int k = 0; k < 16; k++) {
                       await Provider.of<DatabaseRepository>(context,
                               listen: false)
-                          .insertDati(Dati(
-                              null, k + 1, distance[k], steps[k], calories[k]));
+                          .insertDati(Dati(null, k + 1, distance[k], steps[k],
+                              calories[k], floors[k]));
                     }
 
                     //User data manager
