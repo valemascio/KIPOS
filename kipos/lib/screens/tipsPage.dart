@@ -2,15 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:kipos/screens/badgePage.dart';
 
 class Tips {
   final String tips_name;
   final String description;
   final IconData icon;
-  final Widget wid;
+  //final String wid;
   final Widget box;
 
-  Tips(this.icon, this.tips_name, this.description, this.wid, this.box);
+  Tips(this.icon, this.tips_name, this.description, /*this.wid*/ this.box);
 }
 
 // Home screen
@@ -89,7 +90,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('${tips.tips_name}'),
+          //title: Text('${tips.tips_name}'),
           backgroundColor: Colors.lightGreen,
         ),
         body: ListView(
@@ -98,17 +99,36 @@ class DetailScreen extends StatelessWidget {
               alignment: Alignment.center,
               child: Text(''),
             ),
-            Align(
-              alignment: Alignment.center,
-              child: tips.wid,
+            Text(
+              '${tips.tips_name}',
+              style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                  height: 1.5),
+              textAlign: TextAlign.center,
             ),
+            Container(
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.only(right: 10, left: 10),
+                //height: 34,
+                //width: 34,
+                child: Icon(tips.icon)
+                /*decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(17)),*/
+                ),
             Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                  child: Text(tips.description,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black, fontSize: 15)),
+                  child: Text(
+                    tips.description,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 88, 88, 88),
+                        fontSize: 17,
+                        height: 1.5),
+                  ),
                 )),
             Align(
               alignment: Alignment.bottomCenter,
