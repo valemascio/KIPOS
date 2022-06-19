@@ -27,9 +27,7 @@ class AlertPage extends StatelessWidget {
   }
 
   void _toSettingsPage(BuildContext context) async {
-    //Pop the drawer first
+    //Pop back to settings
     Navigator.pop(context);
-    //Then pop the settings
-    Navigator.of(context).pushReplacementNamed(SettingsPage.route);
-  } //_toCalendarPage
+  } //_toSettingsPage
 }
