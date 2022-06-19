@@ -424,7 +424,7 @@ void _updatePage(BuildContext context) async {
   for (int k = 0; k < 16; k++) {
     await Provider.of<DatabaseRepository>(context, listen: false).updateDati(
         Dati(datoLista_old[k].id, datoLista_old[k].week, distance[k], steps[k],
-            calories[k]));
+            calories[k], datoLista_old[k].floors));
   }
 
   final person_old =

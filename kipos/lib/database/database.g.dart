@@ -84,7 +84,7 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Dati` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `week` INTEGER NOT NULL, `distance` REAL NOT NULL, `steps` REAL NOT NULL, `calories` REAL NOT NULL)');
+            'CREATE TABLE IF NOT EXISTS `Dati` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `week` INTEGER NOT NULL, `distance` REAL NOT NULL, `steps` REAL NOT NULL, `calories` REAL NOT NULL, `floors` REAL NOT NULL)');
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `Person` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `surname` TEXT, `age` INTEGER, `avatar` TEXT, `weight` REAL, `height` REAL, `avgDailySteps` INTEGER, `dateOfBirth` INTEGER, `durationOfSleep` INTEGER)');
 
@@ -116,7 +116,8 @@ class _$DatiDao extends DatiDao {
                   'week': item.week,
                   'distance': item.distance,
                   'steps': item.steps,
-                  'calories': item.calories
+                  'calories': item.calories,
+                  'floors': item.floors
                 },
             changeListener),
         _datiUpdateAdapter = UpdateAdapter(
@@ -128,7 +129,8 @@ class _$DatiDao extends DatiDao {
                   'week': item.week,
                   'distance': item.distance,
                   'steps': item.steps,
-                  'calories': item.calories
+                  'calories': item.calories,
+                  'floors': item.floors
                 },
             changeListener),
         _datiDeletionAdapter = DeletionAdapter(
@@ -140,7 +142,8 @@ class _$DatiDao extends DatiDao {
                   'week': item.week,
                   'distance': item.distance,
                   'steps': item.steps,
-                  'calories': item.calories
+                  'calories': item.calories,
+                  'floors': item.floors
                 },
             changeListener);
 
@@ -164,7 +167,8 @@ class _$DatiDao extends DatiDao {
             row['week'] as int,
             row['distance'] as double,
             row['steps'] as double,
-            row['calories'] as double));
+            row['calories'] as double,
+            row['floors'] as double));
   }
 
   @override
@@ -175,7 +179,8 @@ class _$DatiDao extends DatiDao {
             row['week'] as int,
             row['distance'] as double,
             row['steps'] as double,
-            row['calories'] as double),
+            row['calories'] as double,
+            row['floors'] as double),
         arguments: [id],
         queryableName: 'Dati',
         isView: false);
@@ -189,7 +194,8 @@ class _$DatiDao extends DatiDao {
             row['week'] as int,
             row['distance'] as double,
             row['steps'] as double,
-            row['calories'] as double),
+            row['calories'] as double,
+            row['floors'] as double),
         arguments: [week],
         queryableName: 'Dati',
         isView: false);
