@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
       'Get enough sleep',
       'Keep hydrated',
       'Some numbers',
-      'Optimize your marathon training diet'
+      'Optimize your training diet'
     ];
 
     List<String> descriptions = [
