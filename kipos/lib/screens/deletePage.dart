@@ -46,9 +46,19 @@ class DeletePage extends StatelessWidget {
           .removeDati(datoLista[i]);
     }
 
-    //Pop the drawer first
-    Navigator.pop(context);
-    //Then pop the HomePage
-    Navigator.of(context).pushReplacementNamed(HomePage.route);
-  } //_toCalendarPage
+    void _toHomePage(BuildContext context) async {
+      final person = Provider.of<DatabaseRepository>(context, listen: false)
+          .findAllPerson();
+      List<Person> datiPerson = await person;
+      for (int i = 0; i < datiPerson.length; i++) {
+        Provider.of<DatabaseRepository>(context, listen: false)
+            .removePerson(datiPerson[i]);
+      }
+
+      //Pop the drawer first
+      Navigator.pop(context);
+      //Then pop the HomePage
+      Navigator.of(context).pushReplacementNamed(HomePage.route);
+    } //_toCalendarPage
+  }
 }
