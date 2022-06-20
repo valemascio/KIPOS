@@ -66,6 +66,17 @@ And now... LET'S GET TO WORK''',
               decoration: pageDecoration,
             ),
             PageViewModel(
+              title: "Update your data",
+              body:
+                  '''To refresh your progress, you can use the Refresh button on the Home screen.Please note that the data update cannot be performed more than 200 times per hour as otherwise the data transmission will be paused for the next 60 minutes.''',
+              image: ClipRect(
+                child: Image.asset(
+                  'assets/Simulator Screen Shot - iPhone 12 mini - 2022-06-20 at 21.19.46.png',
+                ),
+              ),
+              decoration: pageDecoration,
+            ),
+            PageViewModel(
               title: "Consent for personal data treatment",
               body:
                   '''Please note that in order to use Kìpos your consent to the processing of your personal data is required.
