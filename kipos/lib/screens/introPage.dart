@@ -53,7 +53,9 @@ And now... LET'S GET TO WORK''',
             PageViewModel(
               title: "First things first",
               body:
-                  '''Before starting you'll need to authorize the app to access your FitBit data: Head over to the Homepage and in the 'Settings' tile of the Menu you can decide when you want to start your training.''',
+                  '''Before starting you'll need to authorize the app to access your FitBit data: Head over to the Homepage and in the 'Settings' tile of the Menu you can decide when you want to start your training.
+Once your data is uploaded, you will be able to update your progress using the Refresh button in the centre of the NavigationBar on the Home screen.
+Please note that the data update cannot be performed more than 200 times per hour as otherwise the data transmission will be paused for the next 60 minutes.''',
               image: Image.asset('assets/tendina.png'),
               decoration: pageDecoration,
             ),
@@ -65,17 +67,17 @@ And now... LET'S GET TO WORK''',
               image: Image.asset('assets/settingsPage.png'),
               decoration: pageDecoration,
             ),
-            PageViewModel(
-              title: "Update your data",
-              body:
-                  '''To refresh your progress, you can use the Refresh button on the Home screen.Please note that the data update cannot be performed more than 200 times per hour as otherwise the data transmission will be paused for the next 60 minutes.''',
-              image: ClipRect(
-                child: Image.asset(
-                  'assets/Simulator Screen Shot - iPhone 12 mini - 2022-06-20 at 21.19.46.png',
-                ),
-              ),
-              decoration: pageDecoration,
-            ),
+            // PageViewModel(
+            //   title: "Update your data",
+            //   body:
+            //       '''To refresh your progress, you can use the Refresh button on the Home screen.Please note that the data update cannot be performed more than 200 times per hour as otherwise the data transmission will be paused for the next 60 minutes.''',
+            //   image: ClipRect(
+            //     child: Image.asset(
+            //       'assets/tendina_refresh.png',
+            //     ),
+            //   ),
+            //   decoration: pageDecoration,
+            // ),
             PageViewModel(
               title: "Consent for personal data treatment",
               body:
