@@ -319,10 +319,11 @@ class _SettingsPageState extends State<SettingsPage> {
                       clientID: Strings.fitbitClientID,
                       clientSecret: Strings.fitbitClientSecret,
                     );
-                    final snackBar = SnackBar(
+                    /*final snackBar = SnackBar(
                         content: Text(
                             'FitBit data access was unauthorized successfully.'));
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);*/
+                    Navigator.pushNamed(context, '/alertUnauth/');
                   },
                   icons: CupertinoIcons.clear_circled,
                   iconStyle: IconStyle(
