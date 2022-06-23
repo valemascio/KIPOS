@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/homePage.dart';
+import 'package:kipos/screens/prehomePage.dart';
 import 'package:kipos/main.dart';
+import 'package:kipos/screens/settingsPage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class IntroPage extends StatefulWidget {
@@ -16,8 +19,14 @@ class IntroPage extends StatefulWidget {
 class _IntroPageState extends State<IntroPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  void _onIntroEnd(context) {
-    Navigator.of(context).pushReplacementNamed(HomePage.route);
+  void _onIntroEnd(context) async {
+    final access = await SharedPreferences.getInstance();
+    String? auth = access.getString('pass');
+    if (auth != 'stop') {
+      Navigator.of(context).pushReplacementNamed(PreHomePage.route);
+    } else {
+      Navigator.of(context).pushReplacementNamed(HomePage.route);
+    }
   }
 
   @override

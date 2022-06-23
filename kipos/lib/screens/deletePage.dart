@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kipos/screens/homePage.dart';
+import 'package:kipos/screens/prehomePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
 import 'package:provider/provider.dart';
 import 'package:kipos/database/entities/dati.dart';
@@ -57,6 +57,6 @@ class DeletePage extends StatelessWidget {
     Navigator.pop(context);
     //Then pop the HomePage
     Navigator.of(context)
-        .pushReplacementNamed(HomePage.route); //_toCalendarPage
+        .pushReplacementNamed(PreHomePage.route); //_toCalendarPage
   }
 }
