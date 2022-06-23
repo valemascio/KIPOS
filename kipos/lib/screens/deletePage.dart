@@ -52,11 +52,11 @@ class DeletePage extends StatelessWidget {
     for (int i = 0; i < datiPerson.length; i++) {
       Provider.of<DatabaseRepository>(context, listen: false)
           .removePerson(datiPerson[i]);
-
-      //Pop the drawer first
-      Navigator.pop(context);
-      //Then pop the HomePage
-      Navigator.of(context).pushReplacementNamed(HomePage.route);
-    } //_toCalendarPage
+    }
+    //Pop the drawer first
+    Navigator.pop(context);
+    //Then pop the HomePage
+    Navigator.of(context)
+        .pushReplacementNamed(HomePage.route); //_toCalendarPage
   }
 }
