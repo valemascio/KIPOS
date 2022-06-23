@@ -42,7 +42,7 @@ class PreHomePage extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, '/alertTipsPage/');
+              Navigator.pushNamed(context, '/alertTips/');
             },
           )
         ],

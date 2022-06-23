@@ -12,7 +12,8 @@ class AlertPage extends StatelessWidget {
     return AlertDialog(
       title: const Text('Unauthorized data',
           style: TextStyle(color: Color.fromARGB(255, 122, 164, 94))),
-      content: const Text('FitBit data access was unauthorized successfully.'),
+      content: const Text(
+          'FitBit data access was unauthorized successfully. You will continue to see the authorized data but no more data will be stored in the database.'),
       actions: <Widget>[
         TextButton(
           onPressed: () {
