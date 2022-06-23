@@ -86,7 +86,24 @@ class PreHomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(),
+      body: Center(
+        child: Column(children: [
+          Text(' '),
+          Text(
+            "🌱 Let’s get started!",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 30,
+              fontWeight: FontWeight.w700,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          Text(' '),
+          Image(
+            image: AssetImage('assets/groot.gif'),
+          ),
+        ]),
+      ),
     );
   }
 }
