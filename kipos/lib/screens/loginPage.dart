@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
+import 'package:kipos/screens/prehomePage.dart';
 import 'package:kipos/screens/introPage.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:kipos/screens/preferencePage.dart';
@@ -96,8 +97,14 @@ class _LoginPageState extends State<LoginPage> {
     );
   } // build
 
-  void _toHomePage(BuildContext context) {
-    Navigator.of(context).pushReplacementNamed(HomePage.route);
+  void _toHomePage(BuildContext context) async {
+    final access = await SharedPreferences.getInstance();
+    String? auth = access.getString('pass');
+    if (auth != 'stop') {
+      Navigator.of(context).pushReplacementNamed(PreHomePage.route);
+    } else {
+      Navigator.of(context).pushReplacementNamed(HomePage.route);
+    }
   } // LoginScreen
 
   void _toIntroPage(BuildContext context) {
