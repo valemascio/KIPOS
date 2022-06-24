@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/screens/alertPage.dart' as alertpage;
-import 'package:kipos/screens/alertTipsPage.dart' as alertTipspage;
-import 'package:kipos/screens/alertUnauthPage.dart' as alertUnauthpage;
+//import 'package:kipos/screens/alertTipsPage.dart' as alertTipspage;
+//import 'package:kipos/screens/alertUnauthPage.dart' as alertUnauthpage;
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/deletePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
@@ -245,9 +245,9 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
         SettingsPage.route: (context) => SettingsPage(),
         PreHomePage.route: (context) => PreHomePage(),
         alertpage.AlertPage.route: (context) => alertpage.AlertPage(),
-        alertTipspage.AlertPage.route: (context) => alertTipspage.AlertPage(),
-        alertUnauthpage.AlertPage.route: (context) =>
-            alertUnauthpage.AlertPage(),
+        //alertTipspage.AlertPage.route: (context) => alertTipspage.AlertPage(),
+        //alertUnauthpage.AlertPage.route: (context) =>
+        //alertUnauthpage.AlertPage(),
         ProfilePage.route: (context) => ProfilePage(),
         IntroPage.route: (context) => IntroPage(),
         TipsPage.route: (context) => TipsPage(

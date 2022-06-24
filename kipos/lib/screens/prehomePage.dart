@@ -42,7 +42,26 @@ class PreHomePage extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, '/alertTips/');
+              //Navigator.pushNamed(context, '/alertTips/');
+              showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  title: const Text("Wait!"),
+                  content: const Text(
+                      'You will see the tips once you authorize the FitBit data.'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(ctx).pop();
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(14),
+                        child: const Text("OK"),
+                      ),
+                    ),
+                  ],
+                ),
+              );
             },
           )
         ],
