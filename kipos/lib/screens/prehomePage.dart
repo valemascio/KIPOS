@@ -52,13 +52,22 @@ class PreHomePage extends StatelessWidget {
                   actions: <Widget>[
                     TextButton(
                       onPressed: () {
+                        Navigator.pushNamed(context, SettingsPage.route);
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(14),
+                        child: const Text("Go to Settings"),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
                         Navigator.of(ctx).pop();
                       },
                       child: Container(
                         padding: const EdgeInsets.all(14),
                         child: const Text("OK"),
                       ),
-                    ),
+                    )
                   ],
                 ),
               );
