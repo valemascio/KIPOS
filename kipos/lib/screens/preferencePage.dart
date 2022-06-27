@@ -49,8 +49,19 @@ class _PreferencePageState extends State<PreferencePage> {
     super.dispose();
   } // dispose
 
+  bool _enabled = false;
+
   @override
   Widget build(BuildContext context) {
+    var _choosedDate = null;
+    if (_enabled) {
+      _choosedDate = () async {
+        final clickedbutton = await SharedPreferences.getInstance();
+        await clickedbutton.setBool('_isPressed', true);
+        Navigator.pushNamed(context, SettingsPage.route);
+      };
+    }
+
     return Scaffold(
         appBar: AppBar(
           title: (const Text(
@@ -60,7 +71,7 @@ class _PreferencePageState extends State<PreferencePage> {
           backgroundColor: Colors.lightGreen,
         ),
         body: SafeArea(
-            child: Stack(children: [
+            child: Stack(alignment: Alignment.bottomCenter, children: [
           _buildForm(context),
           Padding(
               padding: const EdgeInsets.fromLTRB(80, 230, 10, 10),
@@ -70,25 +81,15 @@ class _PreferencePageState extends State<PreferencePage> {
                   borderRadius: BorderRadius.circular(4),
                   child: Stack(
                     children: <Widget>[
-                      Positioned.fill(
+                      /*Positioned.fill(
                         child: Container(
                           decoration: const BoxDecoration(
                             color: Colors.lightGreen,
                           ),
                         ),
-                      ),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          padding: const EdgeInsets.all(16.0),
-                          primary: Colors.white,
-                          textStyle: const TextStyle(fontSize: 18),
-                        ),
-                        onPressed: () async {
-                          final clickedbutton =
-                              await SharedPreferences.getInstance();
-                          await clickedbutton.setBool('_isPressed', true);
-                          Navigator.pushNamed(context, SettingsPage.route);
-                        },
+                      ),*/
+                      ElevatedButton(
+                        onPressed: _choosedDate,
                         child: const Text('Done'),
                       ),
                     ],
@@ -134,6 +135,8 @@ class _PreferencePageState extends State<PreferencePage> {
     int timeStamp = _selectedDate.millisecondsSinceEpoch;
     final prefs = await SharedPreferences.getInstance();
     prefs.setInt('timeStamp', timeStamp);
+
+    _enabled = true;
 
     //Navigator.pushNamed(context, SettingsPage.route);
   } //_selectDate

@@ -55,7 +55,7 @@ class PreHomePage extends StatelessWidget {
                         final clickedbutton =
                             await SharedPreferences.getInstance();
                         await clickedbutton.setBool('_isPressed', false);
-                        Navigator.pushNamed(context, SettingsPage.route);
+                        Navigator.popAndPushNamed(context, SettingsPage.route);
                       },
                       child: Container(
                         padding: const EdgeInsets.all(14),
