@@ -29,6 +29,9 @@ class DeletePage extends StatelessWidget {
             _toHomePage(context);
             final access = await SharedPreferences.getInstance();
             access.setString('pass', 'ok');
+
+            final button = await SharedPreferences.getInstance();
+            await button.setBool('_isPressed', false);
           },
           child: const Text('OK',
               style: TextStyle(color: Color.fromARGB(255, 122, 164, 94))),
@@ -53,6 +56,9 @@ class DeletePage extends StatelessWidget {
       Provider.of<DatabaseRepository>(context, listen: false)
           .removePerson(datiPerson[i]);
     }
+
+    //final int? sp = SharedPreferences.getInt('timestamp');
+
     //Pop the drawer first
     Navigator.pop(context);
     //Then pop the HomePage
@@ -60,3 +66,23 @@ class DeletePage extends StatelessWidget {
         .pushReplacementNamed(PreHomePage.route); //_toCalendarPage
   }
 }
+
+//QUELLO CHE DOVREMMO FARE: 
+/*
+Scelgo data -> time stamp che prende dopo authorize (se già scelta = alert dialog)
+-> dovremmo mettere che lo memorizzi senza schiacciare su authorize?
+
+timestamp != null : authorizzo 
+timestamp == null : non authorizzo perché non ho scelto la data
+
+faccio le mie cose
+
+delete data: setto timestamp su null o semplicemente elimino timestamp
+
+----------------------------
+(provato ma non va 😢)
+dalla settings page: 
+- se ho dato authorize: vado sulla homepage
+- se non ho ancora dato authorize: vado sulla preHomePage
+
+*/
