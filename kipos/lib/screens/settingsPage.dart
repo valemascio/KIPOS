@@ -121,186 +121,189 @@ To restart from scratch you have to delete all the data first.'''),
                       final button = await SharedPreferences.getInstance();
                       await button.setBool('_isPressed', true);
 
-                      //if (_isPressed == false) {
-                      final access = await SharedPreferences.getInstance();
-                      //save a String value (i.e. stop) to 'pass' key.
-                      //key= pass; value=stop.
-                      access.setString('pass', 'stop');
-                      final prefs = await SharedPreferences.getInstance();
-                      int? timestamp = prefs.getInt('timeStamp');
-                      DateTime _selDate =
-                          DateTime.fromMillisecondsSinceEpoch(timestamp!);
+                      if (button.getBool('_isPressed') == true) {
+                        final access = await SharedPreferences.getInstance();
+                        //save a String value (i.e. stop) to 'pass' key.
+                        //key= pass; value=stop.
+                        access.setString('pass', 'stop');
+                        final prefs = await SharedPreferences.getInstance();
+                        int? timestamp = prefs.getInt('timeStamp');
+                        DateTime _selDate =
+                            DateTime.fromMillisecondsSinceEpoch(timestamp!);
 
-                      // Authorize the app
-                      String? userId = await FitbitConnector.authorize(
-                          context: context,
+                        // Authorize the app
+                        String? userId = await FitbitConnector.authorize(
+                            context: context,
+                            clientID: Strings.fitbitClientID,
+                            clientSecret: Strings.fitbitClientSecret,
+                            redirectUri: Strings.fitbitRedirectUri,
+                            callbackUrlScheme: Strings.fitbitCallbackScheme);
+
+                        //Data manager steps
+                        FitbitActivityTimeseriesDataManager
+                            fitbitActivityTimeseriesDataManager =
+                            FitbitActivityTimeseriesDataManager(
                           clientID: Strings.fitbitClientID,
                           clientSecret: Strings.fitbitClientSecret,
-                          redirectUri: Strings.fitbitRedirectUri,
-                          callbackUrlScheme: Strings.fitbitCallbackScheme);
+                          type: 'steps',
+                        );
 
-                      //Data manager steps
-                      FitbitActivityTimeseriesDataManager
-                          fitbitActivityTimeseriesDataManager =
-                          FitbitActivityTimeseriesDataManager(
-                        clientID: Strings.fitbitClientID,
-                        clientSecret: Strings.fitbitClientSecret,
-                        type: 'steps',
-                      );
+                        //Fetch steps
+                        final stepsData =
+                            await fitbitActivityTimeseriesDataManager.fetch(
+                                FitbitActivityTimeseriesAPIURL
+                                    .dateRangeWithResource(
+                          userID: userId,
+                          startDate: _selDate,
+                          endDate: _selDate.add(Duration(days: 115)),
+                          resource: fitbitActivityTimeseriesDataManager.type,
+                        )) as List<FitbitActivityTimeseriesData>;
 
-                      //Fetch steps
-                      final stepsData =
-                          await fitbitActivityTimeseriesDataManager.fetch(
-                              FitbitActivityTimeseriesAPIURL
-                                  .dateRangeWithResource(
-                        userID: userId,
-                        startDate: _selDate,
-                        endDate: _selDate.add(Duration(days: 115)),
-                        resource: fitbitActivityTimeseriesDataManager.type,
-                      )) as List<FitbitActivityTimeseriesData>;
-
-                      // Creo lista di steps
-                      for (int i = 0; i < 16; i++) {
-                        int inizio = x * i;
-                        int fine = x * (i + 1);
-                        for (int j = inizio; j < fine; j++) {
-                          somma = (stepsData[j].value as double) + somma;
+                        // Creo lista di steps
+                        for (int i = 0; i < 16; i++) {
+                          int inizio = x * i;
+                          int fine = x * (i + 1);
+                          for (int j = inizio; j < fine; j++) {
+                            somma = (stepsData[j].value as double) + somma;
+                          }
+                          steps[i] = somma;
+                          somma = 0;
                         }
-                        steps[i] = somma;
-                        somma = 0;
-                      }
 
-                      print('$steps');
+                        print('$steps');
 
-                      //Data manager distance
-                      FitbitActivityTimeseriesDataManager
-                          fitbitActivityTimeseriesDataManager_dist =
-                          FitbitActivityTimeseriesDataManager(
-                        clientID: Strings.fitbitClientID,
-                        clientSecret: Strings.fitbitClientSecret,
-                        type: 'distance',
-                      );
+                        //Data manager distance
+                        FitbitActivityTimeseriesDataManager
+                            fitbitActivityTimeseriesDataManager_dist =
+                            FitbitActivityTimeseriesDataManager(
+                          clientID: Strings.fitbitClientID,
+                          clientSecret: Strings.fitbitClientSecret,
+                          type: 'distance',
+                        );
 
-                      //Fetch distance
-                      final distData =
-                          await fitbitActivityTimeseriesDataManager_dist.fetch(
-                              FitbitActivityTimeseriesAPIURL
-                                  .dateRangeWithResource(
-                        userID: userId,
-                        startDate: _selDate,
-                        endDate: _selDate.add(Duration(days: 115)),
-                        resource: fitbitActivityTimeseriesDataManager_dist.type,
-                      )) as List<FitbitActivityTimeseriesData>;
+                        //Fetch distance
+                        final distData =
+                            await fitbitActivityTimeseriesDataManager_dist
+                                .fetch(FitbitActivityTimeseriesAPIURL
+                                    .dateRangeWithResource(
+                          userID: userId,
+                          startDate: _selDate,
+                          endDate: _selDate.add(Duration(days: 115)),
+                          resource:
+                              fitbitActivityTimeseriesDataManager_dist.type,
+                        )) as List<FitbitActivityTimeseriesData>;
 
-                      // Creo lista di distance
-                      for (int i = 0; i < 16; i++) {
-                        int inizio = x * i;
-                        int fine = x * (i + 1);
-                        for (int j = inizio; j < fine; j++) {
-                          somma = (distData[j].value as double) + somma;
+                        // Creo lista di distance
+                        for (int i = 0; i < 16; i++) {
+                          int inizio = x * i;
+                          int fine = x * (i + 1);
+                          for (int j = inizio; j < fine; j++) {
+                            somma = (distData[j].value as double) + somma;
+                          }
+                          distance[i] = somma;
+                          somma = 0;
                         }
-                        distance[i] = somma;
-                        somma = 0;
-                      }
-                      print('$distance');
+                        print('$distance');
 
-                      //Data manager calories
-                      FitbitActivityTimeseriesDataManager
-                          fitbitActivityTimeseriesDataManager_cal =
-                          FitbitActivityTimeseriesDataManager(
-                        clientID: Strings.fitbitClientID,
-                        clientSecret: Strings.fitbitClientSecret,
-                        type: 'calories',
-                      );
+                        //Data manager calories
+                        FitbitActivityTimeseriesDataManager
+                            fitbitActivityTimeseriesDataManager_cal =
+                            FitbitActivityTimeseriesDataManager(
+                          clientID: Strings.fitbitClientID,
+                          clientSecret: Strings.fitbitClientSecret,
+                          type: 'calories',
+                        );
 
-                      //Fetch calories
-                      final calData =
-                          await fitbitActivityTimeseriesDataManager_cal.fetch(
-                              FitbitActivityTimeseriesAPIURL
-                                  .dateRangeWithResource(
-                        userID: userId,
-                        startDate: _selDate,
-                        endDate: _selDate.add(Duration(days: 115)),
-                        resource: fitbitActivityTimeseriesDataManager_cal.type,
-                      )) as List<FitbitActivityTimeseriesData>;
+                        //Fetch calories
+                        final calData =
+                            await fitbitActivityTimeseriesDataManager_cal.fetch(
+                                FitbitActivityTimeseriesAPIURL
+                                    .dateRangeWithResource(
+                          userID: userId,
+                          startDate: _selDate,
+                          endDate: _selDate.add(Duration(days: 115)),
+                          resource:
+                              fitbitActivityTimeseriesDataManager_cal.type,
+                        )) as List<FitbitActivityTimeseriesData>;
 
-                      // Creo lista di calories
-                      for (int i = 0; i < 16; i++) {
-                        int inizio = x * i;
-                        int fine = x * (i + 1);
-                        for (int j = inizio; j < fine; j++) {
-                          somma = (calData[j].value as double) + somma;
+                        // Creo lista di calories
+                        for (int i = 0; i < 16; i++) {
+                          int inizio = x * i;
+                          int fine = x * (i + 1);
+                          for (int j = inizio; j < fine; j++) {
+                            somma = (calData[j].value as double) + somma;
+                          }
+                          calories[i] = somma;
+                          somma = 0;
                         }
-                        calories[i] = somma;
-                        somma = 0;
-                      }
-                      print('$calories');
+                        print('$calories');
 
-                      //Data manager floors
-                      FitbitActivityTimeseriesDataManager
-                          fitbitActivityTimeseriesDataManager_floors =
-                          FitbitActivityTimeseriesDataManager(
-                        clientID: Strings.fitbitClientID,
-                        clientSecret: Strings.fitbitClientSecret,
-                        type: 'floors',
-                      );
+                        //Data manager floors
+                        FitbitActivityTimeseriesDataManager
+                            fitbitActivityTimeseriesDataManager_floors =
+                            FitbitActivityTimeseriesDataManager(
+                          clientID: Strings.fitbitClientID,
+                          clientSecret: Strings.fitbitClientSecret,
+                          type: 'floors',
+                        );
 
-                      //Fetch duration
-                      final floorsData =
-                          await fitbitActivityTimeseriesDataManager_floors
-                              .fetch(FitbitActivityTimeseriesAPIURL
-                                  .dateRangeWithResource(
-                        userID: userId,
-                        startDate: _selDate,
-                        endDate: _selDate.add(Duration(days: 115)),
-                        resource:
-                            fitbitActivityTimeseriesDataManager_floors.type,
-                      )) as List<FitbitActivityTimeseriesData>;
+                        //Fetch duration
+                        final floorsData =
+                            await fitbitActivityTimeseriesDataManager_floors
+                                .fetch(FitbitActivityTimeseriesAPIURL
+                                    .dateRangeWithResource(
+                          userID: userId,
+                          startDate: _selDate,
+                          endDate: _selDate.add(Duration(days: 115)),
+                          resource:
+                              fitbitActivityTimeseriesDataManager_floors.type,
+                        )) as List<FitbitActivityTimeseriesData>;
 
-                      // Creo lista di floors
-                      for (int i = 0; i < 16; i++) {
-                        int inizio = x * i;
-                        int fine = x * (i + 1);
-                        for (int j = inizio; j < fine; j++) {
-                          somma = (floorsData[j].value as double) + somma;
+                        // Creo lista di floors
+                        for (int i = 0; i < 16; i++) {
+                          int inizio = x * i;
+                          int fine = x * (i + 1);
+                          for (int j = inizio; j < fine; j++) {
+                            somma = (floorsData[j].value as double) + somma;
+                          }
+                          floors[i] = somma;
+                          somma = 0;
                         }
-                        floors[i] = somma;
-                        somma = 0;
-                      }
-                      print('$floors');
+                        print('$floors');
 
-                      //DATABASE INSERT
-                      for (int k = 0; k < 16; k++) {
-                        await Provider.of<DatabaseRepository>(context,
-                                listen: false)
-                            .insertDati(Dati(null, k + 1, distance[k], steps[k],
-                                calories[k], floors[k]));
-                      }
+                        //DATABASE INSERT
+                        for (int k = 0; k < 16; k++) {
+                          await Provider.of<DatabaseRepository>(context,
+                                  listen: false)
+                              .insertDati(Dati(null, k + 1, distance[k],
+                                  steps[k], calories[k], floors[k]));
+                        }
 
-                      //User data manager
-                      FitbitAccountDataManager fitbitAccountDataManager =
-                          FitbitAccountDataManager(
-                        clientID: Strings.fitbitClientID,
-                        clientSecret: Strings.fitbitClientSecret,
-                      );
+                        //User data manager
+                        FitbitAccountDataManager fitbitAccountDataManager =
+                            FitbitAccountDataManager(
+                          clientID: Strings.fitbitClientID,
+                          clientSecret: Strings.fitbitClientSecret,
+                        );
 
-                      FitbitUserAPIURL fitbitUserApiUrl =
-                          FitbitUserAPIURL.withUserID(userID: userId);
+                        FitbitUserAPIURL fitbitUserApiUrl =
+                            FitbitUserAPIURL.withUserID(userID: userId);
 
-                      final fitbitAccountDatas = await fitbitAccountDataManager
-                          .fetch(fitbitUserApiUrl);
-                      FitbitAccountData fitbitAccountData =
-                          fitbitAccountDatas[0] as FitbitAccountData;
+                        final fitbitAccountDatas =
+                            await fitbitAccountDataManager
+                                .fetch(fitbitUserApiUrl);
+                        FitbitAccountData fitbitAccountData =
+                            fitbitAccountDatas[0] as FitbitAccountData;
 
-                      final date =
-                          fitbitAccountData.dateOfBirth?.millisecondsSinceEpoch;
-                      final dateConverted =
-                          DateTime.fromMillisecondsSinceEpoch(date!);
+                        final date = fitbitAccountData
+                            .dateOfBirth?.millisecondsSinceEpoch;
+                        final dateConverted =
+                            DateTime.fromMillisecondsSinceEpoch(date!);
 
-                      print("data di nascita: ${dateConverted}");
+                        print("data di nascita: ${dateConverted}");
 
-                      //Data manager sleep
-                      /*FitbitSleepDataManager fitbitSleepDataManager =
+                        //Data manager sleep
+                        /*FitbitSleepDataManager fitbitSleepDataManager =
                         FitbitSleepDataManager(
                       clientID: Strings.fitbitClientID,
                       clientSecret: Strings.fitbitClientSecret,
@@ -317,30 +320,31 @@ To restart from scratch you have to delete all the data first.'''),
                         sleepData[sleepData.length - 1].entryDateTime;
                     int sleepDurHours = end!.difference(start!).inMinutes ~/ 60;*/
 
-                      await Provider.of<DatabaseRepository>(context,
-                              listen: false)
-                          .insertPerson(
-                        Person(
-                          null,
-                          fitbitAccountData.firstName,
-                          fitbitAccountData.lastName,
-                          fitbitAccountData.age,
-                          fitbitAccountData.avatar,
-                          fitbitAccountData.weight,
-                          fitbitAccountData.height,
-                          fitbitAccountData.averageDailySteps,
-                          fitbitAccountData.dateOfBirth?.millisecondsSinceEpoch,
-                        ),
-                      );
+                        await Provider.of<DatabaseRepository>(context,
+                                listen: false)
+                            .insertPerson(
+                          Person(
+                            null,
+                            fitbitAccountData.firstName,
+                            fitbitAccountData.lastName,
+                            fitbitAccountData.age,
+                            fitbitAccountData.avatar,
+                            fitbitAccountData.weight,
+                            fitbitAccountData.height,
+                            fitbitAccountData.averageDailySteps,
+                            fitbitAccountData
+                                .dateOfBirth?.millisecondsSinceEpoch,
+                          ),
+                        );
 
-                      //print(
-                      //"Yesterday night you went to bed at ${start.hour}:${start.minute}:${start.second} and you woke up this morning at ${end.hour}:${end.minute}:${end.second}, so you slept about ${sleepDurHours} hours.");
+                        //print(
+                        //"Yesterday night you went to bed at ${start.hour}:${start.minute}:${start.second} and you woke up this morning at ${end.hour}:${end.minute}:${end.second}, so you slept about ${sleepDurHours} hours.");
 
-                      final snackBar = SnackBar(
-                          content: Text(
-                              'FitBit data access was authorized successfully.'));
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      /*} else {
+                        final snackBar = SnackBar(
+                            content: Text(
+                                'FitBit data access was authorized successfully.'));
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      } else {
                         showDialog(
                             context: context,
                             builder: (ctx) => AlertDialog(
@@ -359,8 +363,7 @@ To restart from scratch you have to delete all the data first.'''),
                                     ),
                                   ],
                                 ));
-                      },*/
-
+                      }
                     } else {
                       showDialog(
                         context: context,
