@@ -71,30 +71,30 @@ class _PreferencePageState extends State<PreferencePage> {
           backgroundColor: Colors.lightGreen,
         ),
         body: SafeArea(
-            child: Stack(alignment: Alignment.bottomCenter, children: [
+            child: Stack(children: [
           _buildForm(context),
+          Divider(
+            height: 5,
+            thickness: 1.5,
+            indent: 10,
+            endIndent: 10,
+          ),
           Padding(
-              padding: const EdgeInsets.fromLTRB(80, 230, 10, 10),
+              padding: const EdgeInsets.fromLTRB(150, 60, 150, 10),
               child: Column(children: [
-                const SizedBox(height: 80),
+                const SizedBox(height: 70),
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(4),
-                  child: Stack(
-                    children: <Widget>[
-                      /*Positioned.fill(
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.lightGreen,
-                          ),
+                    borderRadius: BorderRadius.circular(4),
+                    child: ListView(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      children: <Widget>[
+                        ElevatedButton(
+                          onPressed: _choosedDate,
+                          child: const Text('Done!'),
                         ),
-                      ),*/
-                      ElevatedButton(
-                        onPressed: _choosedDate,
-                        child: const Text('Done'),
-                      ),
-                    ],
-                  ),
-                )
+                      ],
+                    ))
               ]))
         ])));
   } //build
