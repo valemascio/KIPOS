@@ -30,6 +30,9 @@ class DeletePage extends StatelessWidget {
             final access = await SharedPreferences.getInstance();
             access.setString('pass', 'ok');
 
+            final clickedbutton = await SharedPreferences.getInstance();
+            await clickedbutton.setBool('_isPressed', false);
+
             final button = await SharedPreferences.getInstance();
             await button.setBool('_isPressed', false);
           },
@@ -85,4 +88,6 @@ dalla settings page:
 - se ho dato authorize: vado sulla homepage
 - se non ho ancora dato authorize: vado sulla preHomePage
 
+---------------------------
+non far ripremere di nuovo authorize se lo abbiamo premuto
 */

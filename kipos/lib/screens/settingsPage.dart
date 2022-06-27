@@ -73,6 +73,9 @@ class _SettingsPageState extends State<SettingsPage> {
                     //mi torna il value 'stop' perché gli passo la chiave 'pass'
                     if (auth != 'stop') {
                       Navigator.pushNamed(context, PreferencePage.route);
+                      final clickedbutton =
+                          await SharedPreferences.getInstance();
+                      await clickedbutton.setBool('_isPressed', true);
                       //access.setString('pass', 'stop');
                     } else {
                       //Navigator.pushNamed(context, AlertPage.route);
@@ -81,7 +84,9 @@ class _SettingsPageState extends State<SettingsPage> {
                         builder: (ctx) => AlertDialog(
                           title: const Text('⚠️ Alert! ⚠️'),
                           content: const Text(
-                              'You already chose a starting date for your training. To restart from scratch you have to delete all the data first.'),
+                              '''You already chose a starting date for your training. 
+
+To restart from scratch you have to delete all the data first.'''),
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
@@ -110,22 +115,22 @@ class _SettingsPageState extends State<SettingsPage> {
               SettingsGroup(settingsGroupTitle: "2. Authorization", items: [
                 SettingsItem(
                   onTap: () async {
-                    //to save that the button was pressed
-                    final button = await SharedPreferences.getInstance();
-                    await button.setBool('_isPressed', true);
+                    final clickedbutton = await SharedPreferences.getInstance();
+                    if (clickedbutton.getBool('_isPressed') == true) {
+                      //to save that the button was pressed
+                      final button = await SharedPreferences.getInstance();
+                      await button.setBool('_isPressed', true);
 
-                    final access = await SharedPreferences.getInstance();
-                    //save a String value (i.e. stop) to 'pass' key.
-                    //key= pass; value=stop.
-                    access.setString('pass', 'stop');
-                    final prefs = await SharedPreferences.getInstance();
-                    int? timestamp = prefs.getInt('timeStamp');
-                    DateTime _selDate =
-                        DateTime.fromMillisecondsSinceEpoch(timestamp!);
+                      //if (_isPressed == false) {
+                      final access = await SharedPreferences.getInstance();
+                      //save a String value (i.e. stop) to 'pass' key.
+                      //key= pass; value=stop.
+                      access.setString('pass', 'stop');
+                      final prefs = await SharedPreferences.getInstance();
+                      int? timestamp = prefs.getInt('timeStamp');
+                      DateTime _selDate =
+                          DateTime.fromMillisecondsSinceEpoch(timestamp!);
 
-                    //String? auth = access.getString('pass');
-                    //se ho il timestamp allora faccio authorize, altrimenti alert dialog?
-                    if (timestamp != null) {
                       // Authorize the app
                       String? userId = await FitbitConnector.authorize(
                           context: context,
@@ -335,6 +340,27 @@ class _SettingsPageState extends State<SettingsPage> {
                           content: Text(
                               'FitBit data access was authorized successfully.'));
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      /*} else {
+                        showDialog(
+                            context: context,
+                            builder: (ctx) => AlertDialog(
+                                  title: const Text("Stop!"),
+                                  content: const Text(
+                                      'You already authorized the data'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(ctx).pop();
+                                      },
+                                      child: Container(
+                                        padding: const EdgeInsets.all(14),
+                                        child: const Text("OK"),
+                                      ),
+                                    ),
+                                  ],
+                                ));
+                      },*/
+
                     } else {
                       showDialog(
                         context: context,

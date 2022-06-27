@@ -51,7 +51,10 @@ class PreHomePage extends StatelessWidget {
                       'You will see the tips once you authorize the FitBit data.'),
                   actions: <Widget>[
                     TextButton(
-                      onPressed: () {
+                      onPressed: () async {
+                        final clickedbutton =
+                            await SharedPreferences.getInstance();
+                        await clickedbutton.setBool('_isPressed', false);
                         Navigator.pushNamed(context, SettingsPage.route);
                       },
                       child: Container(
