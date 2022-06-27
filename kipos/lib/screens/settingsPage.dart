@@ -70,12 +70,14 @@ class _SettingsPageState extends State<SettingsPage> {
                   onTap: () async {
                     final access = await SharedPreferences.getInstance();
                     String? auth = access.getString('pass');
+                    final clickedbutton = await SharedPreferences.getInstance();
+                    bool? verified = clickedbutton.getBool('_isPressed');
                     //mi torna il value 'stop' perché gli passo la chiave 'pass'
-                    if (auth != 'stop') {
+                    if (auth != 'stop' /*&& verified != true*/) {
                       Navigator.pushNamed(context, PreferencePage.route);
-                      final clickedbutton =
+                      /*final clickedbutton =
                           await SharedPreferences.getInstance();
-                      await clickedbutton.setBool('_isPressed', true);
+                      await clickedbutton.setBool('_isPressed', true);*/
                       //access.setString('pass', 'stop');
                     } else {
                       //Navigator.pushNamed(context, AlertPage.route);
@@ -115,13 +117,16 @@ To restart from scratch you have to delete all the data first.'''),
               SettingsGroup(settingsGroupTitle: "2. Authorization", items: [
                 SettingsItem(
                   onTap: () async {
+                    //riferito a DatePicker
                     final clickedbutton = await SharedPreferences.getInstance();
                     if (clickedbutton.getBool('_isPressed') == true) {
-                      //to save that the button was pressed
+                      //riferito a HomePage
                       final button = await SharedPreferences.getInstance();
                       await button.setBool('_isPressed', true);
 
-                      if (button.getBool('_isPressed') == true) {
+//riferito all'authorize stesso
+                      final alreadyauth = await SharedPreferences.getInstance();
+                      if (alreadyauth.getBool('_isAuth') != true) {
                         final access = await SharedPreferences.getInstance();
                         //save a String value (i.e. stop) to 'pass' key.
                         //key= pass; value=stop.
@@ -344,6 +349,10 @@ To restart from scratch you have to delete all the data first.'''),
                             content: Text(
                                 'FitBit data access was authorized successfully.'));
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+                        final alreadyauth =
+                            await SharedPreferences.getInstance();
+                        await alreadyauth.setBool('_isAuth', true);
                       } else {
                         showDialog(
                             context: context,

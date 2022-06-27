@@ -35,6 +35,9 @@ class DeletePage extends StatelessWidget {
 
             final button = await SharedPreferences.getInstance();
             await button.setBool('_isPressed', false);
+
+            final alreadyauth = await SharedPreferences.getInstance();
+            alreadyauth.setBool('_isAuth', false);
           },
           child: const Text('OK',
               style: TextStyle(color: Color.fromARGB(255, 122, 164, 94))),
