@@ -49,7 +49,7 @@ class BadgePage extends StatelessWidget {
         backgroundColor: Colors.lightGreen,
         leading: IconButton(
           icon: const Icon(
-            Icons.arrow_back,
+            Icons.arrow_back_ios,
             color: Colors.white,
           ),
           onPressed: () {

@@ -60,7 +60,7 @@ And now... LET'S GET TO WORK''',
             PageViewModel(
               title: "First things first",
               body:
-                  '''Before starting you'll need to authorize the app to access your FitBit data: Head over to the Homepage and in the 'Settings' tile of the Menu you can decide when you want to start your training.
+                  '''Before starting you'll need to authorize the app to access your FitBit data: head over to the Homepage and in the 'Settings' tile of the Menu you can decide when you want to start your training.
 Once your data is uploaded, you will be able to update your progress using the Refresh button in the centre of the NavigationBar on the Home screen.
 Please note that the data update cannot be performed more than 200 times per hour as otherwise the data transmission will be paused for the next 60 minutes.''',
               image: Image.asset('assets/tendina.png'),
