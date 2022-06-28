@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kipos/screens/badgePage.dart';
-import 'package:kipos/screens/homePage.dart';
-import 'package:expansion_tile_card/expansion_tile_card.dart';
-import 'package:flutter/src/widgets/basic.dart';
 import 'package:provider/provider.dart';
 import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/repository/databaseRepository.dart';
-
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key, String? title}) : super(key: key);
@@ -39,7 +32,6 @@ class ProfilePage extends StatelessWidget {
                     itemBuilder: (context, datiIndex) {
                       final dato = user_data[datiIndex];
                       return ListView(
-                        //scrollDirection: Axis.vertical,
                         shrinkWrap: true,
                         children: [
                           Stack(

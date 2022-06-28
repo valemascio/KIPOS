@@ -41,12 +41,6 @@ class BadgePage extends StatelessWidget {
       final access = await SharedPreferences.getInstance();
       String? auth = '';
       return auth = access.getString('pass');
-      // bool grant = true;
-      // if (auth != 'stop') {
-      //   return grant = true;
-      // } else {
-      //   return grant = false;
-      // }
     }
 
     return Scaffold(
@@ -71,10 +65,9 @@ class BadgePage extends StatelessWidget {
             if (snapshot.hasData) {
               final dato = snapshot.data as List<Dati>;
               String? image_week1 = '';
-              double? distance_week1 =
-                  dato[0].distance; //distanza prima settimana
+              double? distance_week1 = dato[0].distance; //first week distance
               if (distance_week1 > double.parse(preview[0])) {
-                //preview[0] = lista di distanze da confrontare
+                //preview[0] = list of distances to compare
                 image_week1 = 'https://www.treedom.net/images/medium_428702';
               } else {
                 image_week1 =
@@ -93,10 +86,8 @@ CO2 absorbed: 55kg''';
               }
 
               String? image_week2 = '';
-              double? distance_week2 =
-                  dato[1].distance; //distanza seconda settimana
+              double? distance_week2 = dato[1].distance;
               if (distance_week2 > double.parse(preview[1])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week2 = 'https://www.treedom.net/images/medium_428690';
               } else {
                 image_week2 =
@@ -115,10 +106,8 @@ CO2 absorbed: 10kg''';
               }
 
               String? image_week3 = '';
-              double? distance_week3 =
-                  dato[2].distance; //distanza terza settimana
+              double? distance_week3 = dato[2].distance;
               if (distance_week3 > double.parse(preview[2])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week3 = 'https://www.treedom.net/images/medium_428740';
               } else {
                 image_week3 =
@@ -137,10 +126,8 @@ CO2 absorbed: 55kg''';
               }
 
               String? image_week4 = '';
-              double? distance_week4 =
-                  dato[3].distance; //distanza quarta settimana
+              double? distance_week4 = dato[3].distance;
               if (distance_week4 > double.parse(preview[3])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week4 =
                     'https://medias.treedom.net/images/medium/e28ae4c8e5759accd4215a6df49c7b89.png';
               } else {
@@ -160,10 +147,8 @@ CO2 absorbed: 100kg''';
               }
 
               String? image_week5 = '';
-              double? distance_week5 =
-                  dato[4].distance; //distanza quinta settimana
+              double? distance_week5 = dato[4].distance;
               if (distance_week5 > double.parse(preview[4])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week5 =
                     'https://medias.treedom.net/images/medium/e28ae4c8e5759accd4215a6df49c7b89.png';
               } else {
@@ -183,10 +168,8 @@ CO2 absorbed: 200kg''';
               }
 
               String? image_week6 = '';
-              double? distance_week6 =
-                  dato[5].distance; //distanza sesta settimana
+              double? distance_week6 = dato[5].distance;
               if (distance_week6 > double.parse(preview[5])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week6 = 'https://www.treedom.net/images/medium_1038818';
               } else {
                 image_week6 =
@@ -205,10 +188,8 @@ CO2 absorbed: 50kg''';
               }
 
               String? image_week7 = '';
-              double? distance_week7 =
-                  dato[6].distance; //distanza settima settimana
+              double? distance_week7 = dato[6].distance;
               if (distance_week7 > double.parse(preview[6])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week7 = 'https://www.treedom.net/images/medium_876236';
               } else {
                 image_week7 =
@@ -227,10 +208,8 @@ CO2 absorbed: 300kg''';
               }
 
               String? image_week8 = '';
-              double? distance_week8 =
-                  dato[7].distance; //distanza ottava settimana
+              double? distance_week8 = dato[7].distance;
               if (distance_week8 > double.parse(preview[7])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week8 = 'https://www.treedom.net/images/medium_428739';
               } else {
                 image_week8 =
@@ -249,10 +228,8 @@ CO2 absorbed: 500kg''';
               }
 
               String? image_week9 = '';
-              double? distance_week9 =
-                  dato[8].distance; //distanza nona settimana
+              double? distance_week9 = dato[8].distance;
               if (distance_week9 > double.parse(preview[8])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week9 = 'https://www.treedom.net/images/medium_428774';
               } else {
                 image_week9 =
@@ -271,10 +248,8 @@ CO2 absorbed: 800kg''';
               }
 
               String? image_week10 = '';
-              double? distance_week10 =
-                  dato[9].distance; //distanza decima settimana
+              double? distance_week10 = dato[9].distance;
               if (distance_week10 > double.parse(preview[9])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week10 = 'https://www.treedom.net/images/medium_428705';
               } else {
                 image_week10 =
@@ -293,10 +268,8 @@ CO2 absorbed: 500kg''';
               }
 
               String? image_week11 = '';
-              double? distance_week11 =
-                  dato[10].distance; //distanza 11a settimana
+              double? distance_week11 = dato[10].distance;
               if (distance_week11 > double.parse(preview[10])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week11 = 'https://www.treedom.net/images/medium_428807';
               } else {
                 image_week11 =
@@ -315,10 +288,8 @@ CO2 absorbed: 300kg''';
               }
 
               String? image_week12 = '';
-              double? distance_week12 =
-                  dato[11].distance; //distanza 12a settimana
+              double? distance_week12 = dato[11].distance;
               if (distance_week12 > double.parse(preview[11])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week12 = 'https://www.treedom.net/images/medium_1244610';
               } else {
                 image_week12 =
@@ -337,10 +308,8 @@ CO2 absorbed: 900kg''';
               }
 
               String? image_week13 = '';
-              double? distance_week13 =
-                  dato[12].distance; //distanza 13a settimana
+              double? distance_week13 = dato[12].distance;
               if (distance_week13 > double.parse(preview[12])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week13 = 'https://www.treedom.net/images/medium_428713';
               } else {
                 image_week13 =
@@ -359,10 +328,8 @@ CO2 absorbed: 2000kg''';
               }
 
               String? image_week14 = '';
-              double? distance_week14 =
-                  dato[13].distance; //distanza 14a settimana
+              double? distance_week14 = dato[13].distance;
               if (distance_week14 > double.parse(preview[13])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week14 =
                     'https://medias.treedom.net/images/medium/d74d0426991bb2a5437ee9ed40caec68.png';
               } else {
@@ -382,10 +349,8 @@ CO2 absorbed: 310kg''';
               }
 
               String? image_week15 = '';
-              double? distance_week15 =
-                  dato[14].distance; //distanza 15a settimana
+              double? distance_week15 = dato[14].distance;
               if (distance_week15 > double.parse(preview[14])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week15 = 'https://www.treedom.net/images/medium_428701';
               } else {
                 image_week15 =
@@ -404,10 +369,8 @@ CO2 absorbed: 3000kg''';
               }
 
               String? image_week16 = '';
-              double? distance_week16 =
-                  dato[15].distance; //distanza 16a settimana
+              double? distance_week16 = dato[15].distance;
               if (distance_week16 > double.parse(preview[15])) {
-                //preview[0] = lista di distanze da confrontare
                 image_week16 =
                     'https://medias.treedom.net/images/medium/a287de0108bed40d2427f44567011c12.png';
               } else {
@@ -427,9 +390,6 @@ CO2 absorbed: 1170kg''';
               }
 
               return Stack(children: [
-                // Flutter in versione web non supporta quanto fatto per la classe Background,
-                // per questo ho preferito lasciare come background solo lo sfondo nero
-                // Background()
                 PageView(
                     controller: PageController(
                       viewportFraction: 0.8,
@@ -447,7 +407,7 @@ CO2 absorbed: 1170kg''';
                           front: Container(
                             child: BadgeCard(
                               titolo: '''Week 1 - Cacao Tree''',
-                              urlImmagine: image_week1, //IMMAGINE CHE CAMBIA
+                              urlImmagine: image_week1,
                             ),
                           ),
                           back: Center(
@@ -455,7 +415,7 @@ CO2 absorbed: 1170kg''';
                             child: Center(
                               child: Padding(
                                   padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                                  child: Text(sentence_week1, //TESTO CHE CAMBIA
+                                  child: Text(sentence_week1,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.black, fontSize: 15))),
@@ -472,10 +432,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
-                      // Flutter in versione web non supporta quanto fatto per la classe Background,
-                      // per questo ho preferito lasciare come background solo lo sfondo nero
-                      // Background()
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -483,7 +439,7 @@ CO2 absorbed: 1170kg''';
                           front: Container(
                             child: BadgeCard(
                               titolo: '''Week 2 - Banana Tree''',
-                              urlImmagine: image_week2, //IMMAGINE CHE CAMBIA
+                              urlImmagine: image_week2,
                             ),
                           ),
                           back: Center(
@@ -508,7 +464,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -516,7 +471,7 @@ CO2 absorbed: 1170kg''';
                           front: Container(
                             child: BadgeCard(
                               titolo: '''Week 3 - Coffee Tree''',
-                              urlImmagine: image_week3, //IMMAGINE CHE CAMBIA
+                              urlImmagine: image_week3,
                             ),
                           ),
                           back: Center(
@@ -524,7 +479,7 @@ CO2 absorbed: 1170kg''';
                             child: Center(
                               child: Padding(
                                   padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                                  child: Text(sentence_week3, //TESTO CHE CAMBIA
+                                  child: Text(sentence_week3,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.black, fontSize: 15))),
@@ -541,7 +496,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -549,7 +503,7 @@ CO2 absorbed: 1170kg''';
                           front: Container(
                             child: BadgeCard(
                               titolo: '''Week 4 - Chicozapote''',
-                              urlImmagine: image_week4, //IMMAGINE CHE CAMBIA
+                              urlImmagine: image_week4,
                             ),
                           ),
                           back: Center(
@@ -574,7 +528,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -607,7 +560,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -640,7 +592,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -673,7 +624,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -706,7 +656,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -739,7 +688,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -773,7 +721,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -807,7 +754,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -841,7 +787,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -875,7 +820,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -909,7 +853,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.
@@ -943,7 +886,6 @@ CO2 absorbed: 1170kg''';
                             height: 272,
                             width: 272,
                           ))),
-
                       FlipCard(
                           fill: Fill
                               .fillBack, // Fill the back side of the card to make in the same size as the front.

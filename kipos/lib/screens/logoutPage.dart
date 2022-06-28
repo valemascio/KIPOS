@@ -40,5 +40,5 @@ class LogoutPage extends StatelessWidget {
     Navigator.pop(context);
     //Then pop the HomePage
     Navigator.of(context).pushReplacementNamed(LoginPage.route);
-  } //_toCalendarPage
+  }
 }

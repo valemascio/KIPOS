@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/database/entities/dati.dart';
-import 'package:kipos/screens/alertPage.dart' as alertpage;
-//import 'package:kipos/screens/alertTipsPage.dart' as alertTipspage;
-//import 'package:kipos/screens/alertUnauthPage.dart' as alertUnauthpage;
+import 'package:kipos/screens/alertPage.dart';
 import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/deletePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
@@ -14,15 +12,11 @@ import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/tipsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
-import 'package:kipos/screens/deletePage.dart';
 import 'package:kipos/screens/introPage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:kipos/database/database.dart';
 import 'package:kipos/repository/databaseRepository.dart';
 import 'package:provider/provider.dart';
-import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
-import 'package:flutter/cupertino.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,15 +24,6 @@ Future<void> main() async {
   final AppDatabase database =
       await $FloorAppDatabase.databaseBuilder('database_kipos_app.db').build();
   final databaseRepository = DatabaseRepository(database: database);
-
-  //print('The resulting data is: ${result}');
-
-  /*final week_0 = database.datiDao;
-  final week = Dati(null, 0, 1, 2, 3);
-
-  await week_0.insertDati(week);
-  final result = await week_0.findDataById(1);
-  print(result);*/
 
   runApp(ChangeNotifierProvider<DatabaseRepository>(
     create: (context) => databaseRepository,
@@ -128,17 +113,6 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
       MdiIcons.food
     ];
 
-    /*List<String> wid = [
-      //'https://images.ctfassets.net/628ldvrkioqn/3t81mQfOKRBUA4JvZFfflv/2e377613c15f7c3fd41fcf6f6d08a050/Road_Running_Shoes_Article_Update_2020_Thumb.jpg?w=1200&fit=thumb',
-      'https://thumbs.dreamstime.com/b/shoes-vector-icon-isolated-transparent-background-linear-sho-outline-high-quality-transparency-concept-can-be-used-web-130106488.jpg',
-      'https://www.corebosport.com/wp-content/uploads/2020/04/lo-stretching-durante-il-riscaldamento.jpg',
-      'https://www.bhf.org.uk/-/media/new-site-images/informationsupport/heart-matters/2021/september-2021/medical/ate/pulse-rate-watch-300x196.jpg?rev=a02e628c8bd8456bb37f364fbf445943&h=196&w=300&la=en&hash=13A9335CBF4D42A48F11B4D9C63EEDD87CF9CE7C',
-      'https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322945/person-sleeping-in-bed-with-eye-mask-on.jpg',
-      'https://www.eatthis.com/wp-content/uploads/sites/4/2020/08/black-woman-drinking-bottled-water.jpg?quality=82&strip=1',
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apple-watch-5-1584723939.png?resize=480:*',
-      'https://as2.ftcdn.net/v2/jpg/02/75/95/13/1000_F_275951321_4osarXAs3yKN8aTk8N70iNGFZDgiWW6Q.jpg',
-    ];*/
-
     List<Widget> box = [
       SizedBox(), //shoes
       SizedBox(), //stretching
@@ -182,51 +156,6 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
         width: 250,
       ),
       SizedBox(), //music
-      /*Container(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(5, 10, 10, 5),
-            child: Consumer<DatabaseRepository>(
-              builder: (context, value, child) {
-                return FutureBuilder(
-                    initialData: null,
-                    future: value.findAllPerson(),
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        final userDati = snapshot.data as List<Person>;
-                        int? averageSleep = userDati[0].durationOfSleep;
-                        String? sentence = '';
-                        if (averageSleep! >= 8) {
-                          sentence = 'Good job! Keep this way!';
-                        } else {
-                          sentence = 'Ouch, you can do better!';
-                        }
-
-                        return Text(
-                          'It seems that yesterday night you slept about ${averageSleep} hours. 😴 ${sentence}',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.black, fontSize: 15),
-                        );
-                      } else {
-                        //A CircularProgressIndicator is shown while the list of Todo is loading.
-                        return CircularProgressIndicator();
-                      }
-                    });
-              },
-            ),
-          ),
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Color.fromARGB(255, 255, 255, 255),
-          boxShadow: const [
-            BoxShadow(
-                color: Color.fromARGB(255, 122, 164, 94), spreadRadius: 3),
-          ],
-        ),
-        height: 100,
-        width: 250,
-      ),*/ //sleep
       SizedBox(), //keep hydrated
       SizedBox(),
       SizedBox() //numbers
@@ -244,10 +173,7 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
         StatisticsPage.route: (context) => StatisticsPage(),
         SettingsPage.route: (context) => SettingsPage(),
         PreHomePage.route: (context) => PreHomePage(),
-        alertpage.AlertPage.route: (context) => alertpage.AlertPage(),
-        //alertTipspage.AlertPage.route: (context) => alertTipspage.AlertPage(),
-        //alertUnauthpage.AlertPage.route: (context) =>
-        //alertUnauthpage.AlertPage(),
+        AlertPage.route: (context) => AlertPage(),
         ProfilePage.route: (context) => ProfilePage(),
         IntroPage.route: (context) => IntroPage(),
         TipsPage.route: (context) => TipsPage(
@@ -257,7 +183,6 @@ It's also wise to consume a small snack of carbohydrates and protein one to two 
                 icon[i],
                 title[i],
                 descriptions[i],
-                //wid[i],
                 box[i],
               ),
             )),

@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kipos/main.dart';
 import 'package:kipos/screens/settingsPage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:kipos/utilities/formDateTiles.dart';
 import 'package:kipos/utilities/formats.dart';
 import 'package:kipos/utilities/formSeparator.dart';
-import 'package:kipos/screens/homePage.dart';
-import 'package:kipos/screens/settingsPage.dart';
-import 'package:fitbitter/fitbitter.dart';
-import 'package:kipos/utilities/strings.dart';
-import 'package:provider/provider.dart';
-import 'package:kipos/database/entities/dati.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:kipos/repository/databaseRepository.dart';
 
 class PreferencePage extends StatefulWidget {
   PreferencePage({Key? key}) : super(key: key);
@@ -137,8 +129,6 @@ class _PreferencePageState extends State<PreferencePage> {
     prefs.setInt('timeStamp', timeStamp);
 
     _enabled = true;
-
-    //Navigator.pushNamed(context, SettingsPage.route);
   } //_selectDate
 
   void _validateAndSave(BuildContext context) {

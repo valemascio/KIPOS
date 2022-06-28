@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kipos/screens/badgePage.dart';
-import 'package:kipos/screens/preferencePage.dart';
 import 'package:kipos/screens/profilePage.dart';
 import 'package:kipos/screens/settingsPage.dart';
-import 'package:kipos/screens/statisticsPage.dart';
-import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
-import 'package:kipos/screens/deletePage.dart';
-import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:provider/provider.dart';
-import 'package:fitbitter/fitbitter.dart';
-import 'package:kipos/utilities/strings.dart';
-import 'package:kipos/database/entities/dati.dart';
-import 'package:kipos/repository/databaseRepository.dart';
 
 class PreHomePage extends StatelessWidget {
   const PreHomePage({Key? key}) : super(key: key);
@@ -42,7 +31,6 @@ class PreHomePage extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              //Navigator.pushNamed(context, '/alertTips/');
               showDialog(
                 context: context,
                 builder: (ctx) => AlertDialog(
@@ -157,8 +145,6 @@ class MenuItems {
       MenuItem(text: 'Profile', icon: MdiIcons.accountCircle);
   static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
   static const logout = MenuItem(text: 'Log out', icon: Icons.logout_outlined);
-  /*static const delete =
-      MenuItem(text: 'Delete Data', icon: Icons.delete_forever_rounded);*/
 
   static Widget buildItem(MenuItem item) {
     return Row(
@@ -189,9 +175,6 @@ class MenuItems {
         print('logout');
         Navigator.pushNamed(context, LogoutPage.route);
         break;
-      /*case MenuItems.delete:
-        Navigator.pushNamed(context, DeletePage.route);
-        break;*/
     }
   }
 }

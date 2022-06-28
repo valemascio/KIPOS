@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/homePage.dart';
 import 'package:kipos/screens/prehomePage.dart';
-import 'package:kipos/main.dart';
-import 'package:kipos/screens/settingsPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -76,17 +74,6 @@ Please note that the data update cannot be performed more than 200 times per hou
               image: Image.asset('assets/settingsPage.png'),
               decoration: pageDecoration,
             ),
-            // PageViewModel(
-            //   title: "Update your data",
-            //   body:
-            //       '''To refresh your progress, you can use the Refresh button on the Home screen.Please note that the data update cannot be performed more than 200 times per hour as otherwise the data transmission will be paused for the next 60 minutes.''',
-            //   image: ClipRect(
-            //     child: Image.asset(
-            //       'assets/tendina_refresh.png',
-            //     ),
-            //   ),
-            //   decoration: pageDecoration,
-            // ),
             PageViewModel(
               title: "Consent for personal data treatment",
               body:
@@ -102,8 +89,6 @@ We also inform you that you can exercise your right to delete your data by click
           onSkip: () => _onIntroEnd(context),
           showSkipButton: true,
           showBackButton: false,
-          //rtl: true, // Display as right-to-left
-          //back: const Icon(Icons.arrow_back),
           skip:
               const Text("Skip", style: TextStyle(fontWeight: FontWeight.w600)),
           next: const Icon(Icons.arrow_forward),
@@ -120,7 +105,6 @@ We also inform you that you can exercise your right to delete your data by click
             ),
           ),
           dotsContainerDecorator: const ShapeDecoration(
-            //color: Colors.black87,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(8.0)),
             ),

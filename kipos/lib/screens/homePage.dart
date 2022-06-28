@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/badgePage.dart';
-import 'package:kipos/screens/preferencePage.dart';
 import 'package:kipos/screens/profilePage.dart';
 import 'package:kipos/screens/settingsPage.dart';
 import 'package:kipos/screens/statisticsPage.dart';
 import 'package:kipos/screens/loginPage.dart';
 import 'package:kipos/screens/logoutPage.dart';
-import 'package:kipos/screens/deletePage.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -22,7 +20,6 @@ class HomePage extends StatefulWidget {
 
   static const route = '/home/';
   static const routename = 'HomePage';
-  //static const user_id = "7TVBB5";
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -131,26 +128,17 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Center(
-        child:
-            //We will show the todo table with a ListView.
-            //To do so, we use a Consumer of DatabaseRepository in order to rebuild the widget tree when
-            //entries are deleted or created.
-            Consumer<DatabaseRepository>(builder: (context, dbr, child) {
-          //The logic is to query the DB for the entire list of Todo using dbr.findAllTodos()
-          //and then populate the ListView accordingly.
-          //We need to use a FutureBuilder since the result of dbr.findAllTodos() is a Future.
+        child: Consumer<DatabaseRepository>(builder: (context, dbr, child) {
           return FutureBuilder(
             initialData: null,
             future: dbr.findAllDati(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 final data = snapshot.data as List<Dati>;
-                //dbr.updateDati(data[0]);
                 return ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (context, datiIndex) {
                       final dato = data[datiIndex];
-                      //dbr.updateDati(dato);
                       String? sentence = '';
                       Color? check = Colors.white;
                       if (dato.distance > double.parse(preview[datiIndex])) {
@@ -228,7 +216,6 @@ Head over to the 🏅Badge section to see which tree you gained and to the 📊S
                       );
                     });
               } else {
-                //A CircularProgressIndicator is shown while the list of Todo is loading.
                 return CircularProgressIndicator();
               } //else
             }, //builder of FutureBuilder
@@ -402,21 +389,6 @@ void _updatePage(BuildContext context) async {
   }
   print('$floors');
 
-  //Fetch sleep
-  //Data manager sleep
-  /*FitbitSleepDataManager fitbitSleepDataManager = FitbitSleepDataManager(
-    clientID: Strings.fitbitClientID,
-    clientSecret: Strings.fitbitClientSecret,
-  );
-
-  final sleepData = await fitbitSleepDataManager.fetch(
-      FitbitSleepAPIURL.withUserIDAndDay(
-          date: DateTime.now(), userID: userId)) as List<FitbitSleepData>;
-
-  DateTime? start = sleepData[0].entryDateTime;
-  DateTime? end = sleepData[sleepData.length - 1].entryDateTime;
-  int sleepDurHours = end!.difference(start!).inMinutes ~/ 60;*/
-
   //DATABASE UPDATE
   final listaDati_old =
       Provider.of<DatabaseRepository>(context, listen: false).findAllDati();
@@ -454,7 +426,7 @@ void _toLoginPage(BuildContext context) async {
   Navigator.pop(context);
   //Then pop the HomePage
   Navigator.of(context).pushReplacementNamed(LoginPage.route);
-} //_toCalendarPage
+}
 
 class MenuItem {
   final String text;
@@ -474,8 +446,6 @@ class MenuItems {
       MenuItem(text: 'Profile', icon: MdiIcons.accountCircle);
   static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
   static const logout = MenuItem(text: 'Log out', icon: Icons.logout_outlined);
-  /*static const delete =
-      MenuItem(text: 'Delete Data', icon: Icons.delete_forever_rounded);*/
 
   static Widget buildItem(MenuItem item) {
     return Row(
@@ -506,9 +476,6 @@ class MenuItems {
         print('logout');
         Navigator.pushNamed(context, LogoutPage.route);
         break;
-      /*case MenuItems.delete:
-        Navigator.pushNamed(context, DeletePage.route);
-        break;*/
     }
   }
 }

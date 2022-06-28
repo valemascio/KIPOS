@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kipos/screens/settingsPage.dart';
 
 class AlertPage extends StatelessWidget {
   const AlertPage({Key? key}) : super(key: key);

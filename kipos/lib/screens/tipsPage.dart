@@ -1,8 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:kipos/screens/badgePage.dart';
 
 class Tips {
   final String tips_name;
@@ -32,49 +29,29 @@ class TipsPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: tips.length,
         itemBuilder: (context, index) {
-          return ListView(
-              //scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              children: [
-                SettingsGroup(
-                  items: [
-                    SettingsItem(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  DetailScreen(tips: tips[index]),
-                            ));
-                      },
-                      icons: tips[index].icon,
-                      iconStyle: IconStyle(
-                        iconsColor: Colors.white,
-                        withBackground: true,
-                        backgroundColor: Colors.lightGreen,
-                      ),
-                      title: '${tips[index].tips_name}'.toString(),
-                      subtitle: '${tips[index].description}'.toString(),
-                    ),
-                  ],
-                ),
-                /*ListTile(
-                  title: tips[index].tips_name,
-                  leading: Icon(tips[index].icon),
-                  trailing: const Icon(
-                    Icons.arrow_right,
-                    color: Colors.grey,
-                  ),
+          return ListView(shrinkWrap: true, children: [
+            SettingsGroup(
+              items: [
+                SettingsItem(
                   onTap: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailScreen(tips: tips[index]),
-                      ),
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailScreen(tips: tips[index]),
+                        ));
                   },
-                )*/
-              ]);
+                  icons: tips[index].icon,
+                  iconStyle: IconStyle(
+                    iconsColor: Colors.white,
+                    withBackground: true,
+                    backgroundColor: Colors.lightGreen,
+                  ),
+                  title: '${tips[index].tips_name}'.toString(),
+                  subtitle: '${tips[index].description}'.toString(),
+                ),
+              ],
+            ),
+          ]);
         },
       ),
     );
@@ -90,7 +67,6 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          //title: Text('${tips.tips_name}'),
           backgroundColor: Colors.lightGreen,
         ),
         body: ListView(
@@ -111,12 +87,7 @@ class DetailScreen extends StatelessWidget {
             Container(
                 padding: EdgeInsets.all(10),
                 margin: EdgeInsets.only(right: 10, left: 10),
-                //height: 34,
-                //width: 34,
-                child: Icon(tips.icon)
-                /*decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(17)),*/
-                ),
+                child: Icon(tips.icon)),
             Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(

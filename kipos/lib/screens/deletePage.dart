@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kipos/screens/prehomePage.dart';
-import 'package:kipos/screens/preferencePage.dart';
 import 'package:provider/provider.dart';
 import 'package:kipos/database/entities/dati.dart';
 import 'package:kipos/repository/databaseRepository.dart';
@@ -63,34 +62,9 @@ class DeletePage extends StatelessWidget {
           .removePerson(datiPerson[i]);
     }
 
-    //final int? sp = SharedPreferences.getInt('timestamp');
-
     //Pop the drawer first
     Navigator.pop(context);
     //Then pop the HomePage
-    Navigator.of(context)
-        .pushReplacementNamed(PreHomePage.route); //_toCalendarPage
+    Navigator.of(context).pushReplacementNamed(PreHomePage.route);
   }
 }
-
-//QUELLO CHE DOVREMMO FARE: 
-/*
-Scelgo data -> time stamp che prende dopo authorize (se già scelta = alert dialog)
--> dovremmo mettere che lo memorizzi senza schiacciare su authorize?
-
-timestamp != null : authorizzo 
-timestamp == null : non authorizzo perché non ho scelto la data
-
-faccio le mie cose
-
-delete data: setto timestamp su null o semplicemente elimino timestamp
-
-----------------------------
-(provato ma non va 😢)
-dalla settings page: 
-- se ho dato authorize: vado sulla homepage
-- se non ho ancora dato authorize: vado sulla preHomePage
-
----------------------------
-non far ripremere di nuovo authorize se lo abbiamo premuto
-*/

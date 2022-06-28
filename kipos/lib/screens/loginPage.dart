@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kipos/screens/badgePage.dart';
 import 'package:kipos/screens/homePage.dart';
 import 'package:kipos/screens/prehomePage.dart';
 import 'package:kipos/screens/introPage.dart';
 import 'package:flutter_login/flutter_login.dart';
-import 'package:kipos/screens/preferencePage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -90,8 +88,6 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       onSubmitAnimationCompleted: () async {
-        //Navigator.of(context).pushReplacementNamed(PreferencePage.route);
-        //_toHomePage(context);
         _toIntroPage(context);
       },
     );

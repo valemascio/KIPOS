@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kipos/screens/deletePage.dart';
 import 'package:kipos/screens/preferencePage.dart';
 import 'package:kipos/screens/homePage.dart';
-import 'package:kipos/screens/alertPage.dart';
 import 'package:fitbitter/fitbitter.dart';
 import 'package:kipos/screens/prehomePage.dart';
 import 'package:kipos/utilities/strings.dart';
@@ -33,18 +32,11 @@ class _SettingsPageState extends State<SettingsPage> {
   List<double> calories = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   List<double> floors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   double somma = 0;
-//  bool access = true;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  // }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        //backgroundColor: Colors.white.withOpacity(.94),
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(
@@ -73,14 +65,9 @@ class _SettingsPageState extends State<SettingsPage> {
                     final clickedbutton = await SharedPreferences.getInstance();
                     bool? verified = clickedbutton.getBool('_isPressed');
                     //mi torna il value 'stop' perché gli passo la chiave 'pass'
-                    if (auth != 'stop' /*&& verified != true*/) {
+                    if (auth != 'stop') {
                       Navigator.pushNamed(context, PreferencePage.route);
-                      /*final clickedbutton =
-                          await SharedPreferences.getInstance();
-                      await clickedbutton.setBool('_isPressed', true);*/
-                      //access.setString('pass', 'stop');
                     } else {
-                      //Navigator.pushNamed(context, AlertPage.route);
                       showDialog(
                         context: context,
                         builder: (ctx) => AlertDialog(
@@ -123,13 +110,11 @@ To restart from scratch you have to delete all the data first.'''),
                       //riferito a HomePage
                       final button = await SharedPreferences.getInstance();
                       await button.setBool('_isPressed', true);
-
 //riferito all'authorize stesso
                       final alreadyauth = await SharedPreferences.getInstance();
                       if (alreadyauth.getBool('_isAuth') != true) {
                         final access = await SharedPreferences.getInstance();
-                        //save a String value (i.e. stop) to 'pass' key.
-                        //key= pass; value=stop.
+
                         access.setString('pass', 'stop');
                         final prefs = await SharedPreferences.getInstance();
                         int? timestamp = prefs.getInt('timeStamp');
@@ -307,24 +292,6 @@ To restart from scratch you have to delete all the data first.'''),
 
                         print("data di nascita: ${dateConverted}");
 
-                        //Data manager sleep
-                        /*FitbitSleepDataManager fitbitSleepDataManager =
-                        FitbitSleepDataManager(
-                      clientID: Strings.fitbitClientID,
-                      clientSecret: Strings.fitbitClientSecret,
-                    );
-
-                    //Fetch sleep
-                    final sleepData = await fitbitSleepDataManager.fetch(
-                        FitbitSleepAPIURL.withUserIDAndDay(
-                            date: DateTime.now(),
-                            userID: userId)) as List<FitbitSleepData>;
-
-                    DateTime? start = sleepData[0].entryDateTime;
-                    DateTime? end =
-                        sleepData[sleepData.length - 1].entryDateTime;
-                    int sleepDurHours = end!.difference(start!).inMinutes ~/ 60;*/
-
                         await Provider.of<DatabaseRepository>(context,
                                 listen: false)
                             .insertPerson(
@@ -341,9 +308,6 @@ To restart from scratch you have to delete all the data first.'''),
                                 .dateOfBirth?.millisecondsSinceEpoch,
                           ),
                         );
-
-                        //print(
-                        //"Yesterday night you went to bed at ${start.hour}:${start.minute}:${start.second} and you woke up this morning at ${end.hour}:${end.minute}:${end.second}, so you slept about ${sleepDurHours} hours.");
 
                         final snackBar = SnackBar(
                             content: Text(
@@ -410,10 +374,6 @@ To restart from scratch you have to delete all the data first.'''),
                       clientID: Strings.fitbitClientID,
                       clientSecret: Strings.fitbitClientSecret,
                     );
-                    /*final snackBar = SnackBar(
-                        content: Text(
-                            'FitBit data access was unauthorized successfully.'));
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);*/
                     showDialog(
                       context: context,
                       builder: (ctx) => AlertDialog(
