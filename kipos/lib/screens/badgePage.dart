@@ -355,6 +355,7 @@ Country of origin: Colombia''';
 You run ${preview[13]} km 💪🏼 
 
                 
+Trees: Guava, Black Mangrove, Cacao
 CO2 absorbed yearly: 310kg
 Country of origin: Kenya, Honduras, Ecuador''';
               } else {
@@ -398,6 +399,7 @@ Country of origin: Madagascar''';
 You run ${preview[15]} km 💪🏼 
 
                 
+Trees: Macadamia, Cacao, Banana, Coffee, White Mangrove, Grevillea
 CO2 absorbed yearly: 1170kg
 Country of origin: Kenya, Cameroon, Ecuador, Honduras''';
               } else {
