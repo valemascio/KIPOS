@@ -312,7 +312,8 @@ Country of origin: Kenya''';
 You run ${preview[11]} km 💪🏼 
 
                 
-CO2 absorbed yearly: 900kg''';
+CO2 absorbed yearly: 900kg
+Country of origin: Kenya''';
               } else {
                 sentence_week12 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -332,7 +333,8 @@ CO2 absorbed yearly: 900kg''';
 You run ${preview[12]} km 💪🏼 
 
                 
-CO2 absorbed yearly: 2000kg''';
+CO2 absorbed yearly: 2000kg
+Country of origin: Colombia''';
               } else {
                 sentence_week13 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -353,7 +355,8 @@ CO2 absorbed yearly: 2000kg''';
 You run ${preview[13]} km 💪🏼 
 
                 
-CO2 absorbed yearly: 310kg''';
+CO2 absorbed yearly: 310kg
+Country of origin: Kenya, Honduras, Ecuador''';
               } else {
                 sentence_week14 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -373,7 +376,8 @@ CO2 absorbed yearly: 310kg''';
 You run ${preview[14]} km 💪🏼 
 
                 
-CO2 absorbed yearly: 3000kg''';
+CO2 absorbed yearly: 3000kg
+Country of origin: Madagascar''';
               } else {
                 sentence_week15 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -394,7 +398,8 @@ CO2 absorbed yearly: 3000kg''';
 You run ${preview[15]} km 💪🏼 
 
                 
-CO2 absorbed yearly: 1170kg''';
+CO2 absorbed yearly: 1170kg
+Country of origin: Kenya, Cameroon, Ecuador, Honduras''';
               } else {
                 sentence_week16 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
