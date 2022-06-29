@@ -79,7 +79,7 @@ class BadgePage extends StatelessWidget {
 You run ${preview[0]} km 💪🏼 
 
                 
-CO2 absorbed: 55kg''';
+CO2 absorbed yearly: 55kg''';
               } else {
                 sentence_week1 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -99,7 +99,7 @@ CO2 absorbed: 55kg''';
 You run ${preview[1]} km 💪🏼 
 
                 
-CO2 absorbed: 10kg''';
+CO2 absorbed yearly: 10kg''';
               } else {
                 sentence_week2 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -119,7 +119,7 @@ CO2 absorbed: 10kg''';
 You run ${preview[2]} km 💪🏼 
 
                 
-CO2 absorbed: 55kg''';
+CO2 absorbed yearly: 55kg''';
               } else {
                 sentence_week3 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -140,7 +140,7 @@ CO2 absorbed: 55kg''';
 You run ${preview[3]} km 💪🏼 
 
                 
-CO2 absorbed: 100kg''';
+CO2 absorbed yearly: 100kg''';
               } else {
                 sentence_week4 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -161,7 +161,7 @@ CO2 absorbed: 100kg''';
 You run ${preview[4]} km 💪🏼 
 
                 
-CO2 absorbed: 200kg''';
+CO2 absorbed yearly: 200kg''';
               } else {
                 sentence_week5 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -181,7 +181,7 @@ CO2 absorbed: 200kg''';
 You run ${preview[5]} km 💪🏼 
 
                 
-CO2 absorbed: 50kg''';
+CO2 absorbed yearly: 50kg''';
               } else {
                 sentence_week6 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -201,7 +201,7 @@ CO2 absorbed: 50kg''';
 You run ${preview[6]} km 💪🏼 
 
                 
-CO2 absorbed: 300kg''';
+CO2 absorbed yearly: 300kg''';
               } else {
                 sentence_week7 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -221,7 +221,7 @@ CO2 absorbed: 300kg''';
 You run ${preview[7]} km 💪🏼 
 
                 
-CO2 absorbed: 500kg''';
+CO2 absorbed yearly: 500kg''';
               } else {
                 sentence_week8 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -241,7 +241,7 @@ CO2 absorbed: 500kg''';
 You run ${preview[8]} km 💪🏼 
 
                 
-CO2 absorbed: 800kg''';
+CO2 absorbed yearly: 800kg''';
               } else {
                 sentence_week9 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -261,7 +261,7 @@ CO2 absorbed: 800kg''';
 You run ${preview[9]} km 💪🏼 
 
                 
-CO2 absorbed: 500kg''';
+CO2 absorbed yearly: 500kg''';
               } else {
                 sentence_week10 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -281,7 +281,7 @@ CO2 absorbed: 500kg''';
 You run ${preview[10]} km 💪🏼 
 
                 
-CO2 absorbed: 300kg''';
+CO2 absorbed yearly: 300kg''';
               } else {
                 sentence_week11 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -301,7 +301,7 @@ CO2 absorbed: 300kg''';
 You run ${preview[11]} km 💪🏼 
 
                 
-CO2 absorbed: 900kg''';
+CO2 absorbed yearly: 900kg''';
               } else {
                 sentence_week12 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -321,7 +321,7 @@ CO2 absorbed: 900kg''';
 You run ${preview[12]} km 💪🏼 
 
                 
-CO2 absorbed: 2000kg''';
+CO2 absorbed yearly: 2000kg''';
               } else {
                 sentence_week13 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -342,7 +342,7 @@ CO2 absorbed: 2000kg''';
 You run ${preview[13]} km 💪🏼 
 
                 
-CO2 absorbed: 310kg''';
+CO2 absorbed yearly: 310kg''';
               } else {
                 sentence_week14 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -362,7 +362,7 @@ CO2 absorbed: 310kg''';
 You run ${preview[14]} km 💪🏼 
 
                 
-CO2 absorbed: 3000kg''';
+CO2 absorbed yearly: 3000kg''';
               } else {
                 sentence_week15 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -383,7 +383,7 @@ CO2 absorbed: 3000kg''';
 You run ${preview[15]} km 💪🏼 
 
                 
-CO2 absorbed: 1170kg''';
+CO2 absorbed yearly: 1170kg''';
               } else {
                 sentence_week16 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
