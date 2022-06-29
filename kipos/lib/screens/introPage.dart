@@ -53,7 +53,6 @@ class _IntroPageState extends State<IntroPage> {
                 body:
                     '''The aim of this app is to never let you loose interest while you train for a marathon!
 You'll find a weekly goal to keep up with and, if you succeed, you'll gain rewards building week after week your own personal garden!
-Your gains will also help the environment: after completing the training program, all the trees present in your garden will be planted in their place of origin! 
 And now... LET'S GET TO WORK''',
                 image: Image.asset('assets/garden.jpg'),
                 decoration: pageDecoration),
@@ -62,7 +61,7 @@ And now... LET'S GET TO WORK''',
               body:
                   '''Before starting you'll need to authorize the app to access your FitBit data: head over to the Homepage and in the 'Settings' tile of the Menu you can decide when you want to start your training.
 Once your data is uploaded, you will be able to update your progress using the Refresh button in the centre of the NavigationBar on the Home screen.
-Please note that the data update cannot be performed more than 200 times per hour as otherwise the data transmission will be paused for the next 60 minutes.''',
+Please note that the data update cannot be performed more than 150 times per hour as otherwise the data transmission will be paused for the next 60 minutes.''',
               image: Image.asset('assets/tendina.png'),
               decoration: pageDecoration,
             ),
