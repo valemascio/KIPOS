@@ -68,7 +68,8 @@ class BadgePage extends StatelessWidget {
               double? distance_week1 = dato[0].distance; //first week distance
               if (distance_week1 > double.parse(preview[0])) {
                 //preview[0] = list of distances to compare
-                image_week1 = 'https://www.treedom.net/images/medium_428702';
+                image_week1 =
+                    'https://medias.treedom.net/images/medium/25c3987817545a7f5531f61cbd6c50b8.png';
               } else {
                 image_week1 =
                     'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
@@ -79,8 +80,8 @@ class BadgePage extends StatelessWidget {
 You run ${preview[0]} km 💪🏼 
 
                 
-CO2 absorbed yearly: 55kg
-Country of origin: Cameroon''';
+CO2 absorbed yearly: 700kg
+Country of origin: Haiti''';
               } else {
                 sentence_week1 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -132,7 +133,7 @@ Country of origin: Ecuador''';
               double? distance_week4 = dato[3].distance;
               if (distance_week4 > double.parse(preview[3])) {
                 image_week4 =
-                    'https://medias.treedom.net/images/medium/e28ae4c8e5759accd4215a6df49c7b89.png';
+                    'https://medias.treedom.net/images/medium/8362ca90cb58b752b59691b134feb4c6.png';
               } else {
                 image_week4 =
                     'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
@@ -143,8 +144,8 @@ Country of origin: Ecuador''';
 You run ${preview[3]} km 💪🏼 
 
                 
-CO2 absorbed yearly: 100kg
-Country of origin: Cambodia''';
+CO2 absorbed yearly: 350kg
+Country of origin: Colombia''';
               } else {
                 sentence_week4 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -153,8 +154,7 @@ Country of origin: Cambodia''';
               String? image_week5 = '';
               double? distance_week5 = dato[4].distance;
               if (distance_week5 > double.parse(preview[4])) {
-                image_week5 =
-                    'https://medias.treedom.net/images/medium/e28ae4c8e5759accd4215a6df49c7b89.png';
+                image_week5 = 'https://www.treedom.net/images/medium_1177164';
               } else {
                 image_week5 =
                     'https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=';
@@ -165,8 +165,8 @@ Country of origin: Cambodia''';
 You run ${preview[4]} km 💪🏼 
 
                 
-CO2 absorbed yearly: 200kg
-Country of origin: Mexico''';
+CO2 absorbed yearly: 500kg
+Country of origin: Colombia''';
               } else {
                 sentence_week5 =
                     '''Sorry, you didn't achive your weekly goal 😢''';
@@ -424,7 +424,7 @@ Country of origin: Kenya, Cameroon, Ecuador, Honduras''';
                           direction: FlipDirection.HORIZONTAL, // default
                           front: Container(
                             child: BadgeCard(
-                              titolo: '''Week 1 - Cacao Tree''',
+                              titolo: '''Week 1 - Mango''',
                               urlImmagine: image_week1,
                             ),
                           ),
@@ -520,7 +520,7 @@ Country of origin: Kenya, Cameroon, Ecuador, Honduras''';
                           direction: FlipDirection.HORIZONTAL, // default
                           front: Container(
                             child: BadgeCard(
-                              titolo: '''Week 4 - Chicozapote''',
+                              titolo: '''Week 4 - Trumpet Tree''',
                               urlImmagine: image_week4,
                             ),
                           ),
@@ -552,7 +552,7 @@ Country of origin: Kenya, Cameroon, Ecuador, Honduras''';
                           direction: FlipDirection.HORIZONTAL, // default
                           front: Container(
                             child: BadgeCard(
-                              titolo: '''Week 5 - Guava''',
+                              titolo: '''Week 5 - Courbaril''',
                               urlImmagine: image_week5, //IMMAGINE CHE CAMBIA
                             ),
                           ),
