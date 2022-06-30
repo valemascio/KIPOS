@@ -81,6 +81,7 @@ You run ${preview[0]} km 💪🏼
 
                 
 CO2 absorbed yearly: 700kg
+
 Country of origin: Haiti''';
               } else {
                 sentence_week1 =
@@ -102,6 +103,7 @@ You run ${preview[1]} km 💪🏼
 
                 
 CO2 absorbed yearly: 10kg
+
 Country of origin: Cameroon''';
               } else {
                 sentence_week2 =
@@ -123,6 +125,7 @@ You run ${preview[2]} km 💪🏼
 
                 
 CO2 absorbed yearly: 55kg
+
 Country of origin: Ecuador''';
               } else {
                 sentence_week3 =
@@ -145,6 +148,7 @@ You run ${preview[3]} km 💪🏼
 
                 
 CO2 absorbed yearly: 350kg
+
 Country of origin: Colombia''';
               } else {
                 sentence_week4 =
@@ -166,6 +170,7 @@ You run ${preview[4]} km 💪🏼
 
                 
 CO2 absorbed yearly: 500kg
+
 Country of origin: Colombia''';
               } else {
                 sentence_week5 =
@@ -187,6 +192,7 @@ You run ${preview[5]} km 💪🏼
 
                 
 CO2 absorbed yearly: 50kg
+
 Country of origin: Honduras''';
               } else {
                 sentence_week6 =
@@ -208,6 +214,7 @@ You run ${preview[6]} km 💪🏼
 
                 
 CO2 absorbed yearly: 300kg
+
 Country of origin: Ghana''';
               } else {
                 sentence_week7 =
@@ -229,6 +236,7 @@ You run ${preview[7]} km 💪🏼
 
                 
 CO2 absorbed yearly: 500kg
+
 Country of origin: Ghana''';
               } else {
                 sentence_week8 =
@@ -250,6 +258,7 @@ You run ${preview[8]} km 💪🏼
 
                 
 CO2 absorbed yearly: 800kg
+
 Country of origin: Tanzania''';
               } else {
                 sentence_week9 =
@@ -271,6 +280,7 @@ You run ${preview[9]} km 💪🏼
 
                 
 CO2 absorbed yearly: 500kg
+
 Country of origin: Tanzania''';
               } else {
                 sentence_week10 =
@@ -292,6 +302,7 @@ You run ${preview[10]} km 💪🏼
 
                 
 CO2 absorbed yearly: 300kg
+
 Country of origin: Kenya''';
               } else {
                 sentence_week11 =
@@ -313,6 +324,7 @@ You run ${preview[11]} km 💪🏼
 
                 
 CO2 absorbed yearly: 900kg
+
 Country of origin: Kenya''';
               } else {
                 sentence_week12 =
@@ -334,6 +346,7 @@ You run ${preview[12]} km 💪🏼
 
                 
 CO2 absorbed yearly: 2000kg
+
 Country of origin: Colombia''';
               } else {
                 sentence_week13 =
@@ -356,7 +369,9 @@ You run ${preview[13]} km 💪🏼
 
                 
 Trees: Guava, Black Mangrove, Cacao
+
 CO2 absorbed yearly: 310kg
+
 Country of origin: Kenya, Honduras, Ecuador''';
               } else {
                 sentence_week14 =
@@ -378,6 +393,7 @@ You run ${preview[14]} km 💪🏼
 
                 
 CO2 absorbed yearly: 3000kg
+
 Country of origin: Madagascar''';
               } else {
                 sentence_week15 =
@@ -400,7 +416,9 @@ You run ${preview[15]} km 💪🏼
 
                 
 Trees: Macadamia, Cacao, Banana, Coffee, White Mangrove, Grevillea
+
 CO2 absorbed yearly: 1170kg
+
 Country of origin: Kenya, Cameroon, Ecuador, Honduras''';
               } else {
                 sentence_week16 =
