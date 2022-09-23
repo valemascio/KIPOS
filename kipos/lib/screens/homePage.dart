@@ -141,6 +141,7 @@ class _HomePageState extends State<HomePage> {
                       final dato = data[datiIndex];
                       String? sentence = '';
                       Color? check = Colors.white;
+                      Color? pointer = Colors.white;
                       if (dato.distance > double.parse(preview[datiIndex])) {
                         sentence = '''
 GREAT WORK!! You accomplished the goal of this week. 
@@ -155,6 +156,11 @@ Head over to the 🏅Badge section to see which tree you gained and to the 📊S
                       } else {
                         check = Colors.grey;
                       }
+                      if (dato.steps > double.parse('0')) {
+                        pointer = Colors.lightGreen;
+                      } else {
+                        pointer = Colors.black;
+                      }
                       return ExpansionTileCard(
                         leading: CircleAvatar(
                           backgroundColor: check,
@@ -168,7 +174,8 @@ Head over to the 🏅Badge section to see which tree you gained and to the 📊S
                         ),
                         title: Text('${dato.week} Week',
                             style: TextStyle(
-                              color: Color.fromARGB(255, 0, 0, 0),
+                              color: pointer,
+                              //Color.fromARGB(255, 0, 0, 0),
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
                             )),
